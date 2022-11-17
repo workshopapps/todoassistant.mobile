@@ -9,6 +9,8 @@ npm-debug.*
 *.mobileprovision
 *.orig.*
 web-build/
+dummyApp.js
+Input
 
 # macOS
 .DS_Store
