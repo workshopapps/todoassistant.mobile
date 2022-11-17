@@ -1,12 +1,12 @@
 import { View, Text, Image } from "react-native";
 import React from "react";
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from "@react-navigation/native";
 import styles from "./index.styles";
 import { useDispatch, useSelector } from "react-redux";
-import home1 from "../../assets/home1.png";
+import home2 from "../../assets/home2.png";
 import { Button } from "../../components/Button";
 
-const HomeScreen = () => {
+const Screen2 = () => {
   const count = useSelector((state) => state.counter.value);
   const dispatch = useDispatch();
 
@@ -24,10 +24,18 @@ const HomeScreen = () => {
         backgroundColor: "#ffffff",
       }}
     >
-      <View style={{display: "flex", flexDirection:"row", justifyContent: "flex-end", paddingRight: 20, }} >
-      <Text style={{color:"#714DD9", fontSize:14}}> Skip</Text></View>
+      <View
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "flex-end",
+          paddingRight: 20,
+        }}
+      >
+        <Text style={{ color: "#714DD9", fontSize: 14 }}> Skip</Text>
+      </View>
       <Image
-        source={home1}
+        source={home2}
         style={{
           flex: 3,
           width: "100%",
@@ -51,20 +59,25 @@ const HomeScreen = () => {
             paddingBottom: 8,
           }}
         >
-          Managing your task the easy way
+          Create Customized task flows
         </Text>
         <Text style={{ fontSize: 14, paddingBottom: 5 }}>
-          {" "}
-          The most useful to-do-list app that breaks tasks
+          Your to-do-list are automatically sorted into
+        </Text>
+        <Text style={{ fontSize: 14, paddingBottom: 5 }}>
+          categories with a daily reminder to keep you in check
         </Text>
         <Text style={{ fontSize: 14, paddingBottom: 30 }}>
-          {" "}
-          into small steps.
+          check.
         </Text>
-        <Button onPress={() => navigation.navigate('Home2')} style={{ fontSize: 14 }} title="Next" />
+        <Button
+          onPress={() => navigation.navigate("Screen2")}
+          style={{ fontSize: 14 }}
+          title="Next"
+        />
       </View>
     </View>
   );
 };
 
-export default HomeScreen;
+export default Screen2;
