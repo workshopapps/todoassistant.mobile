@@ -1,18 +1,40 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { HomeScreen, Screen2, ProfileScreen } from '../screens'
+import { View, Text } from "react-native";
+import React from "react";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { HomeScreen, Screen2, Auth, ProfileScreen, Login } from "../screens";
 
-
-const Stack = createNativeStackNavigator()
+const Stack = createNativeStackNavigator();
 const MainStackNavigator = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen options={{ headerShown: false }} name='Home' component={HomeScreen} />
-      <Stack.Screen options={{ headerShown: false }} name='Home2' component={Screen2} />
-      <Stack.Screen options={{ headerShown: false }} name='Profile' component={ProfileScreen} />
-    </Stack.Navigator>
-  )
-}
+      <Stack.Screen
+        options={{ headerShown: false }}
+        name="Home"
+        component={HomeScreen}
+      />
+      <Stack.Screen
+        options={{ headerShown: false }}
+        name="Home2"
+        component={Screen2}
+      />
+      <Stack.Screen
+        options={{ headerShown: false }}
+        name="Auth"
+        component={Auth}
+      />
+       <Stack.Screen
+        options={{ headerShown: false }}
+        name="Login"
+        component={Login}
+      />
 
-export default MainStackNavigator
+      <Stack.Screen
+        options={{ headerShown: false }}
+        name="Profile"
+        component={ProfileScreen}
+      />
+    </Stack.Navigator>
+  );
+};
+
+export default MainStackNavigator;

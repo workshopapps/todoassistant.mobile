@@ -21,6 +21,8 @@ const HomeScreen = () => {
         flexDirection: "column",
         justifyContent: "˛center",
         paddingTop: 60,
+        paddingLeft:20,
+        paddingRight:20,
         backgroundColor: "#ffffff",
       }}
     >

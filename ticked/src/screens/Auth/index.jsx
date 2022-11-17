@@ -3,10 +3,11 @@ import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import styles from "./index.styles";
 import { useDispatch, useSelector } from "react-redux";
-import home2 from "../../assets/home2.png";
+import authframe from "../../assets/authframe.png";
 import { Button } from "../../components/Button";
+import { LinedButton } from "../../components/LinedButton";
 
-const Screen2 = () => {
+const Auth = () => {
   const count = useSelector((state) => state.counter.value);
   const dispatch = useDispatch();
 
@@ -34,10 +35,10 @@ const Screen2 = () => {
           paddingRight: 20,
         }}
       >
-        <Text style={{ color: "#714DD9", fontSize: 14 }}> Skip</Text>
+        <Text style={{ color: "#714DD9", fontSize: 14 }}> Login</Text>
       </View>
       <Image
-        source={home2}
+        source={authframe}
         style={{
           flex: 3,
           width: "100%",
@@ -50,36 +51,23 @@ const Screen2 = () => {
           paddingTop: 20,
           display: "flex",
           flexDirection: "column",
+         
         }}
       >
-        <Text
-          style={{
-            fontSize: 18,
-            fontWeight: "bold",
-            alignItems: "center",
-            justifyContent: "center",
-            paddingBottom: 8,
-          }}
-        >
-          Create Customized task flows
-        </Text>
-        <Text style={{ fontSize: 14, paddingBottom: 5 }}>
-          Your to-do-list are automatically sorted into
-        </Text>
-        <Text style={{ fontSize: 14, paddingBottom: 5 }}>
-          categories with a daily reminder to keep you in check
-        </Text>
-        <Text style={{ fontSize: 14, paddingBottom: 30 }}>
-          check.
-        </Text>
         <Button
-          onPress={() => navigation.navigate("Auth")}
-          style={{ fontSize: 14 }}
-          title="Next"
+          onPress={() => navigation.navigate("Home2")}
+          style={{ fontSize: 14 ,  marginBottom: 20,}}
+          title="Sign Up"
+        />
+
+        <LinedButton
+          onPress={() => navigation.navigate("Login")}
+          style={{ fontSize: 14,  }}
+          title="Sign In"
         />
       </View>
     </View>
   );
 };
 
-export default Screen2;
+export default Auth;
