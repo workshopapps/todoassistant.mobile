@@ -24,7 +24,7 @@ export default StyleSheet.create({
   check: {
     paddingHorizontal: 20,
     flexDirection: "row",
-    marginBottom: 20
+    marginBottom: 50
   },
   login: {
     flexDirection: "row",
@@ -32,7 +32,7 @@ export default StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
-    marginTop: 100,
+    marginTop: 70,
   },
   link: {
     color: "#0000EE",

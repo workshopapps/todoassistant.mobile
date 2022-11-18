@@ -34,7 +34,7 @@ const RegistrationScreen = () => {
         <View style={styles.check}>
           <BouncyCheckbox
             size={20}
-            fillColor="red"
+            fillColor="#714DD9"
             unfillColor="#FFFFFF"
             text=""
             onPress={(isChecked) => {}}
@@ -48,7 +48,7 @@ const RegistrationScreen = () => {
         <View style={styles.button}>
           <Button title="continue" />
           <View style={styles.login}>
-            <Text style={styles.text}>Already have an account?</Text>
+            <Text style={styles.text}>Already have an account?{" "}</Text>
             <View>
               <Text style={styles.link}>Login</Text>
             </View>
