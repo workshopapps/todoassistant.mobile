@@ -1,7 +1,10 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, TextInput } from "react-native";
 
-const OtpScreen = () => {
+const OtpScreen = ({ navigation }) => {
+  const onBack = () => {
+    navigation.navigate("Splash");
+  };
   return (
     <View style={styles.container}>
       <View style={{ alignItems: "center", marginTop: 50 }}>
@@ -12,6 +15,10 @@ const OtpScreen = () => {
           Enter the OTP that was sent to your email address to reset password.
         </Text>
       </View>
+      <TextInput />
+      <TextInput />
+      <TextInput />
+      <TextInput />
     </View>
   );
 };

@@ -1,24 +1,16 @@
 import React from "react";
-import { View, Text } from "react-native";
-import { useNavigation } from "@react-navigation/native";
-import Icon from "react-native-vector-icons/Ionicons";
+import { View, Text, TouchableOpacity } from "react-native";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import { styles } from "./styles";
 
-export const Header = ({ name }) => {
-  const navigation = useNavigation();
-
-  const onPress = () => {
-    navigation.navigate(goBack());
-  };
+export const Header = ({ onBackPress, name, title }) => {
   return (
-    <View style={{ flexDirection: "row" }}>
-      <Icon
-        name="arrow-back"
-        onPress={onPress}
-        style={{ marginLeft: 20, marginTop: 10 }}
-        size={24}
-        color="black"
-      />
-      <Text style={{ fontSize: 24 }}>Back</Text>
+    <View style={styles.container}>
+      <TouchableOpacity onPress={onBackPress} style={styles.backStyle}>
+        <Icon name="keyboard-backspace" size={24} color="#292D32" />
+        <Text style={styles.name}>{name}</Text>
+      </TouchableOpacity>
+      <Text style={styles.title}>{title}</Text>
     </View>
   );
 };
