@@ -1,14 +1,19 @@
-import { NavigationContainer } from "@react-navigation/native";
-import MainStackNavigator from "./navigation/MainStackNavigator";
-import { Provider } from "react-redux";
-import { store } from "./store";
+import React from "react";
+import { View, StyleSheet, Text } from "react-native";
+import { OtpScreen } from "./screens";
 
-export default function App() {
+const Home = () => {
   return (
-    <NavigationContainer>
-      <Provider store={store}>
-        <MainStackNavigator />
-      </Provider>
-    </NavigationContainer>
+    <View style={styles.container}>
+      <OtpScreen />
+    </View>
   );
-}
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
+
+export default Home;
