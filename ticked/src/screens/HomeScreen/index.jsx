@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { MainLayout } from "../../layouts";
 import { Input } from "../../components/Input";
 import Icon from "react-native-vector-icons/EvilIcons";
+import { Tasks } from "../../components";
 
 const HomeScreen = () => {
   const count = useSelector((state) => state.counter.value);
@@ -27,6 +28,7 @@ const HomeScreen = () => {
         </View>
         <View>
           <Text>Tasks</Text>
+          <Tasks task="Resolve frontend bugs" time={4} />
         </View>
         <View>
           <Text>Completed 2</Text>
