@@ -1,6 +1,11 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { HomeScreen, ProfileScreen, OtpScreen } from "../screens";
+import {
+  HomeScreen,
+  ProfileScreen,
+  OtpScreen,
+  PasswordScreen,
+} from "../screens";
 
 const Stack = createNativeStackNavigator();
 const MainStackNavigator = () => {
@@ -9,6 +14,7 @@ const MainStackNavigator = () => {
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="Profile" component={ProfileScreen} />
       <Stack.Screen name="OtpScreen" component={OtpScreen} />
+      <Stack.Screen name="PasswordScreen" component={PasswordScreen} />
     </Stack.Navigator>
   );
 };

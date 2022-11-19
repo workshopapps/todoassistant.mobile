@@ -1,13 +1,11 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet } from "react-native";
 import { colors } from "../../utils/colors";
-
-const { width } = Dimensions.get("window");
 
 export const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.primary,
     height: 50,
-    width: width / 1.2,
+    width: "90%",
     alignItems: "center",
     justifyContent: "center",
     marginHorizontal: 20,
