@@ -1,4 +1,4 @@
-import { View, Text, Button } from "react-native";
+import { View, Text } from "react-native";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import styles from "./index.styles";
@@ -8,6 +8,7 @@ import { Input } from "../../components/Input";
 import Icon from "react-native-vector-icons/EvilIcons";
 import { Tasks } from "../../components";
 import FireIcon from "react-native-vector-icons/SimpleLineIcons";
+
 
 const HomeScreen = () => {
   const count = useSelector((state) => state.counter.value);
