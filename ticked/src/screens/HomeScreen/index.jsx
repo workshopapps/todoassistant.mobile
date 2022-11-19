@@ -1,8 +1,9 @@
-import { View, Text, Button } from "react-native";
+import { View, Text } from "react-native";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import styles from "./index.styles";
 import { useDispatch, useSelector } from "react-redux";
+import { Button } from "../../components/Button";
 
 const HomeScreen = () => {
   const count = useSelector((state) => state.counter.value);
