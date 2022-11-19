@@ -50,7 +50,7 @@ const RegistrationScreen = () => {
           <View style={styles.login}>
             <Text style={styles.text}>Already have an account?{" "}</Text>
             <View>
-              <Text style={styles.link}>Login</Text>
+              <Text style={styles.link} onPress={() => {}}>Login</Text>
             </View>
           </View>
         </View>
