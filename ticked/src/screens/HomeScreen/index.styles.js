@@ -9,14 +9,15 @@ export default StyleSheet.create({
     marginHorizontal: 2,
     padding: 10,
   },
- 
+
   bold: {
     fontSize: 18,
-    fontWeight: 'bold'
+    fontWeight: "bold",
+    marginBottom: 10,
   },
   stats: {
     marginTop: 10,
-    height: '100%'
+    height: "100%",
   },
   card: {
     backgroundColor: "#fff",
@@ -25,18 +26,16 @@ export default StyleSheet.create({
     padding: 10,
     alignItems: "center",
     borderRadius: 10,
-    
   },
   flexRow: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    height: '100%',
-    width: '100%',
+    height: "100%",
+    width: "100%",
   },
   cardFlex: {
     flexDirection: "row",
-    
   },
   fire: {
     backgroundColor: "#FDA758",
@@ -49,6 +48,8 @@ export default StyleSheet.create({
     opacity: 0.2,
     padding: 5,
     borderRadius: 70,
-    height: '100%'
+  },
+  marginBottom: {
+    marginBottom: 10,
   }
 });
