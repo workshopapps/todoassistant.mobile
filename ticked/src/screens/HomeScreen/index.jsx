@@ -7,6 +7,7 @@ import { MainLayout } from "../../layouts";
 import { Input } from "../../components/Input";
 import Icon from "react-native-vector-icons/EvilIcons";
 import { Tasks } from "../../components";
+import FireIcon from "react-native-vector-icons/SimpleLineIcons";
 
 const HomeScreen = () => {
   const count = useSelector((state) => state.counter.value);
@@ -18,17 +19,40 @@ const HomeScreen = () => {
     <MainLayout>
       <View style={styles.container}>
         <View style={styles.search}>
-          <Icon name="search">
-            <Input style={styles.search} />
+          <Icon name="search" size={20}>
+            <Input style={styles.input} placeholder="Find a task" />
           </Icon>
         </View>
         {/* Stats */}
-        <View>
-          <Text>Your Progress</Text>
+        <View style={styles.stats}>
+          <Text style={styles.bold}>Your Progress</Text>
+          <View style={styles.cardFlex}>
+            <View style={styles.card}>
+              <View style={styles.flexRow}>
+              <View>
+                <Text style={styles.bold}>3/7 to do</Text>
+                <Text style={styles.grey}>ticked</Text>
+              </View>
+              <View>
+                <Icon name="chart" size={20} />
+              </View>
+              </View>
+            </View>
+            <View style={styles.card}>
+              <View style={styles.flexRow}>
+              <View>
+                <Text style={styles.bold}>7 Day streak</Text>
+              </View>
+              <View style={styles.fire}>
+                <FireIcon name="fire" backgroundColor="#FDA758" size={20} />
+              </View>
+              </View>
+            </View>
+          </View>
         </View>
         <View>
-          <Text>Tasks</Text>
-          <Tasks task="Resolve frontend bugs" time={4} />
+          <Text style={styles.bold}>Tasks</Text>
+          <Tasks task="Resolve frontend bugs" time="4" />
         </View>
         <View>
           <Text>Completed 2</Text>

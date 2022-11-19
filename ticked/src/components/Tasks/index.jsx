@@ -11,8 +11,8 @@ const Tasks = ({ task, time, isChecked }) => {
     <View style={styles.container}>
       <View>
         <Text>{task}</Text>
-        <Icon name="alarm">
-          <Text>{formatAMPM(time)}</Text>
+        <Icon name="alarm" size={20}>
+          <Text>{time}</Text>
         </Icon>
       </View>
       {/* checkbox */}

@@ -13,5 +13,13 @@ export default StyleSheet.create({
     },
     flexrow: {
         flexDirection: "row",
+        alignItems: 'center'
+    },
+    title: {
+        fontSize: 18,
+        fontWeight: 'bold'
+    },
+    text: {
+        fontSize: 12,
     }
 })
