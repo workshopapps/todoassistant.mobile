@@ -2,12 +2,16 @@ import { View, Text, Image } from "react-native";
 import React from "react";
 import styles from "./index.styles";
 import icon from "../../assets/icon.png";
+import wave from "../../assets/wave.png";
 
 const Header = () => {
   return (
     <View style={styles.container}>
       <View>
-        <Text>Morning, Boss</Text>
+        <View style={styles.flexrow}>
+          <Text>Morning, Boss</Text>
+          <Image source={wave} />
+        </View>
         <Text>Let's get you started!</Text>
       </View>
       <View>
