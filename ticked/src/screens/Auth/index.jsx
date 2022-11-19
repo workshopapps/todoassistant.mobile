@@ -8,10 +8,13 @@ import { Button } from "../../components/Button";
 import { LinedButton } from "../../components/LinedButton";
 
 const Auth = () => {
-  const count = useSelector((state) => state.counter.value);
-  const dispatch = useDispatch();
-
   const navigation = useNavigation();
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerShown: false
+    })
+  }, [])
 
   return (
     <View
@@ -20,7 +23,7 @@ const Auth = () => {
         width: "100%",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "˛center",
+        justifyContent: "center",
         paddingTop: 60,
         paddingLeft:20,
         paddingRight:20,

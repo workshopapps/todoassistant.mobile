@@ -11,6 +11,7 @@ const AuthStackNavigator = () => {
         <Stack.Screen name="Onboarding1" component={OnboardingScreen1} />
         <Stack.Screen name="Onboarding2" component={Screen2} />
       <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="Auth" component={Login} />
     </Stack.Navigator>
   )
 }

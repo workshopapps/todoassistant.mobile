@@ -1,6 +1,6 @@
 import { View, Text, Image, TextInput } from "react-native";
 import Checkbox from "expo-checkbox";
-import React, { useState } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import styles from "./index.styles";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,19 +11,22 @@ import fb from "../../assets/fb.png";
 import { Button } from "../../components/Button";
 
 const Login = () => {
-  const count = useSelector((state) => state.counter.value);
-  const dispatch = useDispatch();
   const [isChecked, setChecked] = useState(false);
   const navigation = useNavigation();
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerShown: false
+    })
+  }, [])
 
   return (
     <View
       style={{
         height: "100%",
         width: "100%",
-        display: "flex",
         flexDirection: "column",
-        justifyContent: "˛center",
+        justifyContent: "center",
         paddingTop: 60,
         paddingLeft: 20,
         paddingRight: 20,
@@ -32,7 +35,6 @@ const Login = () => {
     >
       <View
         style={{
-          display: "flex",
           flexDirection: "row",
           justifyContent: "center",
           marginTop: 60,
@@ -112,7 +114,6 @@ const Login = () => {
 
       <View
         style={{
-          display: "#flex",
           flexDirection: "row",
           justifyContent: "space-between",
           marginTop: 10,
@@ -121,7 +122,6 @@ const Login = () => {
       >
         <View
           style={{
-            display: "flex",
             flexDirection: "row",
             justifyContent: "space-between",
           }}
@@ -143,7 +143,6 @@ const Login = () => {
           paddingLeft: 20,
           paddingRight: 20,
           paddingBottom: 30,
-          display: "flex",
           flexDirection: "column",
         }}
       >
@@ -155,7 +154,6 @@ const Login = () => {
       </View>
       <View
         style={{
-          display: "flex",
           flexDirection: "row",
           alignItems: "center",
           paddingHorizontal: 20,
@@ -169,7 +167,6 @@ const Login = () => {
       </View>
       <View
         style={{
-          display: "flex",
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "center",
@@ -184,7 +181,6 @@ const Login = () => {
       </View>
       <View
         style={{
-          display: "flex",
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "center",}}>

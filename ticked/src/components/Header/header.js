@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { styles } from "./styles";
 
-export const Header = ({ onBackPress, name, title }) => {
+export const Headers = ({ onBackPress, name, title }) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={onBackPress} style={styles.backStyle}>

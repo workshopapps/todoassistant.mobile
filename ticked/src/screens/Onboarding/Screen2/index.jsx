@@ -1,16 +1,20 @@
 import { View, Text, Image } from "react-native";
-import React from "react";
+import React, {useLayoutEffect} from "react";
 import { useNavigation } from "@react-navigation/native";
 import styles from "./index.styles";
 import { useDispatch, useSelector } from "react-redux";
-import home2 from "../../assets/home2.png";
-import { Button } from "../../components/Button";
+import home2 from "../../../assets/home2.png";
+import { Button } from "../../../components/Button";
 
 const Screen2 = () => {
-  const count = useSelector((state) => state.counter.value);
-  const dispatch = useDispatch();
-
+  
   const navigation = useNavigation();
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerShown: false
+    })
+  }, [])
 
   return (
     <View
@@ -19,7 +23,7 @@ const Screen2 = () => {
         width: "100%",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "˛center",
+        justifyContent: "center",
         paddingTop: 60,
         paddingLeft:20,
         paddingRight:20,

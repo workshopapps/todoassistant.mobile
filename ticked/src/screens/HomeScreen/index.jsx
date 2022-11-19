@@ -3,8 +3,6 @@ import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import styles from "./index.styles";
 import { useDispatch, useSelector } from "react-redux";
-import home1 from "../../assets/home1.png";
-import { Button } from "../../components/Button";
 import { MainLayout } from "../../layouts";
 import { Input } from "../../components/Input";
 import Icon from "react-native-vector-icons/EvilIcons";
@@ -12,9 +10,7 @@ import { Tasks } from "../../components";
 import FireIcon from "react-native-vector-icons/SimpleLineIcons";
 
 const HomeScreen = () => {
-  const count = useSelector((state) => state.counter.value);
-  const dispatch = useDispatch();
-
+  
   const navigation = useNavigation();
 
   return (

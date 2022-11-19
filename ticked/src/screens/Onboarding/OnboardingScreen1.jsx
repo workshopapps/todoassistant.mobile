@@ -1,8 +1,20 @@
-import { View, Text } from "react-native";
-import React from "react";
-import { Button } from "../../components";
+import { View, Text, Image } from "react-native";
+import React, {useLayoutEffect} from "react";
+// import { Button } from "../../components";
+import home1 from "../../assets/home1.png";
+import { Button } from "../../components/Button";
+import { useNavigation } from "@react-navigation/native";
+
 
 const OnboardingScreen1 = () => {
+  const navigation = useNavigation();
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerShown: false
+    })
+  }, [])
+
   return (
     <View>
       <View
@@ -11,7 +23,7 @@ const OnboardingScreen1 = () => {
           width: "100%",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "˛center",
+          justifyContent: "center",
           paddingTop: 60,
           paddingLeft: 20,
           paddingRight: 20,
@@ -64,7 +76,7 @@ const OnboardingScreen1 = () => {
             into small steps.
           </Text>
           <Button
-            onPress={() => navigation.navigate("Home2")}
+            onPress={() => navigation.navigate("Onboarding2")}
             style={{ fontSize: 14 }}
             title="Next"
           />
