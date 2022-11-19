@@ -43,5 +43,12 @@ export default StyleSheet.create({
     backgroundOpacity: 0.2,
     padding: 5,
     borderRadius: 70,
+  },
+  chart: {
+    backgroundColor: "#29319F",
+    opacity: 0.2,
+    padding: 5,
+    borderRadius: 70,
+    height: '100%'
   }
 });

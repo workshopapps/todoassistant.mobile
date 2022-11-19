@@ -33,8 +33,8 @@ const HomeScreen = () => {
                 <Text style={styles.bold}>3/7 to do</Text>
                 <Text style={styles.grey}>ticked</Text>
               </View>
-              <View>
-                <Icon name="chart" size={20} />
+              <View style={styles.chart}>
+                <Icon name="chart" size={20} backgroundColor="#fff" />
               </View>
               </View>
             </View>
@@ -50,13 +50,11 @@ const HomeScreen = () => {
             </View>
           </View>
         </View>
-        <View>
+        <View style={styles.stats}>
           <Text style={styles.bold}>Tasks</Text>
-          <Tasks task="Resolve frontend bugs" time="4" />
+          <Tasks task="Resolve frontend bugs" time="4 hrs" />
         </View>
-        <View>
-          <Text>Completed 2</Text>
-        </View>
+       
       </View>
     </MainLayout>
   );
