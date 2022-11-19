@@ -16,9 +16,18 @@ const Login = () => {
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerShown: false
-    })
-  }, [])
+      headerShown: false,
+    });
+  }, []);
+
+  const handleLogin = async () => {
+    let user;
+
+    user = {
+      isLoggedIn: true,
+      email: email,
+    };
+  };
 
   return (
     <View
@@ -132,7 +141,7 @@ const Login = () => {
             onValueChange={setChecked}
             color={isChecked ? "#4630EB" : undefined}
           />
-          <Text style={{ paddingLeft: 7, color:"#333333"}}>Remember me </Text>
+          <Text style={{ paddingLeft: 7, color: "#333333" }}>Remember me </Text>
         </View>
         <Text style={{ color: "#714DD9" }}>Forgot Password ?</Text>
       </View>
@@ -147,7 +156,7 @@ const Login = () => {
         }}
       >
         <Button
-          onPress={() => navigation.navigate("Home2")}
+          onPress={() => navigation.navigate("BottomTabNavigator")}
           style={{ fontSize: 14 }}
           title="Sign In"
         />
@@ -172,21 +181,22 @@ const Login = () => {
           justifyContent: "center",
           marginTop: 20,
           paddingHorizontal: 20,
-          marginBottom: 40
+          marginBottom: 40,
         }}
       >
-        <Image source={google} style={{margin: 20}} />
-        <Image source={fb} style={{margin: 20}} />
-
+        <Image source={google} style={{ margin: 20 }} />
+        <Image source={fb} style={{ margin: 20 }} />
       </View>
       <View
         style={{
           flexDirection: "row",
           alignItems: "center",
-          justifyContent: "center",}}>
-            <Text style={{color: "#808080"}}>Don't have an account?</Text>
-            <Text style={{color: "#714dd9"}}> Sign Up</Text>
-          </View>
+          justifyContent: "center",
+        }}
+      >
+        <Text style={{ color: "#808080" }}>Don't have an account?</Text>
+        <Text style={{ color: "#714dd9" }}> Sign Up</Text>
+      </View>
     </View>
   );
 };
