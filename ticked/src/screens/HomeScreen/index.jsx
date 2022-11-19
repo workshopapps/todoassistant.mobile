@@ -13,7 +13,7 @@ const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <Text>HomeScreen</Text>
-      <Button title="Profile" onPress={() => navigate.navigate("Profile")} />
+      <Button title="TaskScreen" onPress={() => navigate.navigate("TaskScreen")} />
 
       <Text>Count: {count}</Text>
       <View style={styles.button}>
