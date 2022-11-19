@@ -5,6 +5,9 @@ import { useNavigation } from "@react-navigation/native";
 import styles from "./index.styles";
 import { useDispatch, useSelector } from "react-redux";
 import logo1 from "../../assets/logo1.png";
+import google from "../../assets/google.png";
+import fb from "../../assets/fb.png";
+
 import { Button } from "../../components/Button";
 
 const Login = () => {
@@ -78,6 +81,7 @@ const Login = () => {
           justifyContent: "center",
           borderColor: "#030303",
           backgroundColor: "#F6FAFB",
+          paddingLeft: 10,
         }}
       />
       <Text
@@ -102,30 +106,43 @@ const Login = () => {
           justifyContent: "center",
           borderColor: "#030303",
           backgroundColor: "#F6FAFB",
+          paddingLeft: 10,
         }}
       />
-     
-      <View style={{display: "#flex", flexDirection: "row", justifyContent:"space-between", marginTop: 10,}}>
-      <View style={{display: "flex", flexDirection: "row", justifyContent:"space-between" }}>
-        <Checkbox
-          style={styles.checkbox}
-          value={isChecked}
-          onValueChange={setChecked}
-          color={isChecked ? "#4630EB" : undefined}
-        />
-        <Text style={{ paddingLeft: 7 }}>Remember me </Text>
-      </View>
-        <Text style={{ color: "#714DD9" }}>
-          Forgot Password ?
-        </Text>
+
+      <View
+        style={{
+          display: "#flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          marginTop: 10,
+          marginBottom: 30,
+        }}
+      >
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+          }}
+        >
+          <Checkbox
+            style={styles.checkbox}
+            value={isChecked}
+            onValueChange={setChecked}
+            color={isChecked ? "#4630EB" : undefined}
+          />
+          <Text style={{ paddingLeft: 7, color:"#333333"}}>Remember me </Text>
+        </View>
+        <Text style={{ color: "#714DD9" }}>Forgot Password ?</Text>
       </View>
       <View
         style={{
-          flex: 1,
           alignItems: "center",
           paddingTop: 20,
           paddingLeft: 20,
           paddingRight: 20,
+          paddingBottom: 30,
           display: "flex",
           flexDirection: "column",
         }}
@@ -136,6 +153,44 @@ const Login = () => {
           title="Sign In"
         />
       </View>
+      <View
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          paddingHorizontal: 20,
+        }}
+      >
+        <View style={{ height: 2, flex: 1, backgroundColor: "#D3D0D9" }} />
+        <Text style={{ paddingLeft: 10, paddingRight: 10, color: "#808080" }}>
+          Or continue with
+        </Text>
+        <View style={{ height: 2, flex: 1, backgroundColor: "#D3D0D9" }} />
+      </View>
+      <View
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+          marginTop: 20,
+          paddingHorizontal: 20,
+          marginBottom: 40
+        }}
+      >
+        <Image source={google} style={{margin: 20}} />
+        <Image source={fb} style={{margin: 20}} />
+
+      </View>
+      <View
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",}}>
+            <Text style={{color: "#808080"}}>Don't have an account?</Text>
+            <Text style={{color: "#714dd9"}}> Sign Up</Text>
+          </View>
     </View>
   );
 };
