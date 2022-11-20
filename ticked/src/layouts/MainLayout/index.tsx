@@ -20,7 +20,7 @@ const MainLayout = ({children}: MainLayoutProps) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header name="" />
+      {/* <Header name="" /> */}
       {children}
     </SafeAreaView>
   )

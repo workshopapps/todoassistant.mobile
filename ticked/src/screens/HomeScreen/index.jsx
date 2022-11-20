@@ -13,25 +13,7 @@ const HomeScreen = () => {
   const navigation = useNavigation();
 
   return (
-    <View style={styles.container}>
-      <Text>HomeScreen</Text>
-      <Button
-        title="TaskScreen"
-        onPress={() => navigate.navigate("TaskScreen")}
-      />
-
-      <Text>Count: {count}</Text>
-      <View style={styles.button}>
-        <Button
-          title="Increment"
-          onPress={() => dispatch({ type: "counter/increment" })}
-        />
-        <Button
-          title="Decrement"
-          onPress={() => dispatch({ type: "counter/decrement" })}
-        />
-      </View>
-      <MainLayout>
+     <MainLayout>
         <View style={styles.container}>
           <View style={styles.search}>
             <Icon name="search" size={20}>
@@ -71,7 +53,6 @@ const HomeScreen = () => {
           </View>
         </View>
       </MainLayout>
-    </View>
   );
 };
 

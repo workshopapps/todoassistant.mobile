@@ -13,6 +13,7 @@ import { Button } from "../../components/Button";
 const Login = () => {
   const [isChecked, setChecked] = useState(false);
   const navigation = useNavigation();
+  const [email, setEmail] = useState()
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -156,7 +157,7 @@ const Login = () => {
         }}
       >
         <Button
-          onPress={() => navigation.navigate("BottomTabsNavigator")}
+          onPress={handleLogin}
           style={{ fontSize: 14 }}
           title="Sign In"
         />

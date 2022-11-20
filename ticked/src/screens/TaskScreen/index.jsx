@@ -14,9 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import DateTimePicker from "@react-native-community/datetimepicker";
 
 const TaskScreen = () => {
-  const count = useSelector((state) => state.counter.value);
-  const dispatch = useDispatch();
-
+  
   const navigation = useNavigation();
 
   const [isChecked, setChecked] = useState(false);

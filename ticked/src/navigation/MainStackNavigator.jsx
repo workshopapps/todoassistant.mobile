@@ -16,6 +16,12 @@ const MainStackNavigator = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
+        name="BottomTabsNavigator"
+        component={BottomTabsNavigator}
+      />
+      <Stack.Screen name="Setting" component={SettingScreen} />
+      <Stack.Screen name="OtpScreen" component={OtpScreen} />
+      <Stack.Screen
         options={{ headerShown: false }}
         name="Home"
         component={HomeScreen}
@@ -35,12 +41,6 @@ const MainStackNavigator = () => {
         name="TaskScreenContd"
         component={TaskScreenContd}
       />
-      <Stack.Screen
-        name="BottomTabsNavigator"
-        component={BottomTabsNavigator}
-      />
-      <Stack.Screen name="Setting" component={SettingScreen} />
-      <Stack.Screen name="OtpScreen" component={OtpScreen} />
     </Stack.Navigator>
   );
 };
