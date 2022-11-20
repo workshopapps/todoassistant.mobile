@@ -1,9 +1,12 @@
-import { View, Text,Image, TextInput } from "react-native";
-import React, {useState} from "react";
+import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
+import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import styles from "./index.styles";
 import logo from "../../assets/logo.png";
+import folder from "../../assets/folder.png";
 import info from "../../assets/info.png";
+import trash from "../../assets/trash.png";
+import arrow from "../../assets/arrow.png";
 import Checkbox from "expo-checkbox";
 import { Button } from "../../components/Button";
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -57,11 +60,24 @@ const TaskScreen = () => {
             style={{
               width: 40,
               height: 40,
-              backgroundColor: "blue",
+
               borderRadius: 30,
             }}
-          />
-          <Ionicons name="md-checkmark-circle" size={32} color="green" />
+          >
+            <Image
+              style={{ height: 40, width: 40 }}
+              source={{
+                uri: "https://png.pngtree.com/element_our/png/20181206/female-avatar-vector-icon-png_262142.jpg",
+              }}
+            />
+          </View>
+          <Image
+          source={arrow}
+          style={{
+            width: 40,
+            height: 40,
+          }}
+        />
         </View>
       </View>
       <View
@@ -133,24 +149,50 @@ const TaskScreen = () => {
           Task Description
         </Text>
         <View style={{ height: 8 }} />
-
-        <TextInput
+        <View
           style={{
-            height: 100,
+            display: "flex",
+            flexDirection: "column",
             backgroundColor: "#ffffff",
-            borderRadius: 8,
             borderWidth: 1,
-            borderColor: "#d9d9d9",
-            paddingLeft: 20,
-            paddingRight: 20,
             marginLeft: 20,
             marginRight: 20,
+            borderRadius: 10,
+            borderColor: "grey",
           }}
-          placeholder=" Describe what  you want to do?"
-          color="D9D9D9"
-          multiline
-          numberOfLines={4}
-        />
+        >
+          <TextInput
+            style={{
+              height: 100,
+              backgroundColor: "#ffffff",
+
+              paddingLeft: 20,
+              paddingRight: 20,
+              marginTop: 10,
+            }}
+            placeholder=" Describe what  you want to do?"
+            color="D9D9D9"
+            multiline
+            numberOfLines={4}
+          />
+          <View
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              padding: 20,
+            }}
+          >
+            <TouchableOpacity>
+              <Image source={folder} style={{ marginRight: 20 }} />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Image
+                source={trash}
+                // style={{height:12, }}
+              />
+            </TouchableOpacity>
+          </View>
+        </View>
         <View style={{ height: 14 }} />
         <Text
           style={{
@@ -191,7 +233,7 @@ const TaskScreen = () => {
             marginRight: 20,
           }}
         >
-          <View style={{ height: 14 }} />
+          <View style={{ height: 10 }} />
           <Text
             style={{
               fontSize: 18,
@@ -225,25 +267,32 @@ const TaskScreen = () => {
             <Text>You will be reminded 30 minutes before time </Text>
           </View>
         </View>
-        <View style={{ height: 14 }} />
+        <View style={{ height: 8 }} />
 
-        <View style={{ display: "flex", flexDirection: "row",  paddingLeft: 20,
-            paddingRight: 20, marginTop: 30 }}>
-        
-
-        <Checkbox
-          style={styles.checkbox}
-          value={isChecked}
-          onValueChange={setChecked}
-          color={isChecked ? '#4630EB' : undefined}
-        />
-        <Text style={{paddingLeft: 5, fontSize: 14}}> Get a call from an assistant to remind you</Text>
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            paddingLeft: 20,
+            paddingRight: 20,
+            marginTop: 30,
+          }}
+        >
+          <Checkbox
+            style={styles.checkbox}
+            value={isChecked}
+            onValueChange={setChecked}
+            color={isChecked ? "#4630EB" : undefined}
+          />
+          <Text style={{ paddingLeft: 5, fontSize: 14 }}>
+            Get a call from an assistant to remind you
+          </Text>
         </View>
         <View style={{ height: 30 }} />
 
         <Button
           onPress={() => navigation.navigate("TaskScreenContd")}
-          style={{ fontSize: 14 }}
+          style={{ fontSize: 14, width: "90%" }}
           title="Create Task"
         />
       </View>
