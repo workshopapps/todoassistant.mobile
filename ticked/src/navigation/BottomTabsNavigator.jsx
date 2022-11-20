@@ -22,7 +22,6 @@ const BottomTabsNavigator = () => {
       }}
     >
       <Stack.Screen name="Home" component={HomeScreen} options={{ tabBarIcon: () => <Icon size={20} name="home" />}} />
-
       <Stack.Screen name="Create Task" component={HomeScreen} options={{ tabBarIcon: () => <Icon size={20} name="plus-circle" />}} />
       <Stack.Screen name="Notification" component={HomeScreen} options={{ tabBarIcon: () => <Icon size={20} name="bell" />}} />
     </Stack.Navigator>

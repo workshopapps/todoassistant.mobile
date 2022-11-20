@@ -156,7 +156,7 @@ const Login = () => {
         }}
       >
         <Button
-          onPress={() => navigation.navigate("BottomTabNavigator")}
+          onPress={() => navigation.navigate("BottomTabsNavigator")}
           style={{ fontSize: 14 }}
           title="Sign In"
         />
