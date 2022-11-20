@@ -1,35 +1,40 @@
-import React from "react";
-import { StyleSheet, View, Text, TextInput } from "react-native";
+import React, { useState } from "react";
+import { View, Text, TextInput } from "react-native";
+import { Header, Button } from "../../components";
+import { styles } from "./index.styles";
+import { OtpInput } from "../../components";
 
-const OtpScreen = ({ navigation }) => {
-  const onBack = () => {
-    navigation.navigate("Splash");
-  };
+export const OtpScreen = ({ navigation }) => {
+  const [otpCode, setOTPCode] = useState("");
+  const [isPinReady, setIsPinReady] = useState(false);
+  const maximumCodeLength = 4;
   return (
-    <View style={styles.container}>
-      <View style={{ alignItems: "center", marginTop: 50 }}>
-        <Text style={{ fontSize: 20, fontWeight: "bold" }}>OTP</Text>
+    <>
+      <View style={styles.container}>
+        <Header title="OTP" />
+        <View style={styles.textContainer}>
+          <Text style={styles.text}>
+            Enter the OTP that was sent to your email address to reset password.
+          </Text>
+        </View>
+        <View style={styles.inputContainer}>
+          <TextInput style={styles.input} />
+        </View>
+        <OtpInput
+          code={otpCode}
+          setCode={setOTPCode}
+          maximumLength={maximumCodeLength}
+          setIsPinReady={setIsPinReady}
+        />
       </View>
-      <View style={{ marginTop: 20, paddingHorizontal: 50 }}>
-        <Text>
-          Enter the OTP that was sent to your email address to reset password.
-        </Text>
+      <View style={styles.buttonContainer}>
+        <Button
+          title="Continue"
+          onPress={() => navigation.navigate("PasswordScreen")}
+        />
       </View>
-      <TextInput />
-      <TextInput />
-      <TextInput />
-      <TextInput />
-    </View>
+    </>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  text: {
-    fontSize: 20,
-  },
-});
 
 export default OtpScreen;

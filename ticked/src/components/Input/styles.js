@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
     marginBottom: 8,
     color: colors.dark,
     fontSize: 15,
-    fontWeight: "400",
+    fontWeight: "600",
   },
   inputContainer: {
     height: 50,
