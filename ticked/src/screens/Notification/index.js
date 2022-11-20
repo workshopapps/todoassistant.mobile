@@ -11,6 +11,7 @@ const Notification = () => {
           flexDirection: "row",
           justifyContent: "space-evenly",
           marginVertical: 20,
+          padding: 10,
         }}
       >
         <TouchableOpacity>
@@ -27,7 +28,7 @@ const Notification = () => {
         style={{
           flexDirection: "row",
           justifyContent: "space-between",
-          padding: 10,
+          padding: 12,
         }}
       >
         <Text>TODAY</Text>
@@ -35,6 +36,7 @@ const Notification = () => {
           <Text style={{ color: "red" }}>clear all</Text>
         </TouchableOpacity>
       </View>
+      <View></View>
     </View>
   );
 };
