@@ -195,7 +195,7 @@ const Login = () => {
         }}
       >
         <Text style={{ color: "#808080" }}>Don't have an account?</Text>
-        <Text style={{ color: "#714dd9" }}> Sign Up</Text>
+        <Text style={{ color: "#714dd9" }} onPress={() => navigation.navigate('Registration')}> Sign Up</Text>
       </View>
     </View>
   );
