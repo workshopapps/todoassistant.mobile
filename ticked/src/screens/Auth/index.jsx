@@ -1,5 +1,5 @@
 import { View, Text, Image } from "react-native";
-import React from "react";
+import React, {useLayoutEffect} from "react";
 import { useNavigation } from "@react-navigation/native";
 import styles from "./index.styles";
 import { useDispatch, useSelector } from "react-redux";
@@ -58,7 +58,7 @@ const Auth = () => {
         }}
       >
         <Button
-          onPress={() => navigation.navigate("Home2")}
+          onPress={() => navigation.navigate("Registration")}
           style={{ fontSize: 14 ,  marginBottom: 20,}}
           title="Sign Up"
         />

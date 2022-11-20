@@ -7,12 +7,16 @@ import { useDispatch, useSelector } from "react-redux";
 import logo1 from "../../assets/logo1.png";
 import google from "../../assets/google.png";
 import fb from "../../assets/fb.png";
+import {login} from "../../features/authSlice"
 
 import { Button } from "../../components/Button";
 
 const Login = () => {
   const [isChecked, setChecked] = useState(false);
   const navigation = useNavigation();
+  const [email, setEmail] = useState()
+
+  const dispatch = useDispatch()
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -25,8 +29,10 @@ const Login = () => {
 
     user = {
       isLoggedIn: true,
-      email: email,
+      email: 'test@gmail.com',
     };
+
+    dispatch(login(user));
   };
 
   return (
@@ -156,7 +162,7 @@ const Login = () => {
         }}
       >
         <Button
-          onPress={() => navigation.navigate("BottomTabNavigator")}
+          onPress={handleLogin}
           style={{ fontSize: 14 }}
           title="Sign In"
         />
@@ -195,7 +201,7 @@ const Login = () => {
         }}
       >
         <Text style={{ color: "#808080" }}>Don't have an account?</Text>
-        <Text style={{ color: "#714dd9" }}> Sign Up</Text>
+        <Text style={{ color: "#714dd9" }} onPress={() => navigation.navigate('Registration')}> Sign Up</Text>
       </View>
     </View>
   );
