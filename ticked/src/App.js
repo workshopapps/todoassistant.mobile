@@ -1,12 +1,14 @@
-import { View, Text } from "react-native";
-import React from "react";
-import { Notification } from "./screens";
+import { NavigationContainer } from "@react-navigation/native";
+import MainStackNavigator from "./navigation/MainStackNavigator";
+import { Provider } from "react-redux";
+import { store } from "./store";
+import Router from "./router";
 
 const App = () => {
   return (
-    <View>
-      <Notification />
-    </View>
+    <Provider store={store}>
+      <Router />
+    </Provider>
   );
 };
 
