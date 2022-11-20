@@ -1,4 +1,4 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TextInput } from "react-native";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import styles from "./index.styles";
@@ -8,6 +8,7 @@ import { Input } from "../../components/Input";
 import Icon from "react-native-vector-icons/EvilIcons";
 import { Tasks } from "../../components";
 import FireIcon from "react-native-vector-icons/SimpleLineIcons";
+import {MagnifyingGlassIcon} from "react-native-heroicons/solid";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -17,7 +18,7 @@ const HomeScreen = () => {
         <View style={styles.container}>
           <View style={styles.search}>
             <Icon name="search" size={20}>
-              <Input style={styles.input} placeholder="Find a task" />
+              <TextInput style={styles.input} placeholder="Find a task" />
             </Icon>
           </View>
           {/* Stats */}

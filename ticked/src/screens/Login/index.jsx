@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import logo1 from "../../assets/logo1.png";
 import google from "../../assets/google.png";
 import fb from "../../assets/fb.png";
+import {login} from "../../features/authSlice"
 
 import { Button } from "../../components/Button";
 
@@ -14,6 +15,8 @@ const Login = () => {
   const [isChecked, setChecked] = useState(false);
   const navigation = useNavigation();
   const [email, setEmail] = useState()
+
+  const dispatch = useDispatch()
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -26,8 +29,10 @@ const Login = () => {
 
     user = {
       isLoggedIn: true,
-      email: email,
+      email: 'test@gmail.com',
     };
+
+    dispatch(login(user));
   };
 
   return (

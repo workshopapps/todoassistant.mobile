@@ -1,4 +1,11 @@
-import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TextInput,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import styles from "./index.styles";
@@ -12,25 +19,15 @@ import { Button } from "../../components/Button";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useDispatch, useSelector } from "react-redux";
 import DateTimePicker from "@react-native-community/datetimepicker";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const TaskScreen = () => {
-  
   const navigation = useNavigation();
 
   const [isChecked, setChecked] = useState(false);
 
   return (
-    <View
-      style={{
-        height: "100%",
-        width: "100%",
-        display: "flex",
-        flexDirection: "column",
-        paddingTop: 60,
-
-        backgroundColor: "#f6fafb",
-      }}
-    >
+    <SafeAreaView>
       <View
         style={{
           display: "flex",
@@ -70,168 +67,53 @@ const TaskScreen = () => {
             />
           </View>
           <Image
-          source={arrow}
-          style={{
-            width: 40,
-            height: 40,
-          }}
-        />
+            source={arrow}
+            style={{
+              width: 40,
+              height: 40,
+            }}
+          />
         </View>
       </View>
-      <View
+      <ScrollView
         style={{
+          height: "100%",
+          width: "100%",
           display: "flex",
           flexDirection: "column",
-          // backgroundColor: "red",
-          flex: 1,
+          paddingTop: 60,
+
+          backgroundColor: "#f6fafb",
         }}
       >
         <View
           style={{
-            display: "flex",
-            height: 44,
-            width: "100%",
-            backgroundColor: "#ffffff",
-            paddingHorizontal: 20,
-            paddingVertical: 5,
-            flexDirection: "column",
+            // backgroundColor: "red",
+            flex: 1,
           }}
         >
-          <Text style={{ fontSize: 18, fontWeight: "bold" }}>New Task</Text>
-          <View
-            style={{
-              height: 4,
-              width: 60,
-              borderRadius: 2,
-              backgroundColor: "#714DD9",
-            }}
-          />
-        </View>
-        <View style={{ height: 14 }} />
-        <Text
-          style={{
-            fontSize: 18,
-            fontWeight: "bold",
-            marginLeft: 20,
-            marginRight: 20,
-          }}
-        >
-          Task name
-        </Text>
-        <View style={{ height: 8 }} />
-
-        <TextInput
-          style={{
-            height: 48,
-            backgroundColor: "#ffffff",
-            borderRadius: 8,
-            borderWidth: 1,
-            borderColor: "#d9d9d9",
-            paddingLeft: 20,
-            paddingRight: 20,
-            marginLeft: 20,
-            marginRight: 20,
-          }}
-          placeholder=" What do you want to do?"
-          color="D9D9D9"
-        />
-        <View style={{ height: 14 }} />
-        <Text
-          style={{
-            fontSize: 18,
-            fontWeight: "bold",
-            marginLeft: 20,
-            marginRight: 20,
-          }}
-        >
-          Task Description
-        </Text>
-        <View style={{ height: 8 }} />
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            backgroundColor: "#ffffff",
-            borderWidth: 1,
-            marginLeft: 20,
-            marginRight: 20,
-            borderRadius: 10,
-            borderColor: "grey",
-          }}
-        >
-          <TextInput
-            style={{
-              height: 100,
-              backgroundColor: "#ffffff",
-
-              paddingLeft: 20,
-              paddingRight: 20,
-              marginTop: 10,
-            }}
-            placeholder=" Describe what  you want to do?"
-            color="D9D9D9"
-            multiline
-            numberOfLines={4}
-          />
           <View
             style={{
               display: "flex",
-              flexDirection: "row",
-              padding: 20,
+              height: 44,
+              width: "100%",
+              backgroundColor: "#ffffff",
+              paddingHorizontal: 20,
+              paddingVertical: 5,
+              flexDirection: "column",
             }}
           >
-            <TouchableOpacity>
-              <Image source={folder} style={{ marginRight: 20 }} />
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Image
-                source={trash}
-                // style={{height:12, }}
-              />
-            </TouchableOpacity>
+            <Text style={{ fontSize: 18, fontWeight: "bold" }}>New Task</Text>
+            <View
+              style={{
+                height: 4,
+                width: 60,
+                borderRadius: 2,
+                backgroundColor: "#714DD9",
+              }}
+            />
           </View>
-        </View>
-        <View style={{ height: 14 }} />
-        <Text
-          style={{
-            fontSize: 18,
-            fontWeight: "bold",
-            marginLeft: 20,
-            marginRight: 20,
-          }}
-        >
-          Date
-        </Text>
-        <View style={{ height: 8 }} />
-
-        <TextInput
-          style={{
-            height: 48,
-            backgroundColor: "#ffffff",
-            borderRadius: 8,
-            borderWidth: 1,
-            borderColor: "#d9d9d9",
-            paddingLeft: 20,
-            paddingRight: 20,
-            marginLeft: 20,
-            marginRight: 20,
-          }}
-          placeholder=" Select Date"
-          color="D9D9D9"
-          editable={false}
-        />
-        <View style={{ height: 14 }} />
-
-        <View
-          style={{
-            backgroundColor: "#e5e5e5",
-            display: "flex",
-            flexDirection: "column",
-            marginLeft: 20,
-            marginRight: 20,
-          }}
-        >
-          <View style={{ height: 10 }} />
+          <View style={{ height: 14 }} />
           <Text
             style={{
               fontSize: 18,
@@ -240,7 +122,7 @@ const TaskScreen = () => {
               marginRight: 20,
             }}
           >
-            Time
+            Task name
           </Text>
           <View style={{ height: 8 }} />
 
@@ -256,45 +138,172 @@ const TaskScreen = () => {
               marginLeft: 20,
               marginRight: 20,
             }}
-            placeholder=" Select Time"
+            placeholder=" What do you want to do?"
+            color="D9D9D9"
+          />
+          <View style={{ height: 14 }} />
+          <Text
+            style={{
+              fontSize: 18,
+              fontWeight: "bold",
+              marginLeft: 20,
+              marginRight: 20,
+            }}
+          >
+            Task Description
+          </Text>
+          <View style={{ height: 8 }} />
+          <View
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              backgroundColor: "#ffffff",
+              borderWidth: 1,
+              marginLeft: 20,
+              marginRight: 20,
+              borderRadius: 10,
+              borderColor: "grey",
+            }}
+          >
+            <TextInput
+              style={{
+                height: 100,
+                backgroundColor: "#ffffff",
+
+                paddingLeft: 20,
+                paddingRight: 20,
+                marginTop: 10,
+              }}
+              placeholder=" Describe what  you want to do?"
+              color="D9D9D9"
+              multiline
+              numberOfLines={4}
+            />
+            <View
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                padding: 20,
+              }}
+            >
+              <TouchableOpacity>
+                <Image source={folder} style={{ marginRight: 20 }} />
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <Image
+                  source={trash}
+                  // style={{height:12, }}
+                />
+              </TouchableOpacity>
+            </View>
+          </View>
+          <View style={{ height: 14 }} />
+          <Text
+            style={{
+              fontSize: 18,
+              fontWeight: "bold",
+              marginLeft: 20,
+              marginRight: 20,
+            }}
+          >
+            Date
+          </Text>
+          <View style={{ height: 8 }} />
+
+          <TextInput
+            style={{
+              height: 48,
+              backgroundColor: "#ffffff",
+              borderRadius: 8,
+              borderWidth: 1,
+              borderColor: "#d9d9d9",
+              paddingLeft: 20,
+              paddingRight: 20,
+              marginLeft: 20,
+              marginRight: 20,
+            }}
+            placeholder=" Select Date"
             color="D9D9D9"
             editable={false}
           />
-          <View style={{ display: "flex", flexDirection: "row", padding: 20 }}>
-            <Image style={{ height: 20, width: 20 }} source={info} />
-            <Text>You will be reminded 30 minutes before time </Text>
+          <View style={{ height: 14 }} />
+
+          <View
+            style={{
+              backgroundColor: "#e5e5e5",
+              display: "flex",
+              flexDirection: "column",
+              marginLeft: 20,
+              marginRight: 20,
+            }}
+          >
+            <View style={{ height: 10 }} />
+            <Text
+              style={{
+                fontSize: 18,
+                fontWeight: "bold",
+                marginLeft: 20,
+                marginRight: 20,
+              }}
+            >
+              Time
+            </Text>
+            <View style={{ height: 8 }} />
+
+            <TextInput
+              style={{
+                height: 48,
+                backgroundColor: "#ffffff",
+                borderRadius: 8,
+                borderWidth: 1,
+                borderColor: "#d9d9d9",
+                paddingLeft: 20,
+                paddingRight: 20,
+                marginLeft: 20,
+                marginRight: 20,
+              }}
+              placeholder=" Select Time"
+              color="D9D9D9"
+              editable={false}
+            />
+            <View
+              style={{ display: "flex", flexDirection: "row", padding: 20 }}
+            >
+              <Image style={{ height: 20, width: 20 }} source={info} />
+              <Text>You will be reminded 30 minutes before time </Text>
+            </View>
           </View>
-        </View>
-        <View style={{ height: 8 }} />
+          <View style={{ height: 8 }} />
 
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            paddingLeft: 20,
-            paddingRight: 20,
-            marginTop: 30,
-          }}
-        >
-          <Checkbox
-            style={styles.checkbox}
-            value={isChecked}
-            onValueChange={setChecked}
-            color={isChecked ? "#4630EB" : undefined}
+          <View
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              paddingLeft: 20,
+              paddingRight: 20,
+              marginTop: 30,
+            }}
+          >
+            <Checkbox
+              style={styles.checkbox}
+              value={isChecked}
+              onValueChange={setChecked}
+              color={isChecked ? "#4630EB" : undefined}
+            />
+            <Text style={{ paddingLeft: 5, fontSize: 14 }}>
+              Get a call from an assistant to remind you
+            </Text>
+          </View>
+          <View style={{ height: 30 }} />
+
+          <Button
+            onPress={() => navigation.navigate("TaskScreenContd")}
+            style={{ fontSize: 14, width: "90%" }}
+            title="Create Task"
           />
-          <Text style={{ paddingLeft: 5, fontSize: 14 }}>
-            Get a call from an assistant to remind you
-          </Text>
         </View>
-        <View style={{ height: 30 }} />
-
-        <Button
-          onPress={() => navigation.navigate("TaskScreenContd")}
-          style={{ fontSize: 14, width: "90%" }}
-          title="Create Task"
-        />
-      </View>
-    </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
