@@ -12,5 +12,4 @@ export const spacing = {
   lg: 24,
   xl: 30,
   xxl: 45,
-  xxxl: 50,
 };

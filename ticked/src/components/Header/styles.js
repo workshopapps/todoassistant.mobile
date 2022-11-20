@@ -2,10 +2,13 @@ import { StyleSheet } from "react-native";
 import { fontSizes, spacing } from "../../utils/sizes";
 
 export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   backStyle: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: spacing.lg,
+    marginBottom: spacing.xl,
     marginTop: spacing.xxl,
     paddingHorizontal: spacing.md,
   },
