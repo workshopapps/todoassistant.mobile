@@ -1,14 +1,12 @@
-import { NavigationContainer } from "@react-navigation/native";
-import MainStackNavigator from "./navigation/MainStackNavigator";
-import { Provider } from "react-redux";
-import { store } from "./store";
+import React from "react";
+import { View } from "react-native";
+import OtpScreen from "./screens/OtpScreen";
 
-export default function App() {
+const App = () => {
   return (
-    <NavigationContainer>
-      <Provider store={store}>
-        <MainStackNavigator />
-      </Provider>
-    </NavigationContainer>
+    <View style={{ flex: 1 }}>
+      <OtpScreen />
+    </View>
   );
-}
+};
+export default App;
