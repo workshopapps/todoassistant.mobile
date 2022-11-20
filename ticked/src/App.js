@@ -1,14 +1,13 @@
-import { NavigationContainer } from "@react-navigation/native";
-import MainStackNavigator from "./navigation/MainStackNavigator";
-import { Provider } from "react-redux";
-import { store } from "./store";
+import { View, Text } from "react-native";
+import React from "react";
+import { Notification } from "./screens";
 
-export default function App() {
+const App = () => {
   return (
-    <NavigationContainer>
-      <Provider store={store}>
-        <MainStackNavigator />
-      </Provider>
-    </NavigationContainer>
+    <View>
+      <Notification />
+    </View>
   );
-}
+};
+
+export default App;
