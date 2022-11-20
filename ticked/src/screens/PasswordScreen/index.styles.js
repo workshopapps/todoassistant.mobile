@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
   },
   textContainer: {
     marginTop: spacing.lg,
-    paddingHorizontal: spacing.xxxl,
+    paddingHorizontal: spacing.xl,
   },
   text: {
     fontSize: fontSizes.md,
