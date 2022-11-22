@@ -10,6 +10,8 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     marginHorizontal: 20,
     borderRadius: 8,
+    paddingLeft: 20,
+    paddingRight: 20,
   },
   title: {
     fontWeight: "normal",
