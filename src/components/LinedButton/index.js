@@ -1,6 +1,6 @@
-import React from "react";
-import { TouchableOpacity, Text } from "react-native";
-import { styles } from "./styles";
+import React from 'react';
+import { TouchableOpacity, Text } from 'react-native';
+import { styles } from './styles';
 
 export const LinedButton = ({ onPress, style, title }) => {
   return (

@@ -1,8 +1,8 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   container: {
-    alignItems: "center",
+    alignItems: 'center',
     flex: 1,
   },
   logo: {
@@ -11,11 +11,11 @@ export default StyleSheet.create({
   title: {
     marginTop: 32,
     marginBottom: 32,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   text: {
     fontSize: 14,
-    fontWeight: "light",
+    fontWeight: 'light',
   },
   button: {},
   label: {
@@ -23,21 +23,21 @@ export default StyleSheet.create({
   },
   check: {
     paddingHorizontal: 20,
-    flexDirection: "row",
-    marginBottom: 50
+    flexDirection: 'row',
+    marginBottom: 50,
   },
   login: {
-    flexDirection: "row",
+    flexDirection: 'row',
 
-    alignItems: "center",
-    justifyContent: "center",
-    width: "100%",
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
     marginTop: 70,
   },
   link: {
-    color: "#0000EE",
+    color: '#0000EE',
   },
   privacy: {
     fontSize: 11,
-  }
+  },
 });

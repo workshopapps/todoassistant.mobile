@@ -1,14 +1,7 @@
-import { View, Text } from "react-native";
-import { styles } from "./styles";
+import { View, Text } from 'react-native';
+import { styles } from './styles';
 
-export const MessageInput = ({
-  image,
-  messageTitle,
-  style,
-  imageColor,
-  message,
-  time,
-}) => {
+export const MessageInput = ({ image, messageTitle, style, imageColor, message, time }) => {
   return (
     <View style={[styles.container, style]}>
       <View style={[styles.imageContainer, imageColor]}>

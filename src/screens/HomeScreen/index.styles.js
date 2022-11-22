@@ -1,50 +1,50 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   container: {
     flex: 1,
   },
   button: {
-    flexDirection: "row",
+    flexDirection: 'row',
     marginHorizontal: 2,
     padding: 10,
   },
 
   bold: {
     fontSize: 18,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 10,
   },
   stats: {
     marginTop: 10,
-    height: "100%",
+    height: '100%',
   },
   card: {
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     height: 70,
     width: 160,
     padding: 10,
-    alignItems: "center",
+    alignItems: 'center',
     borderRadius: 10,
   },
   flexRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    height: "100%",
-    width: "100%",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    height: '100%',
+    width: '100%',
   },
   cardFlex: {
-    flexDirection: "row",
+    flexDirection: 'row',
   },
   fire: {
-    backgroundColor: "#FDA758",
+    backgroundColor: '#FDA758',
     backgroundOpacity: 0.2,
     padding: 5,
     borderRadius: 70,
   },
   chart: {
-    backgroundColor: "#29319F",
+    backgroundColor: '#29319F',
     opacity: 0.2,
     padding: 5,
     borderRadius: 70,
@@ -52,8 +52,8 @@ export default StyleSheet.create({
   marginBottom: {
     marginBottom: 10,
   },
-  search : {
-    border: "1px solid #E5E5E5",  
+  search: {
+    border: '1px solid #E5E5E5',
     width: '100%',
     backgroundColor: '#fff',
     padding: 10,
@@ -61,8 +61,8 @@ export default StyleSheet.create({
     borderRadius: 10,
   },
   input: {
-    backgroundColor: "#fff",
-    width: "100%",
-    height: "100%",
-  }
+    backgroundColor: '#fff',
+    width: '100%',
+    height: '100%',
+  },
 });

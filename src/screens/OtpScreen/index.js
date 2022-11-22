@@ -1,8 +1,8 @@
-import React from "react";
-import { View, Text, TextInput } from "react-native";
-import { Header, Button } from "../../components";
-import { styles } from "./index.styles";
-import OTPInputView from "@twotalltotems/react-native-otp-input";
+import React from 'react';
+import { View, Text, TextInput } from 'react-native';
+import { Header, Button } from '../../components';
+import { styles } from './index.styles';
+import OTPInputView from '@twotalltotems/react-native-otp-input';
 
 export const OtpScreen = ({ navigation }) => {
   return (
@@ -31,10 +31,7 @@ export const OtpScreen = ({ navigation }) => {
         </View>
       </View>
       <View style={styles.buttonContainer}>
-        <Button
-          title="Continue"
-          onPress={() => navigation.navigate("PasswordScreen")}
-        />
+        <Button title="Continue" onPress={() => navigation.navigate('PasswordScreen')} />
       </View>
     </>
   );

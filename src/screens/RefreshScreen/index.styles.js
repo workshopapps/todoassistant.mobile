@@ -1,5 +1,5 @@
-import { StyleSheet } from "react-native";
-import { fontSizes, spacing } from "../../utils/sizes";
+import { StyleSheet } from 'react-native';
+import { fontSizes, spacing } from '../../utils/sizes';
 
 export const styles = StyleSheet.create({
   container: {
@@ -11,6 +11,6 @@ export const styles = StyleSheet.create({
   },
   text: {
     fontSize: fontSizes.lg,
-    fontWeight: "600",
+    fontWeight: '600',
   },
 });

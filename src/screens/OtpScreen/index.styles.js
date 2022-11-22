@@ -1,5 +1,5 @@
-import { StyleSheet } from "react-native";
-import { fontSizes, spacing } from "../../utils/sizes";
+import { StyleSheet } from 'react-native';
+import { fontSizes, spacing } from '../../utils/sizes';
 
 export const styles = StyleSheet.create({
   container: {
@@ -13,33 +13,33 @@ export const styles = StyleSheet.create({
     fontSize: fontSizes.md,
   },
   inputContainer: {
-    flexDirection: "row",
+    flexDirection: 'row',
   },
   input: {
-    width: "100%",
+    width: '100%',
     height: 50,
   },
   buttonContainer: {
     marginBottom: spacing.xl,
-    alignItems: "center",
+    alignItems: 'center',
   },
   borderStyleHighLighted: {
-    borderColor: "#714DD9",
+    borderColor: '#714DD9',
   },
   underlineStyleBase: {
     width: 40,
     height: 40,
     borderWidth: 1,
     borderRadius: 5,
-    color: "black",
-    borderColor: "#D3D0D9",
+    color: 'black',
+    borderColor: '#D3D0D9',
   },
   otpContainer: {
-    alignItems: "center",
+    alignItems: 'center',
   },
-  otpInput: { width: "80%", height: 200 },
+  otpInput: { width: '80%', height: 200 },
 
   underlineStyleHighLighted: {
-    borderColor: "#714DD9",
+    borderColor: '#714DD9',
   },
 });

@@ -1,26 +1,19 @@
-import {
-  View,
-  Text,
-  Image,
-  TextInput,
-  TouchableOpacity,
-  Modal,
-} from "react-native";
-import React, { useState } from "react";
-import { useNavigation } from "@react-navigation/native";
-import styles from "./index.styles";
-import logo from "../../assets/logo.png";
-import info from "../../assets/info.png";
-import calling from "../../assets/calling.png";
-import folder from "../../assets/folder.png";
-import arrow from "../../assets/arrow.png";
-import Checkbox from "expo-checkbox";
-import { Button } from "../../components/Button";
-import Ionicons from "@expo/vector-icons/Ionicons";
-import { useDispatch, useSelector } from "react-redux";
-import DateTimePicker from "@react-native-community/datetimepicker";
+import { View, Text, Image, TextInput, TouchableOpacity, Modal } from 'react-native';
+import React, { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
+import styles from './index.styles';
+import logo from '../../assets/logo.png';
+import info from '../../assets/info.png';
+import calling from '../../assets/calling.png';
+import folder from '../../assets/folder.png';
+import arrow from '../../assets/arrow.png';
+import Checkbox from 'expo-checkbox';
+import { Button } from '../../components/Button';
+import Ionicons from '@expo/vector-icons/Ionicons';
+import { useDispatch, useSelector } from 'react-redux';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
-import { MyModal } from "./";
+import { MyModal } from './';
 
 const TaskScreenContd = () => {
   const count = useSelector((state) => state.counter.value);
@@ -33,40 +26,37 @@ const TaskScreenContd = () => {
   return (
     <View
       style={{
-        height: "100%",
-        width: "100%",
-        display: "flex",
-        flexDirection: "column",
+        height: '100%',
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'column',
         paddingTop: 60,
 
-        backgroundColor: "#f6fafb",
-      }}
-    >
+        backgroundColor: '#f6fafb',
+      }}>
       <Modal
         animationType="slide"
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
+          Alert.alert('Modal has been closed.');
           setModalVisible(!modalVisible);
-        }}
-      >
+        }}>
         <View
           style={{
             flex: 1,
-            justifyContent: "center",
-            alignItems: "center",
+            justifyContent: 'center',
+            alignItems: 'center',
             marginTop: 22,
-          }}
-        >
+          }}>
           <View
             style={{
               margin: 20,
-              backgroundColor: "white",
+              backgroundColor: 'white',
               borderRadius: 8,
               padding: 20,
-              alignItems: "center",
-              shadowColor: "#000",
+              alignItems: 'center',
+              shadowColor: '#000',
               shadowOffset: {
                 width: 0,
                 height: 1,
@@ -74,8 +64,7 @@ const TaskScreenContd = () => {
               shadowOpacity: 0.25,
               shadowRadius: 4,
               elevation: 2,
-            }}
-          >
+            }}>
             <Image
               source={calling}
               style={{
@@ -86,59 +75,51 @@ const TaskScreenContd = () => {
             <View style={{ height: 14 }} />
             <Text
               style={{
-                fontWeight: "bold",
+                fontWeight: 'bold',
                 fontSize: 16,
-                textAlign: "center",
-              }}
-            >
+                textAlign: 'center',
+              }}>
               Hello, my name is Michael and I am your virtual assistant.
             </Text>
             <View style={{ height: 14 }} />
             <Text
               style={{
                 fontSize: 13,
-                textAlign: "center",
-              }}
-            >
-              I would make sure you do not forget your tasks by giving you a
-              call.
+                textAlign: 'center',
+              }}>
+              I would make sure you do not forget your tasks by giving you a call.
             </Text>
             <View style={{ height: 28 }} />
 
             <View
               style={{
-                display: "flex",
-                flexDirection: "row",
-              }}
-            >
+                display: 'flex',
+                flexDirection: 'row',
+              }}>
               <Button
                 onPress={() => setModalVisible(!modalVisible)}
-                style={{ fontSize: 18, width: "40%" }}
+                style={{ fontSize: 18, width: '40%' }}
                 title="Remind me"
               />
               <View style={{ height: 20 }} />
               <TouchableOpacity
                 style={{
-                  width: "50%",
+                  width: '50%',
                 }}
-                onPress={() => setModalVisible(!modalVisible)}
-              >
+                onPress={() => setModalVisible(!modalVisible)}>
                 <View
                   style={{
-                    backgroundColor: "#ffffff",
+                    backgroundColor: '#ffffff',
                     borderWidth: 1,
-                    borderColor: "#714dd9",
-                    alignItems: "center",
-                    justifyContent: "center",
+                    borderColor: '#714dd9',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                     marginLeft: 20,
                     marginRight: 20,
                     paddingVertical: 12,
                     borderRadius: 8,
-                  }}
-                >
-                  <Text style={{ color: "#714dd9", fontSize: 18 }}>
-                    No Thanks
-                  </Text>
+                  }}>
+                  <Text style={{ color: '#714dd9', fontSize: 18 }}>No Thanks</Text>
                 </View>
               </TouchableOpacity>
             </View>
@@ -147,13 +128,12 @@ const TaskScreenContd = () => {
       </Modal>
       <View
         style={{
-          display: "flex",
-          flexDirection: "row",
+          display: 'flex',
+          flexDirection: 'row',
           height: 60,
-          width: "100%",
-          justifyContent: "space-between",
-        }}
-      >
+          width: '100%',
+          justifyContent: 'space-between',
+        }}>
         <View
           style={{
             width: 40,
@@ -167,18 +147,17 @@ const TaskScreenContd = () => {
             height: 32,
           }}
         />
-        <View style={{ display: "flex", flexDirection: "row" }}>
+        <View style={{ display: 'flex', flexDirection: 'row' }}>
           <View
             style={{
               width: 40,
               height: 40,
               borderRadius: 30,
-            }}
-          >
+            }}>
             <Image
               style={{ height: 40, width: 40 }}
               source={{
-                uri: "https://png.pngtree.com/element_our/png/20181206/female-avatar-vector-icon-png_262142.jpg",
+                uri: 'https://png.pngtree.com/element_our/png/20181206/female-avatar-vector-icon-png_262142.jpg',
               }}
             />
           </View>
@@ -193,30 +172,28 @@ const TaskScreenContd = () => {
       </View>
       <View
         style={{
-          display: "flex",
-          flexDirection: "column",
+          display: 'flex',
+          flexDirection: 'column',
           // backgroundColor: "red",
           flex: 1,
-        }}
-      >
+        }}>
         <View
           style={{
-            display: "flex",
+            display: 'flex',
             height: 44,
-            width: "100%",
-            backgroundColor: "#ffffff",
+            width: '100%',
+            backgroundColor: '#ffffff',
             paddingHorizontal: 20,
             paddingVertical: 5,
-            flexDirection: "column",
-          }}
-        >
-          <Text style={{ fontSize: 18, fontWeight: "bold" }}>Task</Text>
+            flexDirection: 'column',
+          }}>
+          <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Task</Text>
           <View
             style={{
               height: 4,
               width: 60,
               borderRadius: 2,
-              backgroundColor: "#714DD9",
+              backgroundColor: '#714DD9',
             }}
           />
         </View>
@@ -224,77 +201,58 @@ const TaskScreenContd = () => {
 
         <View
           style={{
-            display: "flex",
-            flexDirection: "row",
+            display: 'flex',
+            flexDirection: 'row',
             paddingLeft: 20,
             paddingRight: 20,
-            justifyContent: "space-between",
-          }}
-        >
-          <Text style={{ fontSize: 18, fontWeight: "bold" }}>
-            Go to the bank
-          </Text>
-          <Text style={{ fontSize: 16, fontWeight: "bold", color: "#FDA758" }}>
-            Pending
-          </Text>
+            justifyContent: 'space-between',
+          }}>
+          <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Go to the bank</Text>
+          <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#FDA758' }}>Pending</Text>
         </View>
         <View style={{ height: 20 }} />
         <View
           style={{
-            display: "flex",
-            flexDirection: "row",
+            display: 'flex',
+            flexDirection: 'row',
             paddingLeft: 20,
             paddingRight: 20,
-            justifyContent: "space-between",
-          }}
-        >
-          <Text style={{ fontSize: 16, fontWeight: "bold", color: "#707070" }}>
-            Start time
-          </Text>
-          <Text style={{ fontSize: 16, fontWeight: "bold", color: "#707070" }}>
-            End time
-          </Text>
+            justifyContent: 'space-between',
+          }}>
+          <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#707070' }}>Start time</Text>
+          <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#707070' }}>End time</Text>
         </View>
         <View style={{ height: 14 }} />
         <View
           style={{
-            display: "flex",
-            flexDirection: "row",
+            display: 'flex',
+            flexDirection: 'row',
             paddingLeft: 20,
             paddingRight: 20,
-            justifyContent: "space-between",
-          }}
-        >
-          <Text style={{ fontSize: 16, fontWeight: "bold", color: "#000000" }}>
-            11:00am
-          </Text>
-          <Text style={{ fontSize: 16, fontWeight: "bold", color: "#000000" }}>
-            02:00pm
-          </Text>
+            justifyContent: 'space-between',
+          }}>
+          <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#000000' }}>11:00am</Text>
+          <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#000000' }}>02:00pm</Text>
         </View>
         <View style={{ height: 14 }} />
         <View
           style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "flex-end",
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'flex-end',
             paddingRight: 20,
-          }}
-        >
-          <Text style={{ fontSize: 16, color: "#ff4d4f" }}>
-            Due in 3{"\n"}hours
-          </Text>
+          }}>
+          <Text style={{ fontSize: 16, color: '#ff4d4f' }}>Due in 3{'\n'}hours</Text>
         </View>
         <View style={{ height: 30 }} />
         <Text
           style={{
             fontSize: 18,
-            fontWeight: "bold",
+            fontWeight: 'bold',
             marginBottom: 5,
             paddingLeft: 20,
             paddingRight: 20,
-          }}
-        >
+          }}>
           Task Description
         </Text>
         <View style={{ height: 12 }} />
@@ -305,42 +263,38 @@ const TaskScreenContd = () => {
 
             paddingLeft: 20,
             paddingRight: 20,
-          }}
-        >
-          I need to upgrade my account and request for a new token.{" "}
+          }}>
+          I need to upgrade my account and request for a new token.{' '}
         </Text>
         <View style={{ height: 30 }} />
         <Text
           style={{
             fontSize: 18,
-            fontWeight: "bold",
+            fontWeight: 'bold',
             marginBottom: 5,
             paddingLeft: 20,
             paddingRight: 20,
-          }}
-        >
+          }}>
           Attachment
         </Text>
         <View style={{ height: 14 }} />
         <View
           style={{
-            display: "flex",
+            display: 'flex',
             height: 80,
-            flexDirection: "row",
-          }}
-        >
+            flexDirection: 'row',
+          }}>
           <TouchableOpacity>
             <View
               style={{
                 height: 70,
                 width: 70,
-                backgroundColor: "white",
-                alignItems: "center",
-                justifyContent: "center",
+                backgroundColor: 'white',
+                alignItems: 'center',
+                justifyContent: 'center',
                 marginLeft: 10,
                 borderRadius: 8,
-              }}
-            >
+              }}>
               <Image
                 source={folder}
                 style={{
@@ -355,18 +309,17 @@ const TaskScreenContd = () => {
 
         <View
           style={{
-            display: "flex",
-            flexDirection: "row",
+            display: 'flex',
+            flexDirection: 'row',
             paddingLeft: 20,
             paddingRight: 20,
             marginTop: 30,
-          }}
-        >
+          }}>
           <Checkbox
             style={styles.checkbox}
             value={isChecked}
             onValueChange={setChecked}
-            color={isChecked ? "#4630EB" : undefined}
+            color={isChecked ? '#4630EB' : undefined}
           />
           <Text style={{ paddingLeft: 5, fontSize: 14 }}>
             Get a call from an assistant to remind you
@@ -376,25 +329,24 @@ const TaskScreenContd = () => {
 
         <Button
           onPress={() => setModalVisible(true)}
-          style={{ fontSize: 18, width: "90%" }}
+          style={{ fontSize: 18, width: '90%' }}
           title="Done"
         />
         <View style={{ height: 20 }} />
-        <TouchableOpacity onPress={() => navigation.navigate("TaskScreen")}>
+        <TouchableOpacity onPress={() => navigation.navigate('TaskScreen')}>
           <View
             style={{
-              backgroundColor: "#ffffff",
+              backgroundColor: '#ffffff',
               borderWidth: 1,
-              borderColor: "#714dd9",
-              alignItems: "center",
-              justifyContent: "center",
+              borderColor: '#714dd9',
+              alignItems: 'center',
+              justifyContent: 'center',
               marginLeft: 20,
               marginRight: 20,
               paddingVertical: 15,
               borderRadius: 8,
-            }}
-          >
-            <Text style={{ color: "#714dd9", fontSize: 18 }}>Edit Task</Text>
+            }}>
+            <Text style={{ color: '#714dd9', fontSize: 18 }}>Edit Task</Text>
           </View>
         </TouchableOpacity>
       </View>

@@ -1,12 +1,10 @@
-import { View, Text } from "react-native";
-import React from "react";
-import styles from "./index.styles";
-import Icon from "react-native-vector-icons/MaterialIcons";
-import formatAMPM from "../../utils/formatTime";
-
+import { View, Text } from 'react-native';
+import React from 'react';
+import styles from './index.styles';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import formatAMPM from '../../utils/formatTime';
 
 const Tasks = ({ task, time, isChecked }) => {
-
   return (
     <View style={styles.container}>
       <View>
