@@ -1,6 +1,9 @@
 name: update
 on: 
-  push
+  push:
+    branches:
+      - 'main'
+      - 'dev'
 
 jobs:
   update:
