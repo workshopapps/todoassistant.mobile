@@ -3,10 +3,14 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {
   HomeScreen,
   ProfileScreen,
+  OtpScreen,
   PasswordScreen,
 } from "../screens";
 import { OtpScreen, SettingScreen } from "../screens";
 import BottomTabsNavigator from "./BottomTabsNavigator";
+
+
+const Stack = createNativeStackNavigator();
 
 
 const MainStackNavigator = () => {
