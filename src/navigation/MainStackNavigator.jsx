@@ -8,7 +8,7 @@ import {
   SettingScreen,
   TaskScreenContd,
   TaskScreen,
-  ProfileLayoutComponent,
+  MyProfile,
 } from "../screens";
 import BottomTabsNavigator from "./BottomTabsNavigator";
 
@@ -32,11 +32,6 @@ const MainStackNavigator = () => {
       />
       <Stack.Screen
         options={{ headerShown: false }}
-        name="Profile"
-        component={ProfileScreen}
-      />
-      <Stack.Screen
-        options={{ headerShown: false }}
         name="TaskScreen"
         component={TaskScreen}
       />
@@ -53,7 +48,7 @@ const MainStackNavigator = () => {
       <Stack.Screen
         options={{ headerShown: false }}
         name="Profile"
-        component={ProfileLayoutComponent}
+        component={MyProfile}
       />
 
     </Stack.Navigator>
