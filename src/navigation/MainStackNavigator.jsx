@@ -5,8 +5,11 @@ import {
   ProfileScreen,
   OtpScreen,
   PasswordScreen,
+  SettingScreen,
+  TaskScreenContd,
+  TaskScreen,
+  ProfileLayoutComponent,
 } from "../screens";
-import { OtpScreen, SettingScreen } from "../screens";
 import BottomTabsNavigator from "./BottomTabsNavigator";
 
 
@@ -14,12 +17,13 @@ const Stack = createNativeStackNavigator();
 
 
 const MainStackNavigator = () => {
+    
+    return (
     <Stack.Navigator>
       <Stack.Screen
         name="BottomTabsNavigator"
         component={BottomTabsNavigator}
       />
-      <Stack.Screen name="Setting" component={SettingScreen} />
       <Stack.Screen name="OtpScreen" component={OtpScreen} />
       <Stack.Screen
         options={{ headerShown: false }}
@@ -41,8 +45,20 @@ const MainStackNavigator = () => {
         name="TaskScreenContd"
         component={TaskScreenContd}
       />
+      <Stack.Screen
+        options={{ headerShown: false }}
+        name="Settings"
+        component={SettingScreen}
+      />
+      <Stack.Screen
+        options={{ headerShown: false }}
+        name="Profile"
+        component={ProfileLayoutComponent}
+      />
+
     </Stack.Navigator>
-  );
+  )
+
 };
 
 export default MainStackNavigator;
