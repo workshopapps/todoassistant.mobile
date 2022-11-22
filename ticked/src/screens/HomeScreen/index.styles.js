@@ -51,5 +51,18 @@ export default StyleSheet.create({
   },
   marginBottom: {
     marginBottom: 10,
+  },
+  search : {
+    border: "1px solid #E5E5E5",  
+    width: '100%',
+    backgroundColor: '#fff',
+    padding: 10,
+    marginTop: 10,
+    borderRadius: 10,
+  },
+  input: {
+    backgroundColor: "#fff",
+    width: "100%",
+    height: "100%",
   }
 });
