@@ -1,5 +1,10 @@
 export { Button } from "./Button";
 export { Checkbox } from "./Checkbox";
+export { Header } from "./Header";
+export { Input } from "./Input";
+export { Timepicker } from "./Timepicker";
+export { BoxModal } from "./BoxModal";
+// export { OtpInput } from "./OtpInput";
 export { Header } from "./Header/header1";
 export { Input } from "./Input";
 export { Timepicker } from "./Timepicker";
