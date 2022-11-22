@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
   backStyle: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: spacing.xl,
+    marginBottom: spacing.lg,
     marginTop: spacing.xxl,
     paddingHorizontal: spacing.md,
   },

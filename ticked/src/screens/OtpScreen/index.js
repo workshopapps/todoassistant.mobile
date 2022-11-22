@@ -1,13 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { View, Text, TextInput } from "react-native";
 import { Header, Button } from "../../components";
 import { styles } from "./index.styles";
-import { OtpInput } from "../../components";
+import OTPInputView from "@twotalltotems/react-native-otp-input";
 
 export const OtpScreen = ({ navigation }) => {
-  const [otpCode, setOTPCode] = useState("");
-  const [isPinReady, setIsPinReady] = useState(false);
-  const maximumCodeLength = 4;
   return (
     <>
       <View style={styles.container}>
@@ -20,12 +17,18 @@ export const OtpScreen = ({ navigation }) => {
         <View style={styles.inputContainer}>
           <TextInput style={styles.input} />
         </View>
-        <OtpInput
-          code={otpCode}
-          setCode={setOTPCode}
-          maximumLength={maximumCodeLength}
-          setIsPinReady={setIsPinReady}
-        />
+        <View style={styles.otpContainer}>
+          <OTPInputView
+            style={styles.otpInput}
+            pinCount={4}
+            autoFocusOnLoad
+            codeInputFieldStyle={styles.underlineStyleBase}
+            codeInputHighlightStyle={styles.underlineStyleHighLighted}
+            onCodeFilled={(code) => {
+              console.log(`Code is ${code}, you are good to go!`);
+            }}
+          />
+        </View>
       </View>
       <View style={styles.buttonContainer}>
         <Button
