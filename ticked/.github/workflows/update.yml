@@ -1,9 +1,9 @@
 name: update
-on: 
+on:
   push:
     branches:
-      - 'main'
-      - 'dev'
+      - "main"
+      - "dev"
 
 jobs:
   update:
