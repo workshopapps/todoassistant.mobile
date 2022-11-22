@@ -23,4 +23,23 @@ export const styles = StyleSheet.create({
     marginBottom: spacing.xl,
     alignItems: "center",
   },
+  borderStyleHighLighted: {
+    borderColor: "#714DD9",
+  },
+  underlineStyleBase: {
+    width: 40,
+    height: 40,
+    borderWidth: 1,
+    borderRadius: 5,
+    color: "black",
+    borderColor: "#D3D0D9",
+  },
+  otpContainer: {
+    alignItems: "center",
+  },
+  otpInput: { width: "80%", height: 200 },
+
+  underlineStyleHighLighted: {
+    borderColor: "#714DD9",
+  },
 });

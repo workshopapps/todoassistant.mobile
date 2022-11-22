@@ -10,7 +10,7 @@ const Router = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   return (
     <NavigationContainer>
-      {isLoggedIn ? <AuthStackNavigator /> : <MainStackNavigator />}
+      {isLoggedIn ?  <MainStackNavigator /> :<AuthStackNavigator />}
     </NavigationContainer>
   );
 };

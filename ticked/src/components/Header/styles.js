@@ -6,13 +6,6 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     marginBottom: spacing.lg,
-  container: {
-    flex: 1,
-  },
-  backStyle: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: spacing.xl,
     marginTop: spacing.xxl,
     paddingHorizontal: spacing.md,
   },
