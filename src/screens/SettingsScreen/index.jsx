@@ -1,10 +1,12 @@
-import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
-import React, { useLayoutEffect } from 'react';
-import styles from './index.styles'; // <--- import styles from index.styles.js
 import { useNavigation } from '@react-navigation/native';
+import React, { useLayoutEffect } from 'react';
+// eslint-disable-next-line import/namespace
+import { ScrollView, Text, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { Button, SettingCard, SettingOption } from '../../components';
+
+import { SettingCard, SettingOption } from '../../components';
+import styles from './index.styles'; // <--- import styles from index.styles.js
 
 const SettingScreen = () => {
   const navigation = useNavigation();
