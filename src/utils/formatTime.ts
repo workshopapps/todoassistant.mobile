@@ -5,13 +5,13 @@ function formatAMPM(date: {
 }) {
   const _date = new Date();
 
-  var hours = _date.getHours();
-  var minutes = _date.getMinutes();
-  var ampm = hours >= 12 ? 'pm' : 'am';
+  let hours = _date.getHours();
+  let minutes = _date.getMinutes();
+  const ampm = hours >= 12 ? 'pm' : 'am';
   hours = hours % 12;
   hours = hours ? hours : 12; // the hour '0' should be '12'
   minutes = minutes < 10 ? '0' + minutes : minutes;
-  var strTime = hours + ':' + minutes + ' ' + ampm;
+  const strTime = hours + ':' + minutes + ' ' + ampm;
   return strTime;
 }
 

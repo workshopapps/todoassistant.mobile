@@ -1,9 +1,9 @@
-import { View, Text } from 'react-native';
-import React, { useLayoutEffect } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { HomeScreen, Notification, TaskScreen } from '../screens';
 import { useNavigation } from '@react-navigation/native';
+import React, { useLayoutEffect } from 'react';
 import Icon from 'react-native-vector-icons/Octicons';
+
+import { HomeScreen, Notification, TaskScreen } from '../screens';
 
 const Stack = createBottomTabNavigator();
 

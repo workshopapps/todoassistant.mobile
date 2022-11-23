@@ -1,19 +1,12 @@
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import styles from './index.styles';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
+
 import icon from '../../assets/profile.jpg';
 import wave from '../../assets/wave.png';
-import { useDispatch } from 'react-redux';
-import { logout } from '../../features/authSlice';
-import { useNavigation, useNavigationState } from '@react-navigation/native';
+import styles from './index.styles';
 
 const HomeHeader = () => {
-  const dispatch = useDispatch();
-
-  const signOut = () => {
-    dispatch(logout());
-  };
-
   const navigation = useNavigation();
 
   return (
