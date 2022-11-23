@@ -12,13 +12,10 @@ import {
 } from "../screens";
 import BottomTabsNavigator from "./BottomTabsNavigator";
 
-
 const Stack = createNativeStackNavigator();
 
-
 const MainStackNavigator = () => {
-    
-    return (
+  return (
     <Stack.Navigator>
       <Stack.Screen
         name="BottomTabsNavigator"
@@ -35,11 +32,7 @@ const MainStackNavigator = () => {
         name="TaskScreen"
         component={TaskScreen}
       />
-      <Stack.Screen
-        options={{ headerShown: false }}
-        name="TaskScreenContd"
-        component={TaskScreenContd}
-      />
+
       <Stack.Screen
         options={{ headerShown: false }}
         name="Settings"
@@ -50,10 +43,8 @@ const MainStackNavigator = () => {
         name="Profile"
         component={MyProfile}
       />
-
     </Stack.Navigator>
-  )
-
+  );
 };
 
 export default MainStackNavigator;

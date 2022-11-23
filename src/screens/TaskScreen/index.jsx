@@ -5,6 +5,7 @@ import {
   TextInput,
   TouchableOpacity,
   ScrollView,
+  Modal,
 } from "react-native";
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
@@ -12,8 +13,10 @@ import styles from "./index.styles";
 import arrowLeft from "../../assets/arrowLeft.png";
 import folder from "../../assets/folder.png";
 import info from "../../assets/info.png";
+import thumbs from "../../assets/thumbs.png";
 import trash from "../../assets/trash.png";
 import arrow from "../../assets/arrow.png";
+import DatePicker from "react-native-date-picker";
 import Checkbox from "expo-checkbox";
 import { Button } from "../../components/Button";
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -24,6 +27,11 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 const TaskScreen = () => {
   const navigation = useNavigation();
+
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const [date, setDate] = useState(new Date());
+  const [open, setOpen] = useState(false);
 
   const [chosenOption, setChosenOption] = useState(""); //will store our current user options
   const options = [
@@ -59,7 +67,7 @@ const TaskScreen = () => {
             margin: 15,
           }}
         />
-        <TouchableOpacity onPress={() => navigation.navigate("TaskScreen")}>
+        <TouchableOpacity onPress={() => setModalVisible(true)}>
           <View
             style={{
               backgroundColor: "#714dd9",
@@ -87,6 +95,95 @@ const TaskScreen = () => {
           backgroundColor: "#F6FAFB",
         }}
       >
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            Alert.alert("Modal has been closed.");
+            setModalVisible(!modalVisible);
+          }}
+        >
+          <View
+            style={{
+              flex: 1,
+              justifyContent: "center",
+              alignItems: "center",
+              marginTop: 22,
+            }}
+          >
+            <View
+              style={{
+                margin: 20,
+                backgroundColor: "white",
+                borderRadius: 8,
+                padding: 20,
+                alignItems: "center",
+                shadowColor: "#000",
+                shadowOffset: {
+                  width: 0,
+                  height: 1,
+                },
+                shadowOpacity: 0.25,
+                shadowRadius: 4,
+                elevation: 2,
+              }}
+            >
+              <Image
+                source={thumbs}
+                style={{
+                  width: 32,
+                  height: 48,
+                }}
+              />
+              <View style={{ height: 14 }} />
+              <Text
+                style={{
+                  fontWeight: "bold",
+                  fontSize: 16,
+                  textAlign: "center",
+                }}
+              >
+                Great!
+              </Text>
+              <View style={{ height: 14 }} />
+              <Text
+                style={{
+                  fontSize: 13,
+                  textAlign: "center",
+                }}
+              >
+                Your task has been assigned to a VA
+              </Text>
+              <View style={{ height: 28 }} />
+
+              <View
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                }}
+              >
+                <TouchableOpacity
+                  onPress={() => {
+                    setModalVisible(!modalVisible);
+                    navigation.navigate("Home");
+                  }}
+                >
+                  <Text
+                    style={{
+                      color: "#714DD9",
+                      fontSize: 14,
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Go Back Home
+                  </Text>
+                </TouchableOpacity>
+                <View style={{ height: 20 }} />
+              </View>
+            </View>
+          </View>
+        </Modal>
         <View
           style={{
             // backgroundColor: "red",
@@ -188,21 +285,36 @@ const TaskScreen = () => {
           </Text>
           <View style={{ height: 8 }} />
 
-          <TextInput
-            style={{
-              height: 48,
-              backgroundColor: "#ffffff",
-              borderRadius: 8,
-              borderWidth: 1,
-              borderColor: "#d9d9d9",
-              paddingLeft: 20,
-              paddingRight: 20,
-              marginLeft: 20,
-              marginRight: 20,
+          <TouchableOpacity title="Open" onPress={() => setOpen(true)}>
+            <TextInput
+              style={{
+                height: 48,
+                backgroundColor: "#ffffff",
+                borderRadius: 8,
+                borderWidth: 1,
+                borderColor: "#d9d9d9",
+                paddingLeft: 20,
+                paddingRight: 20,
+                marginLeft: 20,
+                marginRight: 20,
+              }}
+              placeholder=" Select Date"
+              color="D9D9D9"
+              editable={false}
+            />
+          </TouchableOpacity>
+          <DatePicker
+            modal
+            open={open}
+            date={date}
+            mode="datetime"
+            onConfirm={(date) => {
+              setOpen(false);
+              setDate(date);
             }}
-            placeholder=" Select Date"
-            color="D9D9D9"
-            editable={false}
+            onCancel={() => {
+              setOpen(false);
+            }}
           />
           <View style={{ height: 14 }} />
 
@@ -228,7 +340,7 @@ const TaskScreen = () => {
               paddingLeft: 2,
               justifyContent: "center",
               alignItems: "center",
-              marginLeft: 20
+              marginLeft: 20,
             }}
           >
             <Text style={{ flex: 1 }}>00: 00</Text>

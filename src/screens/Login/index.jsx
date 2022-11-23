@@ -37,23 +37,10 @@ const Login = () => {
 
   return (
     <View
-      style={{
-        height: "100%",
-        width: "100%",
-        flexDirection: "column",
-        justifyContent: "center",
-        paddingTop: 60,
-        paddingLeft: 20,
-        paddingRight: 20,
-        backgroundColor: "#ffffff",
-      }}
+      style={styles.cards}
     >
       <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "center",
-          marginTop: 60,
-        }}
+        style={styles.cards1}
       >
         <Image
           source={logo1}
@@ -64,14 +51,7 @@ const Login = () => {
       </View>
 
       <Text
-        style={{
-          color: "#000000",
-          fontSize: 18,
-          fontWeight: "bold",
-          textAlign: "center",
-          paddingTop: 30,
-          paddingBottom: 30,
-        }}
+        style={styles.textOne}
       >
         Login
       </Text>
