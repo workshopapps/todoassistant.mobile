@@ -20,12 +20,15 @@ const BottomTabsNavigator = () => {
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
-        tabBarStyle: { height: 80 },
+        tabBarStyle: { height: 70, paddingBottom: 20 },
       }}>
       <Stack.Screen
         name="Home"
         component={HomeScreen}
-        options={{ tabBarIcon: () => <Icon size={20} name="home" />, tabBarStyle: {} }}
+        options={{
+          tabBarIcon: () => <Icon size={20} name="home" />,
+          tabBarStyle: { fontSize: 20 },
+        }}
       />
       <Stack.Screen
         name="Create Task"

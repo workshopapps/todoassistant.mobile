@@ -6,8 +6,11 @@ export default StyleSheet.create({
     flex: 1,
     paddingHorizontal: 15,
   },
+  bg: {
+    backgroundColor: '#F6FAFB',
+  },
   tasks_nav: {
-    flex: 3,
+    flex: 4,
     paddingHorizontal: 16,
   },
   button: {

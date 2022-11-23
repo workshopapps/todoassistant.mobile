@@ -1,10 +1,13 @@
-import { View, Text } from 'react-native'
 import React from 'react'
+import { View } from 'react-native'
+
+import { Tasks } from '../../../components'
+import styles from './index.styles'
 
 const AssistantReminders = () => {
   return (
-    <View>
-      <Text>AssistantReminders</Text>
+    <View style={styles.container}>
+      <Tasks />
     </View>
   )
 }
