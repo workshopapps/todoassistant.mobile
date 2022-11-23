@@ -1,29 +1,26 @@
-import { View, Text, Image, TextInput } from 'react-native';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import React from 'react';
-import { useNavigation } from '@react-navigation/native';
-import styles from './index.styles';
-import { useDispatch, useSelector } from 'react-redux';
-import { MainLayout } from '../../layouts';
-import { Input } from '../../components/Input';
+// eslint-disable-next-line import/namespace
+import { View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/EvilIcons';
-import { Tasks } from '../../components';
 import FireIcon from 'react-native-vector-icons/SimpleLineIcons';
-import { MagnifyingGlassIcon } from 'react-native-heroicons/solid';
+
+import Rate from '../../assets/svg/rate-icon.svg';
+import Streak from '../../assets/svg/streak-icon.svg';
+import { MainLayout } from '../../layouts';
+import AllTasksScreen from './Tasks/AllTasksScreen';
+import AssistantReminders from './Tasks/AssistantReminders';
+import styles from './index.styles';
+
+const Tab = createMaterialTopTabNavigator();
 
 const HomeScreen = () => {
-  const navigation = useNavigation();
-
   return (
     <MainLayout>
       <View style={styles.container}>
-        <View style={styles.search}>
-          <Icon name="search" size={20}>
-            <TextInput style={styles.input} placeholder="Find a task" />
-          </Icon>
-        </View>
         {/* Stats */}
         <View style={styles.stats}>
-          <Text style={styles.bold}>Your Progress</Text>
+          <Text style={styles.bold}>Activity</Text>
           <View style={styles.cardFlex}>
             <View style={styles.card}>
               <View style={styles.flexRow}>
@@ -32,7 +29,7 @@ const HomeScreen = () => {
                   <Text style={styles.grey}>ticked</Text>
                 </View>
                 <View style={styles.chart}>
-                  <Icon name="chart" size={20} backgroundColor="#fff" />
+                  <Rate color="#29319F" style={{ color: '#29319F' }} height={20} width={20} />
                 </View>
               </View>
             </View>
@@ -40,18 +37,36 @@ const HomeScreen = () => {
               <View style={styles.flexRow}>
                 <View>
                   <Text style={styles.bold}>7 Day streak</Text>
+                  <Text style={styles.grey}>streak</Text>
                 </View>
                 <View style={styles.fire}>
-                  <FireIcon name="fire" backgroundColor="#FDA758" size={20} />
+                  <Streak height={20} width={20} />
                 </View>
               </View>
             </View>
           </View>
         </View>
-        <View style={styles.stats}>
-          <Text style={styles.bold}>Tasks</Text>
-          <Tasks task="Resolve frontend bugs" time="4 hrs" />
-        </View>
+      </View>
+      <View style={styles.tasks_nav}>
+        <Text style={styles.text_todo}>To do's</Text>
+        <Tab.Navigator
+          screenOptions={{
+            tabBarLabelStyle: {
+              fontSize: 14,
+              color: '#000',
+              focused: true,
+              textTransform: 'capitalize',
+            },
+            tabBarIndicatorStyle: {
+              backgroundColor: '#714DD9',
+            },
+            tabBarActiveTintColor: '#FDA758',
+            tabBarStyle: { backgroundColor: 'none' },
+          }}>
+          <Tab.Screen name="All" component={AllTasksScreen} />
+          <Tab.Screen name="Mine" component={AllTasksScreen} />
+          <Tab.Screen name="Assistant" component={AssistantReminders} />
+        </Tab.Navigator>
       </View>
     </MainLayout>
   );

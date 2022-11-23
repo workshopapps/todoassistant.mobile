@@ -4,6 +4,7 @@ import React, { useLayoutEffect } from 'react';
 import Icon from 'react-native-vector-icons/Octicons';
 
 import { HomeScreen, Notification, TaskScreen } from '../screens';
+import PlusIcon from '../assets/svg/plus-icon.svg';
 
 const Stack = createBottomTabNavigator();
 
@@ -19,16 +20,21 @@ const BottomTabsNavigator = () => {
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
+        tabBarStyle: { height: 80 },
       }}>
       <Stack.Screen
         name="Home"
         component={HomeScreen}
-        options={{ tabBarIcon: () => <Icon size={20} name="home" /> }}
+        options={{ tabBarIcon: () => <Icon size={20} name="home" />, tabBarStyle: {} }}
       />
       <Stack.Screen
         name="Create Task"
         component={TaskScreen}
-        options={{ tabBarIcon: () => <Icon size={20} name="plus-circle" /> }}
+        options={{
+          tabBarIcon: () => <PlusIcon />,
+          tabBarLabel: () => null,
+          tabBarStyle: { position: 'absolute', bottom: 30, left: 0, right: 0 },
+        }}
       />
       <Stack.Screen
         name="Notification"

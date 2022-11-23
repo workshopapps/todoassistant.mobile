@@ -1,27 +1,28 @@
-import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { View, Text, Image, TouchableOpacity, TouchableHighlight } from 'react-native';
 
 import icon from '../../assets/profile.jpg';
-import wave from '../../assets/wave.png';
+import Message from '../../assets/svg/message.svg';
 import styles from './index.styles';
 
 const HomeHeader = () => {
-  const navigation = useNavigation();
-
   return (
     <View style={styles.container}>
       <View>
         <View style={styles.flexrow}>
-          <Text style={styles.title}>Morning, Boss</Text>
-          <Image source={wave} />
+          <Text style={styles.title}>Home</Text>
         </View>
-        <Text>Let's get you started!</Text>
+        <Text style={styles.text}>Let's get you started!</Text>
       </View>
-      <TouchableOpacity onPress={navigation.navigate('Profile')}>
-        {/* Message Icon */}
-        <Image source={icon} style={styles.image} />
-      </TouchableOpacity>
+      <View style={styles.flexrow1}>
+        <TouchableHighlight style={styles.m_4}>
+          <Message />
+        </TouchableHighlight>
+        <TouchableOpacity>
+          {/* Message Icon */}
+          <Image source={icon} style={styles.image} />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
