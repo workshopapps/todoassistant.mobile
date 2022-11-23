@@ -1,17 +1,30 @@
+// eslint-disable-next-line import/namespace
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   container: {
     flex: 1,
+    paddingHorizontal: 15,
+  },
+  bg: {
+    backgroundColor: '#F6FAFB',
+  },
+  tasks_nav: {
+    flex: 4,
+    paddingHorizontal: 16,
   },
   button: {
     flexDirection: 'row',
     marginHorizontal: 2,
     padding: 10,
   },
-
+  grey: {
+    color: '#333333',
+    opacity: 0.5,
+    textTransform: 'capitalize',
+  },
   bold: {
-    fontSize: 18,
+    fontSize: 14,
     fontWeight: 'bold',
     marginBottom: 10,
   },
@@ -22,10 +35,14 @@ export default StyleSheet.create({
   card: {
     backgroundColor: '#fff',
     height: 70,
-    width: 160,
+    width: '49%',
     padding: 10,
     alignItems: 'center',
     borderRadius: 10,
+  },
+  text_todo: {
+    fontSize: 25,
+    fontWeight: 'bold',
   },
   flexRow: {
     flexDirection: 'row',
@@ -36,17 +53,18 @@ export default StyleSheet.create({
   },
   cardFlex: {
     flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   fire: {
     backgroundColor: '#FDA758',
-    backgroundOpacity: 0.2,
-    padding: 5,
+    opacity: 0.5,
+    padding: 10,
     borderRadius: 70,
   },
   chart: {
-    backgroundColor: '#29319F',
-    opacity: 0.2,
-    padding: 5,
+    backgroundColor: '#EBECFA',
+    opacity: 0.5,
+    padding: 10,
     borderRadius: 70,
   },
   marginBottom: {
