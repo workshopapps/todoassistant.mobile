@@ -13,22 +13,20 @@ export default StyleSheet.create({
     marginHorizontal: 2,
     padding: 10,
   },
-  cards:{
+  cards: {
     height: "100%",
     width: "100%",
     flexDirection: "column",
     justifyContent: "center",
-    paddingTop: 60,
     paddingLeft: 20,
     paddingRight: 20,
     backgroundColor: "#ffffff",
   },
-  cards1:{
+  cards1: {
     flexDirection: "row",
     justifyContent: "center",
-    marginTop: 60,
   },
-  textOne:{
+  textOne: {
     color: "#000000",
     fontSize: 18,
     fontWeight: "bold",
@@ -36,11 +34,72 @@ export default StyleSheet.create({
     paddingTop: 30,
     paddingBottom: 30,
   },
-  textTwo:{
+  textTwo: {
     color: "#000000",
     fontSize: 14,
     textAlign: "left",
     paddingTop: 30,
     paddingBottom: 5,
   },
+  textThree: {
+    color: "#000000",
+    fontSize: 14,
+    textAlign: "left",
+    paddingTop: 30,
+    paddingBottom: 5,
+  },
+  viewer: {
+    border: 2,
+    borderRadius: 8,
+    borderWidth: 1,
+    height: 48,
+    width: "100%",
+    justifyContent: "center",
+    borderColor: "#030303",
+    backgroundColor: "#F6FAFB",
+    paddingLeft: 10,
+  },
+  views:{
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 10,
+    marginBottom: 30,
+  },
+  viewrr:{
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  styling:{
+    alignItems: "center",
+    paddingTop: 20,
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingBottom: 30,
+    flexDirection: "column",
+  },
+  stylings:{
+    flexDirection: "row",
+    alignItems: "center",
+    paddingHorizontal: 20,
+  },
+  styling1:{ height: 2, flex: 1, backgroundColor: "#D3D0D9" },
+  styling2:{ paddingLeft: 10, paddingRight: 10, color: "#808080" },
+  styling3:{ height: 2, flex: 1, backgroundColor: "#D3D0D9" },
+  styling4:{
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 20,
+    paddingHorizontal: 20,
+    marginBottom: 40,
+  },
+  styless:{ margin: 20 },
+  stylez:{
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  stylesss:{ color: "#714DD9" },
+  stylew:{ paddingLeft: 7, color: "#333333" },
+  stylezzz:{ color: "#808080" }
 });

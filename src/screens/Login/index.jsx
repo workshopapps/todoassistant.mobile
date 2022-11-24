@@ -56,70 +56,29 @@ const Login = () => {
         Login
       </Text>
       <Text
-        style={{
-          color: "#000000",
-          fontSize: 14,
-
-          textAlign: "left",
-          paddingTop: 30,
-          paddingBottom: 5,
-        }}
+        style={styles.textThree}
       >
         Email Address
       </Text>
       <TextInput
         placeholder="Enter Email "
-        style={{
-          border: 2,
-          borderRadius: 8,
-          borderWidth: 1,
-          height: 48,
-          width: "100%",
-          justifyContent: "center",
-          borderColor: "#030303",
-          backgroundColor: "#F6FAFB",
-          paddingLeft: 10,
-        }}
+        style={styles.viewer}
       />
       <Text
-        style={{
-          color: "#000000",
-          fontSize: 14,
-          textAlign: "left",
-          paddingTop: 30,
-          paddingBottom: 5,
-        }}
+        style={styles.textThree}
       >
         Password
       </Text>
       <TextInput
         placeholder="Password "
-        style={{
-          border: 2,
-          borderRadius: 8,
-          borderWidth: 1,
-          height: 48,
-          width: "100%",
-          justifyContent: "center",
-          borderColor: "#030303",
-          backgroundColor: "#F6FAFB",
-          paddingLeft: 10,
-        }}
+        style={styles.viewer}
       />
 
       <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          marginTop: 10,
-          marginBottom: 30,
-        }}
+        style={styles.views}
       >
         <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-between",
-          }}
+          style={styles.viewrr}
         >
           <Checkbox
             style={styles.checkbox}
@@ -127,61 +86,39 @@ const Login = () => {
             onValueChange={setChecked}
             color={isChecked ? "#4630EB" : undefined}
           />
-          <Text style={{ paddingLeft: 7, color: "#333333" }}>Remember me </Text>
+          <Text style={styles.stylew}>Remember me </Text>
         </View>
-        <Text style={{ color: "#714DD9" }}>Forgot Password ?</Text>
+        <Text style={styles.stylesss}>Forgot Password ?</Text>
       </View>
       <View
-        style={{
-          alignItems: "center",
-          paddingTop: 20,
-          paddingLeft: 20,
-          paddingRight: 20,
-          paddingBottom: 30,
-          flexDirection: "column",
-        }}
+        style={styles.styling}
       >
         <Button
           onPress={handleLogin}
-          style={{ fontSize: 14 }}
+          style={{ fontSize: 14, width:"110%" }}
           title="Sign In"
         />
       </View>
       <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          paddingHorizontal: 20,
-        }}
+        style={styles.stylings}
       >
-        <View style={{ height: 2, flex: 1, backgroundColor: "#D3D0D9" }} />
-        <Text style={{ paddingLeft: 10, paddingRight: 10, color: "#808080" }}>
+        <View style={styles.styling1} />
+        <Text style={styles.styling2}>
           Or continue with
         </Text>
-        <View style={{ height: 2, flex: 1, backgroundColor: "#D3D0D9" }} />
+        <View style={styles.styling3} />
       </View>
       <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center",
-          marginTop: 20,
-          paddingHorizontal: 20,
-          marginBottom: 40,
-        }}
+        style={styles.styling4}
       >
-        <Image source={google} style={{ margin: 20 }} />
-        <Image source={fb} style={{ margin: 20 }} />
+        <Image source={google} style={styles.styless} />
+        <Image source={fb} style={styles.styless} />
       </View>
       <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
+        style={styles.stylez}
       >
-        <Text style={{ color: "#808080" }}>Don't have an account?</Text>
-        <Text style={{ color: "#714dd9" }} onPress={() => navigation.navigate('Registration')}> Sign Up</Text>
+        <Text style={styles.stylezzz}>Don't have an account?</Text>
+        <Text style={styles.stylesss} onPress={() => navigation.navigate('Registration')}> Sign Up</Text>
       </View>
     </View>
   );

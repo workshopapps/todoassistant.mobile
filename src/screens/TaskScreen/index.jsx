@@ -7,6 +7,7 @@ import {
   ScrollView,
   Modal,
 } from "react-native";
+import DateTimePicker from "@react-native-community/datetimepicker";
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import styles from "./index.styles";
@@ -14,27 +15,69 @@ import arrowLeft from "../../assets/arrowLeft.png";
 import folder from "../../assets/folder.png";
 import info from "../../assets/info.png";
 import thumbs from "../../assets/thumbs.png";
-import trash from "../../assets/trash.png";
-import arrow from "../../assets/arrow.png";
-import DatePicker from "react-native-date-picker";
 import Checkbox from "expo-checkbox";
 import { Button } from "../../components/Button";
+import axios from "axios";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import RadioForm from "react-native-simple-radio-button";
 import { useDispatch, useSelector } from "react-redux";
-import DateTimePicker from "@react-native-community/datetimepicker";
 import { SafeAreaView } from "react-native-safe-area-context";
+import moment from "moment";
 
 const TaskScreen = () => {
   const navigation = useNavigation();
-
+  const baseURL = "http://api.ticked.hng.tech:2022/task";
   const [modalVisible, setModalVisible] = useState(false);
 
+  const [isPickerShow, setIsPickerShow] = useState(false);
+  const [time, setTime] = useState(new Date(Date.now()));
+
+  const options = { hour: "2-digit", minute: "2-digit" };
+
+  const showPicker = () => {
+    setIsPickerShow(true);
+  };
+
+  const hidePicker = () => {
+    setIsPickerShow(false);
+  };
+
+  const onChange = (event, value) => {
+    setTime(value);
+    if (Platform.OS === "android") {
+      setIsPickerShow(false);
+    }
+    hidePicker();
+  };
+
+  //Date Picker
   const [date, setDate] = useState(new Date());
-  const [open, setOpen] = useState(false);
+  const [mode, setMode] = useState("date");
+  const [show, setShow] = useState(false);
+
+  const onChangeDate = (event, selectedDate) => {
+    const currentDate = selectedDate;
+    setShow(false);
+    setDate(currentDate);
+  };
+
+  const showMode = (currentMode) => {
+    if (Platform.OS === "android") {
+      setShow(false);
+      // for iOS, add a button that closes the picker
+    }
+    setMode(currentMode);
+  };
+
+  const showDatepicker = () => {
+    showMode("date");
+    setShow(!show);
+  };
 
   const [chosenOption, setChosenOption] = useState(""); //will store our current user options
-  const options = [
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const optionbutton = [
     {
       label: "Assign the task to an assistant",
       value: "Assign the task to an assistant",
@@ -46,55 +89,33 @@ const TaskScreen = () => {
     { label: "None", value: "None" },
   ];
 
+  const createTaskHandler = async () => {
+    try {
+      await axios.post(baseURL, {
+        user_id: "455",
+        title: title,
+        description: description,
+        start_time: time,
+        end_time: time,
+        files: [],
+      });
+      setModalVisible(true);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <SafeAreaView>
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          height: 60,
-          width: "100%",
-          backgroundColor: "#F6FAFB",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <Image
-          source={arrowLeft}
-          style={{
-            width: 24,
-            height: 24,
-            margin: 15,
-          }}
-        />
-        <TouchableOpacity onPress={() => setModalVisible(true)}>
-          <View
-            style={{
-              backgroundColor: "#714dd9",
-              borderWidth: 1,
-              borderColor: "#714dd9",
-              alignItems: "center",
-              justifyContent: "center",
-              width: 108,
-              height: 48,
-              marginRight: 20,
-              paddingVertical: 15,
-              borderRadius: 8,
-            }}
-          >
-            <Text style={{ color: "#ffffff", fontSize: 18 }}>Create Task</Text>
+      <View style={styles.viewOne}>
+        <Image source={arrowLeft} style={styles.img} />
+        <TouchableOpacity onPress={() => createTaskHandler()}>
+          <View style={styles.viewTwo}>
+            <Text style={styles.textOne}>Create Task</Text>
           </View>
         </TouchableOpacity>
       </View>
-      <ScrollView
-        style={{
-          height: "100%",
-          width: "100%",
-          display: "flex",
-          flexDirection: "column",
-          backgroundColor: "#F6FAFB",
-        }}
-      >
+      <ScrollView style={styles.viewThree}>
         <Modal
           animationType="slide"
           transparent={true}
@@ -104,168 +125,58 @@ const TaskScreen = () => {
             setModalVisible(!modalVisible);
           }}
         >
-          <View
-            style={{
-              flex: 1,
-              justifyContent: "center",
-              alignItems: "center",
-              marginTop: 22,
-            }}
-          >
-            <View
-              style={{
-                margin: 20,
-                backgroundColor: "white",
-                borderRadius: 8,
-                padding: 20,
-                alignItems: "center",
-                shadowColor: "#000",
-                shadowOffset: {
-                  width: 0,
-                  height: 1,
-                },
-                shadowOpacity: 0.25,
-                shadowRadius: 4,
-                elevation: 2,
-              }}
-            >
-              <Image
-                source={thumbs}
-                style={{
-                  width: 32,
-                  height: 48,
-                }}
-              />
+          <View style={styles.viewFour}>
+            <View style={styles.views}>
+              <Image source={thumbs} style={styles.imgTwo} />
               <View style={{ height: 14 }} />
-              <Text
-                style={{
-                  fontWeight: "bold",
-                  fontSize: 16,
-                  textAlign: "center",
-                }}
-              >
-                Great!
-              </Text>
+              <Text style={styles.cards}>Great!</Text>
               <View style={{ height: 14 }} />
-              <Text
-                style={{
-                  fontSize: 13,
-                  textAlign: "center",
-                }}
-              >
+              <Text style={styles.cards1}>
                 Your task has been assigned to a VA
               </Text>
               <View style={{ height: 28 }} />
 
-              <View
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                }}
-              >
+              <View style={styles.card2}>
                 <TouchableOpacity
                   onPress={() => {
                     setModalVisible(!modalVisible);
                     navigation.navigate("Home");
                   }}
                 >
-                  <Text
-                    style={{
-                      color: "#714DD9",
-                      fontSize: 14,
-                      fontWeight: "bold",
-                    }}
-                  >
-                    Go Back Home
-                  </Text>
+                  <Text style={styles.viewDen}>Go Back Home</Text>
                 </TouchableOpacity>
-                <View style={{ height: 20 }} />
+                <View style={styles.viewee} />
               </View>
             </View>
           </View>
         </Modal>
         <View
-          style={{
-            // backgroundColor: "red",
-            flex: 1,
-            marginTop: 10,
-          }}
+          style={styles.viewingOne}
         >
-          <View
-            style={{
-              display: "flex",
-              // height: 44,
-              width: "100%",
-
-              paddingHorizontal: 20,
-              paddingVertical: 5,
-              flexDirection: "column",
-            }}
-          >
-            <Text style={{ fontSize: 18, fontWeight: "bold" }}>
+          <View style={styles.textSix}>
+            <Text style={styles.viewingTwo}>
               Create To Do
             </Text>
           </View>
-          <View style={{ height: 20 }} />
-          <Text
-            style={{
-              fontSize: 12,
-
-              marginLeft: 20,
-              marginRight: 20,
-            }}
-          >
-            Title
-          </Text>
-          <View style={{ height: 8 }} />
+          <View style={styles.viewee} />
+          <Text style={styles.textTen}>Title</Text>
+          <View style={styles.viewing} />
 
           <TextInput
-            style={{
-              height: 48,
-              backgroundColor: "#ffffff",
-              borderRadius: 8,
-              borderWidth: 1,
-              borderColor: "#d9d9d9",
-              paddingLeft: 20,
-              paddingRight: 20,
-              marginLeft: 20,
-              marginRight: 20,
-            }}
+            value={title}
+            onChangeText={(value) => setTitle(value)}
+            style={styles.textFive}
             placeholder="Task title"
             color="D9D9D9"
           />
           <View style={{ height: 14 }} />
-          <Text
-            style={{
-              fontSize: 12,
-              marginLeft: 20,
-              marginRight: 20,
-            }}
-          >
-            Description
-          </Text>
-          <View style={{ height: 8 }} />
-          <View
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              backgroundColor: "#ffffff",
-              // borderWidth: 1,
-              marginLeft: 20,
-              marginRight: 20,
-              borderRadius: 15,
-              // borderColor: "grey",
-            }}
-          >
+          <Text style={styles.textSix}>Description</Text>
+          <View style={styles.viewing} />
+          <View style={styles.textEight}>
             <TextInput
-              style={{
-                height: 150,
-                backgroundColor: "#ffffff",
-
-                paddingLeft: 20,
-                paddingRight: 20,
-                marginTop: 10,
-              }}
+              value={description}
+              onChangeText={(value) => setDescription(value)}
+              style={styles.describe}
               placeholder=" Type a text"
               color="D9D9D9"
               multiline
@@ -273,96 +184,61 @@ const TaskScreen = () => {
             />
           </View>
           <View style={{ height: 14 }} />
-          <Text
-            style={{
-              fontSize: 12,
+          <Text style={styles.describer}>Date</Text>
+          <View style={styles.viewHere}>
+            <TouchableOpacity
+              onPress={showDatepicker}
+              title="Show date picker!"
+            >
+              <Text>{moment(date).format("DD MMMM, YYYY")}</Text>
+            </TouchableOpacity>
 
-              marginLeft: 20,
-              marginRight: 20,
-            }}
-          >
-            Date
-          </Text>
-          <View style={{ height: 8 }} />
-
-          <TouchableOpacity title="Open" onPress={() => setOpen(true)}>
-            <TextInput
-              style={{
-                height: 48,
-                backgroundColor: "#ffffff",
-                borderRadius: 8,
-                borderWidth: 1,
-                borderColor: "#d9d9d9",
-                paddingLeft: 20,
-                paddingRight: 20,
-                marginLeft: 20,
-                marginRight: 20,
-              }}
-              placeholder=" Select Date"
-              color="D9D9D9"
-              editable={false}
-            />
-          </TouchableOpacity>
-          <DatePicker
-            modal
-            open={open}
-            date={date}
-            mode="datetime"
-            onConfirm={(date) => {
-              setOpen(false);
-              setDate(date);
-            }}
-            onCancel={() => {
-              setOpen(false);
-            }}
-          />
-          <View style={{ height: 14 }} />
-
-          <View style={{ height: 10 }} />
-          <Text
-            style={{
-              fontSize: 12,
-
-              marginLeft: 20,
-              marginRight: 20,
-            }}
-          >
-            Reminder Time
-          </Text>
-          <View style={{ height: 8 }} />
-          <View
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              backgroundColor: "#ffffff",
-              height: 48,
-              width: 106,
-              paddingLeft: 2,
-              justifyContent: "center",
-              alignItems: "center",
-              marginLeft: 20,
-            }}
-          >
-            <Text style={{ flex: 1 }}>00: 00</Text>
-            <Text style={{ flex: 1 }}>PM</Text>
+            {/* The date picker */}
+            {show && (
+              <DateTimePicker
+                testID="dateTimePicker"
+                value={date}
+                mode={mode}
+                is24Hour={true}
+                onChange={onChangeDate}
+              />
+            )}
           </View>
 
-          <View style={{ height: 8 }} />
+          <View style={{ height: 30 }} />
+          <Text style={styles.texter}>Reminder Time</Text>
+          <View style={styles.viewing} />
+          <View style={styles.viewer}>
+            <TouchableOpacity
+              onPress={!isPickerShow ? showPicker : hidePicker}
+              style={styles.pickedDateContainer}
+            >
+              <Text style={styles.pickedDate}>
+                {time.toLocaleTimeString([], options)}
+              </Text>
+            </TouchableOpacity>
 
-          <View
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              paddingLeft: 20,
-              paddingRight: 20,
-              marginTop: 30,
-            }}
-          >
+            {/* The date picker */}
+            {isPickerShow && (
+              <DateTimePicker
+                value={time}
+                mode={"time"}
+                display={"spinner"}
+                onChange={onChange}
+                textColor="#CE2EBE"
+                style={styles.datePicker}
+              />
+            )}
+          </View>
+
+          <View style={styles.viewing} />
+
+          <View style={styles.texter1}>
             <Text> Virtual Assistant</Text>
             <View style={{ height: 20 }} />
 
             <RadioForm
-              radio_props={options}
+              radio_props={optionbutton}
               initial={1}
               selectedButtonColor={"#714dd9"}
               borderWidth={1}
