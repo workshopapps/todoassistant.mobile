@@ -17,6 +17,7 @@ export const styles = StyleSheet.create({
     height: 50,
     width: width / 1.2,
     flexDirection: 'row',
+    backgroundColor: '#fff',
   },
   input: {
     flex: 1,
