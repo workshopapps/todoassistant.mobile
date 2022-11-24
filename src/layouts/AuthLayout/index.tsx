@@ -1,9 +1,9 @@
-import { View, Text } from "react-native";
-import React, { ReactNode, useLayoutEffect } from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { useNavigation } from "@react-navigation/native";
-import { StatusBar } from "expo-status-bar";
-import styles from "./AuthLayout.styles";
+import { View, Text } from 'react-native';
+import React, { ReactNode, useLayoutEffect } from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { useNavigation } from '@react-navigation/native';
+import { StatusBar } from 'expo-status-bar';
+import styles from './AuthLayout.styles';
 
 const AuthLayout = ({ children }: { children: ReactNode }) => {
   const navigation = useNavigation();

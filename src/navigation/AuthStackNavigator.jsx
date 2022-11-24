@@ -1,7 +1,7 @@
-import { View, Text } from "react-native";
-import React from "react";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Login, Auth, OnboardingScreen1, Screen2, RegistrationScreen } from "../screens";
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React from 'react';
+
+import { Login, Auth, OnboardingScreen1, Screen2, RegistrationScreen } from '../screens';
 
 const Stack = createNativeStackNavigator();
 

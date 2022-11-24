@@ -1,5 +1,5 @@
-import { StyleSheet } from "react-native";
-import { colors } from "../../utils/colors";
+import { StyleSheet } from 'react-native';
+import { colors } from '../../utils/colors';
 
 export const styles = StyleSheet.create({
   container: {
@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
   },
   icon: {
     backgroundColor: colors.primary,
-    width: "100%",
-    height: "100%",
+    width: '100%',
+    height: '100%',
   },
 });

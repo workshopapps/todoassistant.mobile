@@ -1,15 +1,15 @@
-import { StyleSheet, Dimensions } from "react-native";
-import { colors } from "../../utils/colors";
+import { StyleSheet, Dimensions } from 'react-native';
+import { colors } from '../../utils/colors';
 
-const { width } = Dimensions.get("window");
+const { width } = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#ffffff",
+    backgroundColor: '#ffffff',
     height: 50,
     width: width / 1.2,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
     marginHorizontal: 20,
     borderRadius: 8,
     borderColor: colors.primary,
@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
     paddingRight: 20,
   },
   title: {
-    fontWeight: "normal",
+    fontWeight: 'normal',
     fontSize: 20,
     color: colors.primary,
   },

@@ -1,5 +1,5 @@
-import { StyleSheet } from "react-native";
-import { fontSizes, spacing } from "../../utils/sizes";
+import { StyleSheet } from 'react-native';
+import { fontSizes, spacing } from '../../utils/sizes';
 
 export const styles = StyleSheet.create({
   container: {
@@ -13,14 +13,14 @@ export const styles = StyleSheet.create({
     fontSize: fontSizes.md,
   },
   inputContainer: {
-    flexDirection: "row",
+    flexDirection: 'row',
   },
   input: {
-    width: "100%",
+    width: '100%',
     height: 50,
   },
   buttonContainer: {
     marginBottom: spacing.xl,
-    alignItems: "center",
+    alignItems: 'center',
   },
 });

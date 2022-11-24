@@ -16,7 +16,7 @@ const OnboardingScreen1 = () => {
 
   return (
     <View>
-      <View style={styles.container}>
+      <View style={styles.container9}>
         <View style={styles.container2}>
           <Text style={styles.textOne}> Skip</Text>
         </View>
@@ -28,7 +28,7 @@ const OnboardingScreen1 = () => {
           </Text>
           <Text style={styles.texter}>into small steps.</Text>
           <Button
-            onPress={() => navigation.navigate("Onboarding2")}
+            onPress={() => navigation.navigate('Onboarding2')}
             style={{ fontSize: 14 }}
             title="Next"
           />

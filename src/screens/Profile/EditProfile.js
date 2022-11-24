@@ -2,9 +2,7 @@ import React from 'react';
 import EditProfileComponent from './ProfileComponents/EditProfileComponent';
 
 const EditProfile = () => {
-  return (
-    <EditProfileComponent />
-  )
-}
+  return <EditProfileComponent />;
+};
 
-export default EditProfile
+export default EditProfile;

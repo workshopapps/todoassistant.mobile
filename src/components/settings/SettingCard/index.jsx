@@ -1,7 +1,7 @@
-import { View, Text } from "react-native";
-import React from "react";
-import styles from "./index.styles";
-import SettingOption from "../SettingOption";
+import { View, Text } from 'react-native';
+import React from 'react';
+import styles from './index.styles';
+import SettingOption from '../SettingOption';
 
 const SettingsCard = ({ title, children }) => {
   return (

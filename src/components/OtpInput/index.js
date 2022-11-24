@@ -1,6 +1,6 @@
-import React, { useRef, useState, useEffect } from "react";
-import { TextInput, View, Pressable, Text } from "react-native";
-import { styles } from "./styles";
+import React, { useRef, useState, useEffect } from 'react';
+import { TextInput, View, Pressable, Text } from 'react-native';
+import { styles } from './styles';
 
 export const OtpInput = ({ code, setCode, maximumLength, setIsPinReady }) => {
   const boxArray = new Array(maximumLength).fill(0);
@@ -26,7 +26,7 @@ export const OtpInput = ({ code, setCode, maximumLength, setIsPinReady }) => {
     };
   }, [code]);
   const boxDigit = (_, index) => {
-    const emptyInput = "";
+    const emptyInput = '';
     const digit = code[index] || emptyInput;
 
     const isCurrentValue = index === code.length;

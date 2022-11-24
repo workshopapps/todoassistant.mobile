@@ -1,7 +1,7 @@
-import React, { useEffect, useState, useRef } from "react";
-import { View, Modal, Image, Text, Animated } from "react-native";
-import { Button } from "../Button";
-import { styles } from "./styles";
+import React, { useEffect, useState, useRef } from 'react';
+import { View, Modal, Image, Text, Animated } from 'react-native';
+import { Button } from '../Button';
+import { styles } from './styles';
 
 const ModalPoup = ({ visible, children }) => {
   const [showModal, setShowModal] = useState(visible);
@@ -32,12 +32,7 @@ const ModalPoup = ({ visible, children }) => {
   return (
     <Modal transparent visible={showModal}>
       <View style={styles.modalBackGround}>
-        <Animated.View
-          style={[
-            styles.modalContainer,
-            { transform: [{ scale: scaleValue }] },
-          ]}
-        >
+        <Animated.View style={[styles.modalContainer, { transform: [{ scale: scaleValue }] }]}>
           {children}
         </Animated.View>
       </View>
@@ -50,10 +45,7 @@ export const BoxModal = ({ visible }) => {
     <View style={styles.container}>
       <ModalPoup visible={visible}>
         <View style={styles.imageContainer}>
-          <Image
-            source={require("../../assets/success.png")}
-            style={styles.image}
-          />
+          <Image source={require('../../assets/success.png')} style={styles.image} />
         </View>
 
         <Text style={styles.titleText}>Success!</Text>

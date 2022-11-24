@@ -205,7 +205,7 @@ const TaskScreen = () => {
             )}
           </View>
 
-          <View style={{ height: 30 }} />
+          <View style={{ height: 20 }} />
           <Text style={styles.texter}>Reminder Time</Text>
           <View style={styles.viewing} />
           <View style={styles.viewer}>
@@ -235,7 +235,7 @@ const TaskScreen = () => {
 
           <View style={styles.texter1}>
             <Text> Virtual Assistant</Text>
-            <View style={{ height: 20 }} />
+            <View style={{ height: 15 }} />
 
             <RadioForm
               radio_props={optionbutton}

@@ -1,17 +1,9 @@
-import React, { useState } from "react";
-import { Text, View, TextInput } from "react-native";
-import Icon from "react-native-vector-icons/Feather";
-import { styles } from "./styles";
+import React, { useState } from 'react';
+import { Text, View, TextInput } from 'react-native';
+import Icon from 'react-native-vector-icons/Feather';
+import { styles } from './styles';
 
-export const Input = ({
-  label,
-  placeholder,
-  isPassword,
-  value,
-  onChangeText,
-  style,
-  ...props
-}) => {
+export const Input = ({ label, placeholder, isPassword, value, onChangeText, style, ...props }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const onEyePress = () => {
@@ -32,7 +24,7 @@ export const Input = ({
         />
         {isPassword && (
           <Icon
-            name={showPassword ? "eye" : "eye-off"}
+            name={showPassword ? 'eye' : 'eye-off'}
             size={20}
             onPress={onEyePress}
             style={styles.eye}

@@ -1,9 +1,9 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: "center", alignItems: "center" },
+  container: { flex: 1, justifyContent: 'center', alignItems: 'center' },
   imageContainer: {
-    alignItems: "center",
+    alignItems: 'center',
   },
   image: {
     height: 50,
@@ -13,35 +13,35 @@ export const styles = StyleSheet.create({
   titleText: {
     marginVertical: 20,
     fontSize: 20,
-    textAlign: "center",
-    fontWeight: "bold",
+    textAlign: 'center',
+    fontWeight: 'bold',
   },
   text: {
-    textAlign: "center",
+    textAlign: 'center',
   },
   button: {
     marginHorizontal: 70,
-    width: "50%",
+    width: '50%',
     marginVertical: 40,
   },
   modalBackGround: {
     flex: 1,
-    backgroundColor: "rgba(0,0,0,0.5)",
-    justifyContent: "center",
-    alignItems: "center",
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   modalContainer: {
-    width: "80%",
-    backgroundColor: "white",
+    width: '80%',
+    backgroundColor: 'white',
     paddingHorizontal: 20,
     paddingVertical: 30,
     borderRadius: 20,
     elevation: 20,
   },
   header: {
-    width: "100%",
+    width: '100%',
     height: 40,
-    alignItems: "flex-end",
-    justifyContent: "center",
+    alignItems: 'flex-end',
+    justifyContent: 'center',
   },
 });
