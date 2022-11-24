@@ -27,11 +27,11 @@ const Tasks = ({ task, time }) => {
             </View>
             <View style={styles.mr_5}>
               <View style={styles.flex_justify}>
-                <Text style={styles.bold_title}>Research French PM</Text>
+                <Text style={styles.bold_title}>{task}</Text>
                 <View style={styles.flex_row}>
                   <View style={styles.flex_deets}>
                     <Timer height={20} width={20} />
-                    <Text style={styles.text}>6: 00 PM</Text>
+                    <Text style={styles.text}>{time}</Text>
                   </View>
                   <View style={styles.flex_deets}>
                     <Message height={20} width={20} />
@@ -57,7 +57,7 @@ const Tasks = ({ task, time }) => {
             </View>
             <View style={styles.mr_5}>
               <View style={styles.flex_justify}>
-                <Text style={styles.bold_title}>Research French PM</Text>
+                <Text style={styles.bold_title}>{task}</Text>
                 <View style={styles.flex_row}>
                   <View style={styles.flex_deets}>
                     <VA height={20} width={20} />
@@ -65,7 +65,7 @@ const Tasks = ({ task, time }) => {
                   </View>
                   <View style={styles.flex_deets}>
                     <Timer height={20} width={20} />
-                    <Text style={styles.text}>6: 00 PM</Text>
+                    <Text style={styles.text}>{time}</Text>
                   </View>
                   <View style={styles.flex_deets}>
                     <Message height={20} width={20} />

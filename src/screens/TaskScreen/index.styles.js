@@ -136,7 +136,7 @@ viewDen:{
   fontSize: 14,
   fontWeight: "bold",
 },
-textSix:{
+textSeven:{
   display: "flex",
   width: "100%",
   paddingHorizontal: 20,

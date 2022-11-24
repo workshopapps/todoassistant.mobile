@@ -3,7 +3,7 @@ import Checkbox from 'expo-checkbox';
 import React, { useState, useLayoutEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import styles from './index.styles';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import logo1 from '../../assets/logo1.png';
 import google from '../../assets/google.png';
 import fb from '../../assets/fb.png';

@@ -1,38 +1,29 @@
-import {
-  View,
-  Text,
-  Image,
-  TextInput,
-  TouchableOpacity,
-  ScrollView,
-  Modal,
-} from "react-native";
-import DateTimePicker from "@react-native-community/datetimepicker";
-import React, { useState } from "react";
-import { useNavigation } from "@react-navigation/native";
-import styles from "./index.styles";
-import arrowLeft from "../../assets/arrowLeft.png";
-import folder from "../../assets/folder.png";
-import info from "../../assets/info.png";
-import thumbs from "../../assets/thumbs.png";
-import Checkbox from "expo-checkbox";
-import { Button } from "../../components/Button";
-import axios from "axios";
-import Ionicons from "@expo/vector-icons/Ionicons";
-import RadioForm from "react-native-simple-radio-button";
-import { useDispatch, useSelector } from "react-redux";
-import { SafeAreaView } from "react-native-safe-area-context";
-import moment from "moment";
+import { View, Text, Image, TextInput, TouchableOpacity,Platform, ScrollView, Modal } from 'react-native';
+import DateTimePicker from '@react-native-community/datetimepicker';
+import React, { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
+import styles from './index.styles';
+import arrowLeft from '../../assets/arrowLeft.png';
+import folder from '../../assets/folder.png';
+import info from '../../assets/info.png';
+import thumbs from '../../assets/thumbs.png';
+import Checkbox from 'expo-checkbox';
+import { Button } from '../../components/Button';
+import axios from 'axios';
+import RadioForm from 'react-native-simple-radio-button';
+import { useDispatch, useSelector } from 'react-redux';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import moment from 'moment';
 
 const TaskScreen = () => {
   const navigation = useNavigation();
-  const baseURL = "http://api.ticked.hng.tech:2022/task";
+  const baseURL = 'http://api.ticked.hng.tech:2022/task';
   const [modalVisible, setModalVisible] = useState(false);
 
   const [isPickerShow, setIsPickerShow] = useState(false);
   const [time, setTime] = useState(new Date(Date.now()));
 
-  const options = { hour: "2-digit", minute: "2-digit" };
+  const options = { hour: '2-digit', minute: '2-digit' };
 
   const showPicker = () => {
     setIsPickerShow(true);
@@ -44,7 +35,7 @@ const TaskScreen = () => {
 
   const onChange = (event, value) => {
     setTime(value);
-    if (Platform.OS === "android") {
+    if (Platform.OS === 'android') {
       setIsPickerShow(false);
     }
     hidePicker();
@@ -52,7 +43,7 @@ const TaskScreen = () => {
 
   //Date Picker
   const [date, setDate] = useState(new Date());
-  const [mode, setMode] = useState("date");
+  const [mode, setMode] = useState('date');
   const [show, setShow] = useState(false);
 
   const onChangeDate = (event, selectedDate) => {
@@ -62,7 +53,7 @@ const TaskScreen = () => {
   };
 
   const showMode = (currentMode) => {
-    if (Platform.OS === "android") {
+    if (Platform.OS === 'android') {
       setShow(false);
       // for iOS, add a button that closes the picker
     }
@@ -70,34 +61,33 @@ const TaskScreen = () => {
   };
 
   const showDatepicker = () => {
-    showMode("date");
+    showMode('date');
     setShow(!show);
   };
 
-  const [chosenOption, setChosenOption] = useState(""); //will store our current user options
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  const [chosenOption, setChosenOption] = useState(''); //will store our current user options
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
   const optionbutton = [
     {
-      label: "Assign the task to an assistant",
-      value: "Assign the task to an assistant",
+      label: 'Assign the task to an assistant',
+      value: 'Assign the task to an assistant',
     },
     {
-      label: "Get a call from an assistant to remind you",
-      value: "Get a call from an assistant to remind you",
+      label: 'Get a call from an assistant to remind you',
+      value: 'Get a call from an assistant to remind you',
     },
-    { label: "None", value: "None" },
+    { label: 'None', value: 'None' },
   ];
 
   const createTaskHandler = async () => {
     try {
       await axios.post(baseURL, {
-        user_id: "455",
+        user_id: '455',
         title: title,
         description: description,
         start_time: time,
         end_time: time,
-        files: [],
       });
       setModalVisible(true);
     } catch (error) {
@@ -121,28 +111,24 @@ const TaskScreen = () => {
           transparent={true}
           visible={modalVisible}
           onRequestClose={() => {
-            Alert.alert("Modal has been closed.");
+            Alert.alert('Modal has been closed.');
             setModalVisible(!modalVisible);
-          }}
-        >
+          }}>
           <View style={styles.viewFour}>
             <View style={styles.views}>
               <Image source={thumbs} style={styles.imgTwo} />
               <View style={{ height: 14 }} />
               <Text style={styles.cards}>Great!</Text>
               <View style={{ height: 14 }} />
-              <Text style={styles.cards1}>
-                Your task has been assigned to a VA
-              </Text>
+              <Text style={styles.cards1}>Your task has been assigned to a VA</Text>
               <View style={{ height: 28 }} />
 
               <View style={styles.card2}>
                 <TouchableOpacity
                   onPress={() => {
                     setModalVisible(!modalVisible);
-                    navigation.navigate("Home");
-                  }}
-                >
+                    navigation.navigate('Home');
+                  }}>
                   <Text style={styles.viewDen}>Go Back Home</Text>
                 </TouchableOpacity>
                 <View style={styles.viewee} />
@@ -150,13 +136,9 @@ const TaskScreen = () => {
             </View>
           </View>
         </Modal>
-        <View
-          style={styles.viewingOne}
-        >
-          <View style={styles.textSix}>
-            <Text style={styles.viewingTwo}>
-              Create To Do
-            </Text>
+        <View style={styles.viewingOne}>
+          <View style={styles.textSeven}>
+            <Text style={styles.viewingTwo}>Create To Do</Text>
           </View>
           <View style={styles.viewee} />
           <Text style={styles.textTen}>Title</Text>
@@ -186,11 +168,8 @@ const TaskScreen = () => {
           <View style={{ height: 14 }} />
           <Text style={styles.describer}>Date</Text>
           <View style={styles.viewHere}>
-            <TouchableOpacity
-              onPress={showDatepicker}
-              title="Show date picker!"
-            >
-              <Text>{moment(date).format("DD MMMM, YYYY")}</Text>
+            <TouchableOpacity onPress={showDatepicker} title="Show date picker!">
+              <Text>{moment(date).format('DD MMMM, YYYY')}</Text>
             </TouchableOpacity>
 
             {/* The date picker */}
@@ -211,22 +190,26 @@ const TaskScreen = () => {
           <View style={styles.viewer}>
             <TouchableOpacity
               onPress={!isPickerShow ? showPicker : hidePicker}
-              style={styles.pickedDateContainer}
-            >
-              <Text style={styles.pickedDate}>
+              style={styles.pickedDateContainer}>
+              <Text style={{ backgroundColor: 'white' }}>
                 {time.toLocaleTimeString([], options)}
               </Text>
             </TouchableOpacity>
-
             {/* The date picker */}
             {isPickerShow && (
               <DateTimePicker
                 value={time}
-                mode={"time"}
-                display={"spinner"}
+                mode={'time'}
+                display={'spinner'}
                 onChange={onChange}
-                textColor="#CE2EBE"
-                style={styles.datePicker}
+                textColor="#030303"
+                style={{
+                  backgroundColor: '#ffffff',
+                  width: 200,
+                  height: 200,
+                  borderRadius: 10,
+                  alignItems: 'center',
+                }}
               />
             )}
           </View>
@@ -240,9 +223,9 @@ const TaskScreen = () => {
             <RadioForm
               radio_props={optionbutton}
               initial={1}
-              selectedButtonColor={"#714dd9"}
+              selectedButtonColor={'#714dd9'}
               borderWidth={1}
-              buttonColor={"#ededed"}
+              buttonColor={'#ededed'}
               activeColor="#714dd9" //initial value of this group
               onPress={(value) => {
                 setChosenOption(value);

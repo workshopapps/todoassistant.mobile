@@ -4,7 +4,6 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/EvilIcons';
 import FireIcon from 'react-native-vector-icons/SimpleLineIcons';
-
 import Rate from '../../assets/svg/rate-icon.svg';
 import Streak from '../../assets/svg/streak-icon.svg';
 import { MainLayout } from '../../layouts';
@@ -12,12 +11,34 @@ import AllTasksScreen from './Tasks/AllTasksScreen';
 import AssistantReminders from './Tasks/AssistantReminders';
 import styles from './index.styles';
 
+
 const Tab = createMaterialTopTabNavigator();
 
 const HomeScreen = () => {
+  // const [allTasks, setAllTasks] = useState([]);
+  // const baseURL = 'http://api.ticked.hng.tech:2022/search?q=t';
+  // const getAllTask = async () => {
+  //   try {
+  //     const result = await axios.get(`${baseURL}`);
+  //     console.log(result.data.data);
+  //     setAllTasks(result.data.data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  // React.useEffect(() => {
+  //   getAllTask();
+  // }, []);
+
   return (
     <MainLayout>
       <View style={styles.container}>
+        {/* {allTasks.map((item, index) => (
+          <View key={index}>
+            <Text >{item.title}</Text>
+          </View>
+        ))} */}
         {/* Stats */}
         <View style={styles.stats}>
           <Text style={styles.bold}>Activity</Text>
