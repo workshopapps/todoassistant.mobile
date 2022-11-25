@@ -1,0 +1,1 @@
+export const BASE_URL = 'http://api.ticked.hng.tech:2022/api/v1';

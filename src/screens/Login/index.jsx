@@ -1,22 +1,21 @@
-import { View, Text, Image, TextInput } from 'react-native';
-import Checkbox from 'expo-checkbox';
-import React, { useState, useLayoutEffect } from 'react';
+/* eslint-disable import/namespace */
 import { useNavigation } from '@react-navigation/native';
-import styles from './index.styles';
-import { useDispatch, useSelector } from 'react-redux';
-import logo1 from '../../assets/logo1.png';
-import google from '../../assets/google.png';
-import fb from '../../assets/fb.png';
-import { login } from '../../features/authSlice';
+import Checkbox from 'expo-checkbox';
+import React, { useState, useLayoutEffect, useContext } from 'react';
+import { View, Text, Image, TextInput } from 'react-native';
 
+import fb from '../../assets/fb.png';
+import google from '../../assets/google.png';
+import logo1 from '../../assets/logo1.png';
 import { Button } from '../../components/Button';
+import { AuthContext } from '../../context/userContext';
+import styles from './index.styles';
 
 const Login = () => {
   const [isChecked, setChecked] = useState(false);
   const navigation = useNavigation();
-  const [email, setEmail] = useState();
-
-  const dispatch = useDispatch();
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -24,16 +23,7 @@ const Login = () => {
     });
   }, []);
 
-  const handleLogin = async () => {
-    let user;
-
-    user = {
-      isLoggedIn: true,
-      email: 'test@gmail.com',
-    };
-
-    dispatch(login(user));
-  };
+  const { login } = useContext(AuthContext);
 
   return (
     <View
@@ -84,7 +74,10 @@ const Login = () => {
         Email Address
       </Text>
       <TextInput
-        placeholder="Enter Email "
+        placeholder="john.doe@gmail.com"
+        value={email}
+        onChangeText={(text) => setEmail(text)}
+        keyboardType="email-address"
         style={{
           border: 2,
           borderRadius: 8,
@@ -108,7 +101,10 @@ const Login = () => {
         Password
       </Text>
       <TextInput
-        placeholder="Password "
+        placeholder="Password"
+        secureTextEntry
+        value={password}
+        onChangeText={(text) => setPassword(text)}
         style={{
           border: 2,
           borderRadius: 8,
@@ -153,7 +149,7 @@ const Login = () => {
           paddingBottom: 30,
           flexDirection: 'column',
         }}>
-        <Button onPress={handleLogin} style={{ fontSize: 14 }} title="Sign In" />
+        <Button onPress={login(email, password)} style={{ fontSize: 14 }} title="Sign In" />
       </View>
       <View
         style={{
