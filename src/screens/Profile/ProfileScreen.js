@@ -1,4 +1,5 @@
 /* eslint-disable import/namespace */
+import { useNavigation } from '@react-navigation/native';
 import React, { useEffect, useState, useContext } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Modal } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -15,6 +16,8 @@ const MyProfile = () => {
   // const [modalPos, setModalPosBotton] = useState('');
 
   const { userInfo, logout } = useContext(AuthContext);
+
+  const navigate = useNavigation();
 
   // const CloseModal = (bool) => {
   //   setIsModal(bool);
@@ -44,11 +47,15 @@ const MyProfile = () => {
   //   setIsModal(bool);
   // };
 
-  // useEffect(() => {
-  //   CloseModal(false);
-  //   Logout(false);
-  //   DeleteAccount(false);
-  // }, []);
+  useEffect(() => {
+    navigate.setOptions({
+      headerLeft: () => (
+        <TouchableOpacity onPress={() => navigate.goBack()}>
+          <MaterialIcons name="arrow-back" size={25} color={colors.primary} />
+        </TouchableOpacity>
+      ),
+    });
+  }, []);
 
   return (
     <View
@@ -61,7 +68,7 @@ const MyProfile = () => {
       {/* Upper section */}
       <View style={style.upperProfile}>
         <View style={style.profileCap}>
-          <Text style={{ color: '#707070', fontSize: 50 }}>J</Text>
+          <Text style={{ color: '#707070', fontSize: 50 }}>{userInfo.first_name.charAt(0)}</Text>
         </View>
 
         <Text style={{ fontWeight: '700', fontSize: 18, color: '#333333', marginBottom: 10 }}>
@@ -80,7 +87,7 @@ const MyProfile = () => {
       <View style={style.personalInfo}>
         <Text
           style={{
-            //  fontFamily: 'Open Sans',
+            //
             fontSize: 18,
             fontWeight: '700',
             color: '#333333',
@@ -90,7 +97,7 @@ const MyProfile = () => {
         <TouchableOpacity>
           <Text
             style={{
-              // fontFamily: 'Open Sans',
+              //
               fontSize: 18,
               fontWeight: '700',
               color: colors.primary,
@@ -139,7 +146,7 @@ const MyProfile = () => {
 
       <Text
         style={{
-          // fontFamily: 'Open Sans',
+          //
           fontSize: 18,
           fontWeight: '700',
           color: '#333333',
@@ -166,7 +173,7 @@ const MyProfile = () => {
 
       {/* Logout section */}
       <View style={style.personalInfoDetails}>
-        <TouchableOpacity onPress={logout()}>
+        <TouchableOpacity onPress={logout}>
           <View style={style.personalInfo}>
             <Text style={style.actionLink}>Logout</Text>
             <MaterialIcons name="keyboard-arrow-right" size={30} />
@@ -201,13 +208,14 @@ const style = StyleSheet.create({
     margin: 10,
   },
   profileCap: {
-    width: 80,
-    height: 80,
+    width: 100,
+    height: 100,
     borderRadius: 100,
     backgroundColor: colors.profileCircle,
     alignItems: 'center',
-    justifyContent: 'center',
     borderColor: colors.primary,
+    borderWidth: 2,
+    padding: 10,
   },
   personalInfo: {
     flexDirection: 'row',
@@ -231,16 +239,15 @@ const style = StyleSheet.create({
     color: '#707070',
     fontSize: 14,
     fontWeight: '400',
-    // fontFamily: 'Open Sans',
+    //
   },
   valueStyle: {
     color: '#333333',
     fontSize: 14,
     fontWeight: '700',
-    fontFamily: 'Open Sans',
   },
   actionLink: {
-    // fontFamily: 'Open Sans',
+    //
     fontWeight: '600',
     fontSize: 14,
     color: '#db0004',

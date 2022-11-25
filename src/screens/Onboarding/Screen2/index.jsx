@@ -62,13 +62,21 @@ const Screen2 = () => {
           }}>
           Create Customized task flows
         </Text>
-        <Text style={{ fontSize: 14, paddingBottom: 5 }}>
-          Your to-do-list are automatically sorted into
+        <Text
+          style={{
+            fontSize: 14,
+            paddingBottom: 5,
+            paddingHorizontal: 40,
+            alignItems: 'center',
+            width: '100%',
+            justifyContent: 'center',
+            display: 'flex',
+            marginBottom: 20
+          }}>
+          Your to-do-list are automatically sorted into categories with a daily reminder to keep you
+          in check.
         </Text>
-        <Text style={{ fontSize: 14, paddingBottom: 5 }}>
-          categories with a daily reminder to keep you in check
-        </Text>
-        <Text style={{ fontSize: 14, paddingBottom: 30 }}>check.</Text>
+
         <Button onPress={() => navigation.navigate('Auth')} style={{ fontSize: 14 }} title="Next" />
       </View>
     </View>
