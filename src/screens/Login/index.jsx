@@ -120,9 +120,9 @@ const Login = () => {
             onValueChange={setChecked}
             color={isChecked ? '#4630EB' : undefined}
           />
-          <Text style={{ paddingLeft: 7, color: '#333333' }}>Remember me </Text>
+          <Text style={styles.stylew}>Remember me </Text>
         </View>
-        <Text style={{ color: '#714DD9' }}>Forgot Password ?</Text>
+        <Text style={styles.stylesss}>Forgot Password ?</Text>
       </View>
       <View
         style={{
@@ -135,38 +135,18 @@ const Login = () => {
         }}>
         <Button onPress={login(email, password)} style={{ fontSize: 14 }} title="Sign In" />
       </View>
-      <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          paddingHorizontal: 20,
-        }}>
-        <View style={{ height: 2, flex: 1, backgroundColor: '#D3D0D9' }} />
-        <Text style={{ paddingLeft: 10, paddingRight: 10, color: '#808080' }}>
-          Or continue with
-        </Text>
-        <View style={{ height: 2, flex: 1, backgroundColor: '#D3D0D9' }} />
+      <View style={styles.stylings}>
+        <View style={styles.styling1} />
+        <Text style={styles.styling2}>Or continue with</Text>
+        <View style={styles.styling3} />
       </View>
-      <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'center',
-          marginTop: 20,
-          paddingHorizontal: 20,
-          marginBottom: 40,
-        }}>
-        <Image source={google} style={{ margin: 20 }} />
-        <Image source={fb} style={{ margin: 20 }} />
+      <View style={styles.styling4}>
+        <Image source={google} style={styles.styless} />
+        <Image source={fb} style={styles.styless} />
       </View>
-      <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}>
-        <Text style={{ color: '#808080' }}>Don't have an account?</Text>
-        <Text style={{ color: '#714dd9' }} onPress={() => navigation.navigate('Registration')}>
+      <View style={styles.stylez}>
+        <Text style={styles.stylezzz}>Don't have an account?</Text>
+        <Text style={styles.stylesss} onPress={() => navigation.navigate('Registration')}>
           {' '}
           Sign Up
         </Text>

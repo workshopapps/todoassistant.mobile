@@ -16,26 +16,9 @@ const Screen2 = () => {
   }, []);
 
   return (
-    <View
-      style={{
-        height: '100%',
-        width: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        paddingTop: 60,
-        paddingLeft: 20,
-        paddingRight: 20,
-        backgroundColor: '#ffffff',
-      }}>
-      <View
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'flex-end',
-          paddingRight: 20,
-        }}>
-        <Text style={{ color: '#714DD9', fontSize: 14 }}> Skip</Text>
+    <View style={styles.viewOne}>
+      <View style={styles.viewTwo}>
+        <Text style={styles.textOne}> Skip</Text>
       </View>
       <Image
         source={home2}
