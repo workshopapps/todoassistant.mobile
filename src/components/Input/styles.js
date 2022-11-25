@@ -1,4 +1,6 @@
+// eslint-disable-next-line import/namespace
 import { StyleSheet, Dimensions } from 'react-native';
+
 import { colors } from '../../utils/colors';
 
 const { width } = Dimensions.get('window');

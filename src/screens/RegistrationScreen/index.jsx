@@ -7,32 +7,28 @@ import { View, Text, ScrollView, Platform, TouchableOpacity } from 'react-native
 
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
+import { colors } from '../../utils/colors';
 import styles from './index.styles'; // <--- Import the styles
 
 const RegistrationScreen = () => {
   const navigation = useNavigation();
   const [isChecked, setChecked] = useState(false);
   const [date, setDate] = useState(new Date(1598051730000));
-
+  const [dateText, setDateText] = useState('DD-MM-YYYY');
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(false);
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
-    setDate(currentDate);
-  };
 
-  const showMode = (currentMode) => {
-    DateTimePickerAndroid.open({
-      value: date,
-      mode: currentMode,
-      is24Hour: true,
-      onChange,
-    });
+    setShow(false);
+    setDate(currentDate);
+    setDateText(currentDate.toDateString());
   };
 
   const showDatePicker = () => {
-    showMode('date');
+    setShow(true);
+    setMode('date');
   };
 
   useLayoutEffect(() => {
@@ -50,12 +46,37 @@ const RegistrationScreen = () => {
           <Input label="Email" placeholder="doe@gmail.com" style={styles.label} />
           <Input label="Phone" placeholder="+254 **********" style={styles.label} />
           <Input label="Gender" placeholder="Male" style={styles.label} />
-          <View style={styles.date_picker_view}>
-            <Text style={styles.time_picker_text}>Date of Birth: </Text>
-            <TouchableOpacity style={styles.datePickerStyle}>
-              <Text>{date.toUTCString()}</Text>
+          <View
+            style={{
+              borderColor: '#000',
+              width: '100%',
+              paddingHorizontal: 30,
+            }}>
+            <Text style={{ fontWeight: '600', marginBottom: 8 }}>Date of Birth</Text>
+            <TouchableOpacity
+              style={{
+                backgroundColor: '#fff',
+                width: '100%',
+                padding: 10,
+                borderRadius: 8,
+                borderColor: colors.primary,
+                borderWidth: 1,
+              }}
+              onPress={showDatePicker}>
+              <Text style={{ color: 'grey' }}>{dateText}</Text>
             </TouchableOpacity>
           </View>
+
+          {show && (
+            <DateTimePicker
+              testID="dateTimePicker"
+              value={date}
+              mode={mode}
+              is24Hour
+              display="default"
+              onChange={onChange}
+            />
+          )}
 
           <Input
             label="Password"

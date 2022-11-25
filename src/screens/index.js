@@ -11,4 +11,4 @@ export { default as Login } from './Login';
 export { default as RegistrationScreen } from './RegistrationScreen';
 export { default as SettingScreen } from './SettingsScreen';
 export { default as OnboardingScreen1 } from './Onboarding/OnboardingScreen1';
-export { default as MyProfile } from './Profile/ProfileLayout';
+export { default as MyProfile } from './Profile/ProfileScreen';

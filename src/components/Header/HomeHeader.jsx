@@ -1,23 +1,28 @@
 /* eslint-disable import/namespace */
 import { useNavigation } from '@react-navigation/native';
-import React, { useContext } from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, Image, TouchableOpacity, TouchableHighlight } from 'react-native';
 
 import icon from '../../assets/profile.jpg';
 import Message from '../../assets/svg/message.svg';
-import { AuthContext } from '../../context/userContext';
 import styles from './index.styles';
 
 const HomeHeader = () => {
-  const { userInfo } = useContext(AuthContext);
-
   const navigation = useNavigation();
+
+  const profileNavigate = () => {
+    navigation.navigate('Profile');
+  };
+
+  useEffect(() => {
+    profileNavigate();
+  }, []);
 
   return (
     <View style={styles.container}>
       <View>
         <View style={styles.flexrow}>
-          <Text style={styles.title}>Welcome Home, {userInfo.email} </Text>
+          <Text style={styles.title}>Home</Text>
         </View>
         <Text style={styles.text}>Let's get you started!</Text>
       </View>
@@ -25,7 +30,7 @@ const HomeHeader = () => {
         <TouchableHighlight style={styles.m_4}>
           <Message />
         </TouchableHighlight>
-        <TouchableOpacity onPress={navigation.navigate('Profile')}>
+        <TouchableOpacity onPress={profileNavigate}>
           {/* Message Icon */}
           <Image source={icon} style={styles.image} />
         </TouchableOpacity>
