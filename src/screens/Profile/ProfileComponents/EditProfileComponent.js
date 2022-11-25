@@ -1,8 +1,10 @@
-import { View, Text, StyleSheet } from 'react-native';
+/* eslint-disable import/namespace */
 import React from 'react';
-import { colors } from '../../../utils/colors';
-import { Input } from '../../../components/Input/index';
+import { View, Text, StyleSheet } from 'react-native';
+
 import { Button } from '../../../components/Button';
+import { Input } from '../../../components/Input/index';
+import { colors } from '../../../utils/colors';
 
 const ProfileLayoutComponent = () => {
   return (
@@ -15,18 +17,18 @@ const ProfileLayoutComponent = () => {
 
         {/* form section */}
 
-        <Input label="Full name" placeholder={'Full Name'} value="Joseph Anderson" />
+        <Input label="Full name" placeholder="Full Name" value="Joseph Anderson" />
 
         <Input
           label="Email Address"
-          placeholder={'example@gmail.com'}
+          placeholder="example@gmail.com"
           value="Josephanderson@gmail.com"
         />
 
-        <Input label="Phone Number" placeholder={'081 234 5678'} value="081 234 5678" />
+        <Input label="Phone Number" placeholder="081 234 5678" value="081 234 5678" />
       </View>
 
-      <Button title={'Save Changes'} />
+      <Button title="Save Changes" />
     </View>
   );
 };

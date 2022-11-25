@@ -1,4 +1,6 @@
+// eslint-disable-next-line import/namespace
 import { StyleSheet, Dimensions } from 'react-native';
+
 import { colors } from '../../utils/colors';
 
 const { width } = Dimensions.get('window');
@@ -17,6 +19,7 @@ export const styles = StyleSheet.create({
     height: 50,
     width: width / 1.2,
     flexDirection: 'row',
+    backgroundColor: '#fff',
   },
   input: {
     flex: 1,

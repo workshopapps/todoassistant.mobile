@@ -1,22 +1,21 @@
-import { View, Text, Image, TextInput } from 'react-native';
-import Checkbox from 'expo-checkbox';
-import React, { useState, useLayoutEffect } from 'react';
+/* eslint-disable import/namespace */
 import { useNavigation } from '@react-navigation/native';
-import styles from './index.styles';
-import { useDispatch } from 'react-redux';
-import logo1 from '../../assets/logo1.png';
-import google from '../../assets/google.png';
-import fb from '../../assets/fb.png';
-import { login } from '../../features/authSlice';
+import Checkbox from 'expo-checkbox';
+import React, { useState, useLayoutEffect, useContext } from 'react';
+import { View, Text, Image, TextInput } from 'react-native';
 
+import fb from '../../assets/fb.png';
+import google from '../../assets/google.png';
+import logo1 from '../../assets/logo1.png';
 import { Button } from '../../components/Button';
+import { AuthContext } from '../../context/userContext';
+import styles from './index.styles';
 
 const Login = () => {
   const [isChecked, setChecked] = useState(false);
   const navigation = useNavigation();
-  const [email, setEmail] = useState();
-
-  const dispatch = useDispatch();
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -24,16 +23,7 @@ const Login = () => {
     });
   }, []);
 
-  const handleLogin = async () => {
-    let user;
-
-    user = {
-      isLoggedIn: true,
-      email: 'test@gmail.com',
-    };
-
-    dispatch(login(user));
-  };
+  const { login } = useContext(AuthContext);
 
   return (
     <View style={styles.cards}>
@@ -46,14 +36,75 @@ const Login = () => {
         />
       </View>
 
-      <Text style={styles.textOne}>Login</Text>
+      {/* <Text style={styles.textOne}>Login</Text>
       <Text style={styles.textThree}>Email Address</Text>
       <TextInput placeholder="Enter Email " style={styles.viewer} />
       <Text style={styles.textThree}>Password</Text>
-      <TextInput placeholder="Password " style={styles.viewer} />
+      <TextInput placeholder="Password " style={styles.viewer} /> */}
+      <Text style={{
+          textAlign: 'left',
+          paddingTop: 30,
+          paddingBottom: 5,
+        }}>
+        Email Address
+      </Text>
+      <TextInput
+        placeholder="john.doe@gmail.com"
+        value={email}
+        onChangeText={(text) => setEmail(text)}
+        keyboardType="email-address"
+        style={{
+          border: 2,
+          borderRadius: 8,
+          borderWidth: 1,
+          height: 48,
+          width: '100%',
+          justifyContent: 'center',
+          borderColor: '#030303',
+          backgroundColor: '#F6FAFB',
+          paddingLeft: 10,
+        }}
+      />
+      <Text
+        style={{
+          color: '#000000',
+          fontSize: 14,
+          textAlign: 'left',
+          paddingTop: 30,
+          paddingBottom: 5,
+        }}>
+        Password
+      </Text>
+      <TextInput
+        placeholder="Password"
+        secureTextEntry
+        value={password}
+        onChangeText={(text) => setPassword(text)}
+        style={{
+          border: 2,
+          borderRadius: 8,
+          borderWidth: 1,
+          height: 48,
+          width: '100%',
+          justifyContent: 'center',
+          borderColor: '#030303',
+          backgroundColor: '#F6FAFB',
+          paddingLeft: 10,
+        }}
+      />
 
-      <View style={styles.views}>
-        <View style={styles.viewrr}>
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          marginTop: 10,
+          marginBottom: 30,
+        }}>
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+          }}>
           <Checkbox
             style={styles.checkbox}
             value={isChecked}
@@ -64,8 +115,16 @@ const Login = () => {
         </View>
         <Text style={styles.stylesss}>Forgot Password ?</Text>
       </View>
-      <View style={styles.styling}>
-        <Button onPress={handleLogin} style={{ fontSize: 14, width: '110%' }} title="Sign In" />
+      <View
+        style={{
+          alignItems: 'center',
+          paddingTop: 20,
+          paddingLeft: 20,
+          paddingRight: 20,
+          paddingBottom: 30,
+          flexDirection: 'column',
+        }}>
+        <Button onPress={login(email, password)} style={{ fontSize: 14 }} title="Sign In" />
       </View>
       <View style={styles.stylings}>
         <View style={styles.styling1} />
