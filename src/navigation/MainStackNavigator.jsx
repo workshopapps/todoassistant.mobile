@@ -1,14 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 
-import {
-  HomeScreen,
-  OtpScreen,
-  SettingScreen,
-  TaskScreen,
-  MyProfile,
-  TaskScreenContd,
-} from '../screens';
+import { HomeScreen, OtpScreen, SettingScreen, TaskScreen, MyProfile } from '../screens';
 import BottomTabsNavigator from './BottomTabsNavigator';
 
 const Stack = createNativeStackNavigator();
@@ -20,13 +13,9 @@ const MainStackNavigator = () => {
       <Stack.Screen name="OtpScreen" component={OtpScreen} />
       <Stack.Screen options={{ headerShown: false }} name="Home" component={HomeScreen} />
       <Stack.Screen options={{ headerShown: false }} name="TaskScreen" component={TaskScreen} />
-      <Stack.Screen
-        options={{ headerShown: false }}
-        name="TaskScreenContd"
-        component={TaskScreenContd}
-      />
+
       <Stack.Screen options={{ headerShown: false }} name="Settings" component={SettingScreen} />
-      <Stack.Screen options={{ headerShown: false }} name="Profile" component={MyProfile} />
+      <Stack.Screen options={{ headerTitle: '' }} name="Profile" component={MyProfile} />
     </Stack.Navigator>
   );
 };

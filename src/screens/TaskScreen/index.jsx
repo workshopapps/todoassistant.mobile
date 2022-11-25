@@ -275,7 +275,7 @@ const TaskScreen = () => {
           <View style={{ height: 30 }} />
 
           <Button
-            onPress={() => navigation.navigate('TaskScreenContd')}
+            onPress={() => navigation.navigate('')}
             style={{ fontSize: 14, width: '90%' }}
             title="Create Task"
           />

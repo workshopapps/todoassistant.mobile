@@ -11,7 +11,20 @@ const AuthStackNavigator = () => {
     <Stack.Navigator>
       <Stack.Screen name="Onboarding1" component={OnboardingScreen1} />
       <Stack.Screen name="Onboarding2" component={Screen2} />
-      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen
+        name="Login"
+        component={Login}
+        options={{
+          headerBackVisible: false,
+          headerStyle: {
+            backgroundColor: '#F6FAFB',
+            alignItems: 'center',
+            width: '100%',
+          },
+          headerTitleAlign: 'center',
+          headerTitle: () => <Logo />,
+        }}
+      />
       <Stack.Screen name="Auth" component={Auth} />
       <Stack.Screen
         name="Registration"
