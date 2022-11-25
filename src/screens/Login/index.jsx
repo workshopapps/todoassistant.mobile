@@ -19,7 +19,7 @@ const Login = () => {
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerShown: false,
+      // headerShown: false,
     });
   }, []);
 
@@ -31,26 +31,10 @@ const Login = () => {
         height: '100%',
         width: '100%',
         flexDirection: 'column',
-        justifyContent: 'center',
-        paddingTop: 60,
         paddingLeft: 20,
         paddingRight: 20,
         backgroundColor: '#ffffff',
       }}>
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'center',
-          marginTop: 60,
-        }}>
-        <Image
-          source={logo1}
-          style={{
-            width: 128,
-          }}
-        />
-      </View>
-
       <Text
         style={{
           color: '#000000',
