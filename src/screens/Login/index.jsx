@@ -19,29 +19,38 @@ const Login = () => {
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerShown: false,
+      // headerShown: false,
     });
   }, []);
 
   const { login } = useContext(AuthContext);
 
   return (
-    <View style={styles.cards}>
-      <View style={styles.cards1}>
-        <Image
-          source={logo1}
-          style={{
-            width: 128,
-          }}
-        />
-      </View>
+    <View
+      style={{
+        height: '100%',
+        width: '100%',
+        flexDirection: 'column',
+        paddingLeft: 20,
+        paddingRight: 20,
+        backgroundColor: '#ffffff',
+      }}>
+      <Text
+        style={{
+          color: '#000000',
+          fontSize: 18,
+          fontWeight: 'bold',
+          textAlign: 'center',
+          paddingTop: 30,
+          paddingBottom: 30,
+        }}>
+        Login
+      </Text>
+      <Text
+        style={{
+          color: '#000000',
+          fontSize: 14,
 
-      {/* <Text style={styles.textOne}>Login</Text>
-      <Text style={styles.textThree}>Email Address</Text>
-      <TextInput placeholder="Enter Email " style={styles.viewer} />
-      <Text style={styles.textThree}>Password</Text>
-      <TextInput placeholder="Password " style={styles.viewer} /> */}
-      <Text style={{
           textAlign: 'left',
           paddingTop: 30,
           paddingBottom: 5,
