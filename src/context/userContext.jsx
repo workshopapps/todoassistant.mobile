@@ -1,6 +1,8 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import React, { createContext, useState, useEffect } from 'react';
+// eslint-disable-next-line import/namespace
+import { Alert } from 'react-native';
 
 import { BASE_URL } from '../utils/config';
 
@@ -33,6 +35,36 @@ export const AuthProvider = ({ children }) => {
 
     // setUserToken('fakdjfha');
     //
+    setIsLoading(false);
+  };
+
+  const register = (first_name, last_name, email, password, date_of_birth, phone, gender) => {
+    setIsLoading(true);
+    axios
+      .post(`${BASE_URL}/user`, {
+        first_name,
+        last_name,
+        email,
+        password,
+        date_of_birth,
+        phone,
+        gender,
+      })
+      .then((res) => {
+        console.log(res.data);
+        Alert.alert('Success', res.data.message);
+
+        let userInfo = res.data;
+        setUserInfo(userInfo);
+        setUserToken(userInfo.access_token);
+
+        AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
+        AsyncStorage.setItem('userToken', userInfo.access_token);
+      })
+      .catch((err) => {
+        Alert(err);
+      });
+
     setIsLoading(false);
   };
 
@@ -69,7 +101,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ login, logout, isLoading, userToken, userInfo }}>
+    <AuthContext.Provider value={{ login, logout, isLoading, userToken, userInfo, register }}>
       {children}
     </AuthContext.Provider>
   );
