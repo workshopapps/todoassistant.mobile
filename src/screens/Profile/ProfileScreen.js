@@ -8,50 +8,56 @@ import { AuthContext } from '../../context/userContext';
 import { colors } from '../../utils/colors';
 
 const MyProfile = () => {
-  const [isModal, setIsModal] = useState(false);
-  const [modalOption, setModalOption] = useState('');
-  const [modalMsg, setModalMsg] = useState('');
-  const [modalNeg, setModalNegBotton] = useState('');
-  const [modalPos, setModalPosBotton] = useState('');
+  // const [isModal, setIsModal] = useState(false);
+  // const [modalOption, setModalOption] = useState('');
+  // const [modalMsg, setModalMsg] = useState('');
+  // const [modalNeg, setModalNegBotton] = useState('');
+  // const [modalPos, setModalPosBotton] = useState('');
 
   const { userInfo, logout } = useContext(AuthContext);
 
-  const CloseModal = (bool) => {
-    setIsModal(bool);
-  };
+  // const CloseModal = (bool) => {
+  //   setIsModal(bool);
+  // };
 
-  const ActiveBg = () => {
-    if (isModal) {
-      return '#f5f5f5';
-    } else {
-      return '#F6FAFB';
-    }
-  };
+  // const ActiveBg = () => {
+  //   if (isModal) {
+  //     return '#f5f5f5';
+  //   } else {
+  //     return '#F6FAFB';
+  //   }
+  // };
 
-  const Logout = (bool) => {
-    setModalMsg('Are you sure you want to logout');
-    setModalOption('Logout');
-    setModalNegBotton('Cancel');
-    setModalPosBotton('Logout');
-    setIsModal(bool);
-  };
+  // const Logout = (bool) => {
+  //   setModalMsg('Are you sure you want to logout');
+  //   setModalOption('Logout');
+  //   setModalNegBotton('Cancel');
+  //   setModalPosBotton('Logout');
+  //   setIsModal(bool);
+  // };
 
-  const DeleteAccount = (bool) => {
-    setModalMsg('Are you sure you want to delete your account ');
-    setModalOption('Delete account');
-    setModalNegBotton('Cancel');
-    setModalPosBotton('Delete');
-    setIsModal(bool);
-  };
+  // const DeleteAccount = (bool) => {
+  //   setModalMsg('Are you sure you want to delete your account ');
+  //   setModalOption('Delete account');
+  //   setModalNegBotton('Cancel');
+  //   setModalPosBotton('Delete');
+  //   setIsModal(bool);
+  // };
 
-  useEffect(() => {
-    CloseModal(false);
-    Logout(false);
-    DeleteAccount(false);
-  }, []);
+  // useEffect(() => {
+  //   CloseModal(false);
+  //   Logout(false);
+  //   DeleteAccount(false);
+  // }, []);
 
   return (
-    <View style={[style.container, { backgroundColor: ActiveBg() }]}>
+    <View
+      style={[
+        style.container,
+        {
+          //  backgroundColor: ActiveBg()
+        },
+      ]}>
       {/* Upper section */}
       <View style={style.upperProfile}>
         <View style={style.profileCap}>
@@ -73,13 +79,18 @@ const MyProfile = () => {
       {/* Personal Information */}
       <View style={style.personalInfo}>
         <Text
-          style={{ fontFamily: 'Open Sans', fontSize: 18, fontWeight: '700', color: '#333333' }}>
+          style={{
+            //  fontFamily: 'Open Sans',
+            fontSize: 18,
+            fontWeight: '700',
+            color: '#333333',
+          }}>
           Personal Information
         </Text>
         <TouchableOpacity>
           <Text
             style={{
-              fontFamily: 'Open Sans',
+              // fontFamily: 'Open Sans',
               fontSize: 18,
               fontWeight: '700',
               color: colors.primary,
@@ -110,7 +121,7 @@ const MyProfile = () => {
 
       {/* modal dialog */}
 
-      <Modal
+      {/* <Modal
         transparent
         animationType="fade"
         visible={isModal}
@@ -122,13 +133,13 @@ const MyProfile = () => {
           modalOption={modalOption}
           setIsModal={CloseModal}
         />
-      </Modal>
+      </Modal> */}
 
       {/* Security section */}
 
       <Text
         style={{
-          fontFamily: 'Open Sans',
+          // fontFamily: 'Open Sans',
           fontSize: 18,
           fontWeight: '700',
           color: '#333333',
@@ -164,14 +175,14 @@ const MyProfile = () => {
       </View>
 
       {/* Delete Account section */}
-      <View style={style.personalInfoDetails}>
+      {/* <View style={style.personalInfoDetails}>
         <TouchableOpacity onPress={() => DeleteAccount(true)}>
           <View style={style.personalInfo}>
             <Text style={style.actionLink}>Delete account</Text>
             <MaterialIcons name="keyboard-arrow-right" size={30} />
           </View>
         </TouchableOpacity>
-      </View>
+      </View> */}
     </View>
   );
 };
@@ -220,7 +231,7 @@ const style = StyleSheet.create({
     color: '#707070',
     fontSize: 14,
     fontWeight: '400',
-    fontFamily: 'Open Sans',
+    // fontFamily: 'Open Sans',
   },
   valueStyle: {
     color: '#333333',
@@ -229,7 +240,7 @@ const style = StyleSheet.create({
     fontFamily: 'Open Sans',
   },
   actionLink: {
-    fontFamily: 'Open Sans',
+    // fontFamily: 'Open Sans',
     fontWeight: '600',
     fontSize: 14,
     color: '#db0004',
