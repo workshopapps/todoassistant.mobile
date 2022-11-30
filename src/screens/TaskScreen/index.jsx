@@ -1,4 +1,13 @@
-import { View, Text, Image, TextInput, TouchableOpacity,Platform, ScrollView, Modal } from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  TextInput,
+  TouchableOpacity,
+  Platform,
+  ScrollView,
+  Modal,
+} from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
@@ -14,10 +23,11 @@ import RadioForm from 'react-native-simple-radio-button';
 import { useDispatch, useSelector } from 'react-redux';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import moment from 'moment';
+import { BASE_URL } from '../../utils/config';
 
 const TaskScreen = () => {
   const navigation = useNavigation();
-  const baseURL = 'http://api.ticked.hng.tech:2022/task';
+  const baseURL = `${BASE_URL}/task`;
   const [modalVisible, setModalVisible] = useState(false);
 
   const [isPickerShow, setIsPickerShow] = useState(false);
