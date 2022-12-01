@@ -20,7 +20,6 @@ const BottomTabsNavigator = () => {
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
-        tabBarStyle: { height: 70, paddingBottom: 20 },
       }}>
       <Stack.Screen
         name="Home"
