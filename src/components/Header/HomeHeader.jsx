@@ -17,9 +17,7 @@ const HomeHeader = () => {
     navigation.navigate('Profile');
   };
 
-  useEffect(() => {
-    profileNavigate();
-  }, []);
+  
 
   return (
     <View style={styles.container}>
@@ -28,7 +26,9 @@ const HomeHeader = () => {
       </View>
       <View style={styles.flexrow1}>
         
-        <TouchableOpacity onPress={profileNavigate} style={styles.icon}>
+        <TouchableOpacity 
+        // onPress={profileNavigate}
+         style={styles.icon}>
           {/* Message Icon */}
           <UserIcon name="user" size={24} color="#714DD9" />
         </TouchableOpacity>
