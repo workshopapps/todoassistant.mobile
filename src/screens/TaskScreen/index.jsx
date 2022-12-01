@@ -1,4 +1,16 @@
-import { View, Text, Image, TextInput, TouchableOpacity,Platform, ScrollView, Modal } from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  TextInput,
+  TouchableOpacity,
+  Platform,
+  ScrollView,
+  Modal,
+  Alert
+} from 'react-native';
+
+
 import DateTimePicker from '@react-native-community/datetimepicker';
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
@@ -17,7 +29,7 @@ import moment from 'moment';
 
 const TaskScreen = () => {
   const navigation = useNavigation();
-  const baseURL = 'http://api.ticked.hng.tech:2022/task';
+  const baseURL = 'https://api.ticked.hng.tech/api/v1/task';
   const [modalVisible, setModalVisible] = useState(false);
 
   const [isPickerShow, setIsPickerShow] = useState(false);
@@ -81,28 +93,40 @@ const TaskScreen = () => {
   ];
 
   const createTaskHandler = async () => {
-    try {
-      await axios.post(baseURL, {
-        user_id: '455',
-        title: title,
-        description: description,
-        start_time: time,
-        end_time: time,
-      });
+    // try {
+      // const result = await axios.post(baseURL, {
+      //   title: title,
+      //   description: description,
+      //   start_time: time,
+      //   end_time: '2022-11-24T23:51:00+01:00',
+      //   repeat: 'never',
+      //   va_option: 'call',
+      // }
+      await axios
+        .post(baseURL, {
+          "title": 'A Test Task',
+          "description": 'A New Task for Peter',
+          "start_time": '2022-11-19T12:56:04+01:00',
+          "end_time": '2022-11-24T23:51:00+01:00',
+        "repeat": "never",
+          "va_option": 'call',
+      })
+        .then((response) => {
+          console.log(response.data);
+      })
+      .catch((err) => console.log(err));
+
       setModalVisible(true);
-    } catch (error) {
-      console.log(error);
-    }
+    // } catch (error) {
+      // console.log(error);
+    // }
   };
 
   return (
     <SafeAreaView>
       <View style={styles.viewOne}>
+        <TouchableOpacity onPress={() => navigation.navigate('Home')} >
         <Image source={arrowLeft} style={styles.img} />
-        <TouchableOpacity onPress={() => createTaskHandler()}>
-          <View style={styles.viewTwo}>
-            <Text style={styles.textOne}>Create Task</Text>
-          </View>
         </TouchableOpacity>
       </View>
       <ScrollView style={styles.viewThree}>
@@ -138,7 +162,7 @@ const TaskScreen = () => {
         </Modal>
         <View style={styles.viewingOne}>
           <View style={styles.textSeven}>
-            <Text style={styles.viewingTwo}>Create To Do</Text>
+            <Text style={styles.viewingTwo}>New task</Text>
           </View>
           <View style={styles.viewee} />
           <Text style={styles.textTen}>Title</Text>
@@ -233,6 +257,14 @@ const TaskScreen = () => {
             />
           </View>
           <View style={{ height: 30 }} />
+      
+          <Button
+            onPress={() => createTaskHandler()}
+            style={{ fontSize: 14 }}
+            title="Create Task"
+          />
+       <View style={{ height: 200 }} />
+        
         </View>
       </ScrollView>
     </SafeAreaView>

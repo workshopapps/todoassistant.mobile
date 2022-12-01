@@ -35,9 +35,7 @@ const Auth = () => {
           flexDirection: 'row',
           justifyContent: 'flex-end',
           paddingRight: 20,
-        }}>
-        <Text style={{ color: '#714DD9', fontSize: 14 }}> Login</Text>
-      </View>
+        }}></View>
       <Image
         source={authframe}
         style={{
