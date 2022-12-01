@@ -28,8 +28,8 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 15,
-    justifyContent: 'space-between',
-    width: '33%'
+    // justifyContent: 'space-between',
+    // width: '33%'
   },
   m_4: {
     marginHorizontal: 10,

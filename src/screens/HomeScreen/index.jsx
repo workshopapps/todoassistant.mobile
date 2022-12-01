@@ -18,6 +18,7 @@ const HomeScreen = () => {
                         focused: true,
                         textTransform: 'capitalize',
                     },
+                    
                     tabBarIndicatorStyle: {
                         backgroundColor: '#714DD9',
                     },

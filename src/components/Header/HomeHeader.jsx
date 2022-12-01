@@ -27,9 +27,7 @@ const HomeHeader = () => {
         <Logo height={26} />
       </View>
       <View style={styles.flexrow1}>
-        <TouchableHighlight style={styles.icon}>
-          <Bell name="bell" size={24} color="#714DD9" />
-        </TouchableHighlight>
+        
         <TouchableOpacity onPress={profileNavigate} style={styles.icon}>
           {/* Message Icon */}
           <UserIcon name="user" size={24} color="#714DD9" />
