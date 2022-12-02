@@ -9,46 +9,18 @@ import ModalPop from '../../components/Modal/ModalPop';
 import { AuthContext } from '../../context/userContext';
 import { colors } from '../../utils/colors';
 
-const MyProfile = () => {
+const MyProfile = ({ navigation }) => {
   // const [isModal, setIsModal] = useState(false);
   // const [modalOption, setModalOption] = useState('');
   // const [modalMsg, setModalMsg] = useState('');
   // const [modalNeg, setModalNegBotton] = useState('');
   // const [modalPos, setModalPosBotton] = useState('');
 
-  const { userInfo, logout } = useContext(AuthContext);
+  const { userInfo, logout  } = useContext(AuthContext);
 
   const navigate = useNavigation();
-  const navigation = useNavigation();
+
   const [modalVisible, setModalVisible] = useState(false);
-
-  // const CloseModal = (bool) => {
-  //   setIsModal(bool);
-  // };
-
-  // const ActiveBg = () => {
-  //   if (isModal) {
-  //     return '#f5f5f5';
-  //   } else {
-  //     return '#F6FAFB';
-  //   }
-  // };
-
-  // const Logout = (bool) => {
-  //   setModalMsg('Are you sure you want to logout');
-  //   setModalOption('Logout');
-  //   setModalNegBotton('Cancel');
-  //   setModalPosBotton('Logout');
-  //   setIsModal(bool);
-  // };
-
-  // const DeleteAccount = (bool) => {
-  //   setModalMsg('Are you sure you want to delete your account ');
-  //   setModalOption('Delete account');
-  //   setModalNegBotton('Cancel');
-  //   setModalPosBotton('Delete');
-  //   setIsModal(bool);
-  // };
 
   useEffect(() => {
     navigate.setOptions({
@@ -84,7 +56,6 @@ const MyProfile = () => {
               backgroundColor: 'white',
               borderRadius: 8,
               padding: 20,
-              alignItems: 'center',
               shadowColor: '#000',
               shadowOffset: {
                 width: 0,
@@ -94,18 +65,33 @@ const MyProfile = () => {
               shadowRadius: 4,
               elevation: 2,
             }}>
-            <Text style={{ fontWeight: '700', fontSize: 18, paddingBottom: 10 }}>Logout</Text>
-            <Text style={{ fontWeight: '400', fontSize: 14 }}>
-              Are you sure you want log out of your ticked account?
+            <View
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'flex-start',
+              }}>
+              <Text
+                style={{
+                  fontWeight: '700',
+                  fontSize: 18,
+                  paddingBottom: 10,
+                  paddingLeft: 20,
+                }}>
+                Logout
+              </Text>
+            </View>
+            <Text style={{ fontWeight: '400', fontSize: 14, paddingLeft: 20 }}>
+              Are you sure you want log out of your ticked {'\n'}account?
             </Text>
             <View style={{}}>
               <Button
-                onPress={() => navigation.navigate('OnboardingScreen1')}
+                onPress={logout}
                 style={{ fontSize: 14, marginBottom: 5, marginTop: 20, width: 250 }}
                 title="Logout"
               />
               <LinedButton
-                onPress={() => navigation.navigate('Profile')}
+             onPress={() => navigate.goBack()}
                 style={{ fontSize: 14, width: 250 }}
                 title="Cancel"
               />
@@ -119,7 +105,6 @@ const MyProfile = () => {
           <View style={style.profileCap}>
             <Text style={{ color: '#707070', fontSize: 50 }}>J</Text>
           </View>
-
           <Text style={{ fontSize: 18, color: '#333333', marginBottom: 10, fontWeight: 'bold' }}>
             Jefferson Anderson
           </Text>
@@ -143,7 +128,7 @@ const MyProfile = () => {
             }}>
             Personal Information
           </Text>
-          <TouchableOpacity>
+          <TouchableOpacity  onPress={() => navigation.navigate('EditProfileComponent')} >
             <Text
               style={{
                 //
@@ -237,7 +222,7 @@ const MyProfile = () => {
           </TouchableOpacity>
         </View>
         <View style={style.personalInfoDetails}>
-          <TouchableOpacity>
+          <TouchableOpacity   onPress={() => navigation.navigate('DeleteProfile')}>
             <View style={style.personalInfo}>
               <Text style={style.actionLink}>Delete account</Text>
               <MaterialIcons name="keyboard-arrow-right" size={30} color={'#714dd9'} />
