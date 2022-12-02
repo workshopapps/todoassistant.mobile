@@ -1,11 +1,14 @@
-import axios from "axios";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import axios from 'axios';
 
-import * as config from "./config";
+import * as config from './config';
+
+
 
 const Axios = axios.create({
   baseURL: config.BASE_URL,
   headers: {
-    "Content-Type": "application/json",
+    'Content-Type': 'application/json',
   },
 });
 

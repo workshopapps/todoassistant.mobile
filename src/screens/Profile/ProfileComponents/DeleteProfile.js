@@ -12,11 +12,26 @@ import React, { useState } from 'react';
 import arrowLeft from '../../../assets/arrowLeft.png';
 import { useNavigation } from '@react-navigation/native';
 import { Button } from '../../../components/Button';
-import { LinedButton } from '../../../components/LinedButton';
+import axios from 'axios';
+
+
 const DeleteProfile = () => {
   const navigation = useNavigation();
   const [modalVisible, setModalVisible] = useState(false);
-
+  const deleteUser = async () => {
+  
+    axios
+      .delete(baseURL, payload, {
+        headers: {
+          Authorization: `Bearer ${await AsyncStorage.getItem('userToken')}`,
+        },
+      })
+      .then((response) => {
+        console.log(response.data);
+        setModalVisible(true);
+      })
+      .catch((err) => console.log(err.response.data));
+  };
   return (
     <View
       style={{
@@ -214,7 +229,7 @@ const DeleteProfile = () => {
           justifyContent: 'center',
         }}>
         <TouchableOpacity
-          onPress={() => {
+          onPress={(deleteUser) => {
             setModalVisible(!modalVisible);
           }}
           style={{
