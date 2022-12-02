@@ -25,7 +25,7 @@ const MyProfile = ({ navigation }) => {
   useEffect(() => {
     navigate.setOptions({
       headerLeft: () => (
-        <TouchableOpacity onPress={() => navigate.goBack()}>
+        <TouchableOpacity onPress={() => navigate.goBack()} style={{backgroundColor: "#f9f7ff"}}>
           <MaterialIcons name="arrow-back" size={25} color={colors.primary} />
         </TouchableOpacity>
       ),
@@ -188,7 +188,7 @@ const MyProfile = ({ navigation }) => {
           Security
         </Text>
         <View style={style.personalInfoDetails}>
-          <View style={{ height: 120, width: 335 }}>
+          <View style={{ width: 335 }}>
             <TouchableOpacity onPress={() => navigation.navigate('ChangePasswordComponent')}>
               <View style={style.personalInfo}>
                 <Text>Change Password</Text>
