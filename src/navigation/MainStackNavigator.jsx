@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 
-import { HomeScreen, OtpScreen, SettingScreen, TaskScreen, MyProfile, DeleteProfile,EditProfileComponent } from '../screens';
+import { HomeScreen, OtpScreen, SettingScreen, TaskScreen, MyProfile, DeleteProfile,EditProfileComponent, ChangePasswordComponent } from '../screens';
 import BottomTabsNavigator from './BottomTabsNavigator';
 
 const Stack = createNativeStackNavigator();
@@ -14,6 +14,7 @@ const MainStackNavigator = () => {
       <Stack.Screen options={{ headerShown: false }} name="Home" component={HomeScreen} />
       <Stack.Screen options={{ headerShown: false }} name="DeleteProfile" component={DeleteProfile} />
       <Stack.Screen options={{ headerShown: false }} name="EditProfileComponent" component={EditProfileComponent} />
+      <Stack.Screen options={{ headerShown: false }} name="ChangePasswordComponent" component={ChangePasswordComponent} />
       <Stack.Screen options={{ headerShown: false }} name="TaskScreen" component={TaskScreen} />
 
       <Stack.Screen options={{ headerShown: false }} name="Settings" component={SettingScreen} />

@@ -189,7 +189,7 @@ const MyProfile = ({ navigation }) => {
         </Text>
         <View style={style.personalInfoDetails}>
           <View style={{ height: 120, width: 335 }}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('ChangePasswordComponent')}>
               <View style={style.personalInfo}>
                 <Text>Change Password</Text>
 

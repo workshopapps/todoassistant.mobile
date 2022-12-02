@@ -29,11 +29,9 @@ const DeleteProfile = () => {
         </TouchableOpacity>
       </View>
       <Text style={{ paddingLeft: 20, fontSize: 22, fontWeight: '700', paddingBottom: 20 }}>
-        
         Delete account
       </Text>
       <Text style={{ paddingLeft: 20, fontSize: 14, fontWeight: '400', paddingBottom: 30 }}>
-
         Deleting your account cannot be undone and will {'\n'} cause the following action to take
         place:
       </Text>
@@ -75,7 +73,6 @@ const DeleteProfile = () => {
             fontSize: 14,
             fontWeight: '400',
           }}>
-          
           Your will lose all progress attached to your {'\n'} account.
         </Text>
       </View>
@@ -96,24 +93,33 @@ const DeleteProfile = () => {
             fontSize: 14,
             fontWeight: '400',
           }}>
-        
           Your billing will stop at the end of current {'\n'} period.
         </Text>
       </View>
-    <View style={{display:"flex", flexDirection:"coloumn",  width: "100%", alignItems: 'center', justifyContent:"center", }}>
-    <TouchableOpacity style={{ width: 120,
-    height: 48,
-    borderRadius: 8,
-    backgroundColor: "#DB0004",
-    alignItems: 'center',
-    marginBottom: 30,
-    justifyContent: 'center',}}>
-            <Text style={{ color: '#ffffff', fontWeight: '600', fontSize: 14,  }}> Delete account</Text>
-          </TouchableOpacity>
-          <TouchableOpacity>
+      <View
+        style={{
+          display: 'flex',
+          flexDirection: 'coloumn',
+          width: '100%',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+        <TouchableOpacity
+          style={{
+            width: 120,
+            height: 48,
+            borderRadius: 8,
+            backgroundColor: '#DB0004',
+            alignItems: 'center',
+            marginBottom: 30,
+            justifyContent: 'center',
+          }}>
+          <Text style={{ color: '#ffffff', fontWeight: '600', fontSize: 14 }}> Delete account</Text>
+        </TouchableOpacity>
+        <TouchableOpacity>
           <Text style={{ color: '#0000000', fontWeight: '600', fontSize: 14 }}> Cancel</Text>
-          </TouchableOpacity>
-        </View>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
