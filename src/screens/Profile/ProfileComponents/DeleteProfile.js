@@ -106,10 +106,20 @@ const DeleteProfile = () => {
                 style={{ fontSize: 14, marginBottom: 5, marginTop: 20, width: 250 }}
                 title="Cancel"
               />
-              <LinedButton
-                style={{ fontSize: 14, width: 250, borderColor: '#DB0004' }}
-                title="Delete Account"
-              />
+              <View
+                style={{
+                  
+                  width: 250,
+                  height: 48,
+                  borderRadius: 8,
+                  borderColor: '#DB0004',
+                  borderWidth: 1,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  marginLeft:20
+                }}>
+                <Text style={{fontSize: 14, color:"#DB0004"}}>Delete Account</Text>
+              </View>
             </View>
           </View>
         </View>
