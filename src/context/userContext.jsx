@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
         console.log(res.data);
         let userInfo = res.data;
         setUserInfo(userInfo);
-        // setUserToken(userInfo.access_token);
+        setUserToken(userInfo.access_token);
 
         AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
         AsyncStorage.setItem('userToken', userInfo.access_token);
@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
         console.log(err);
       });
 
-    setUserToken('fakdjfha');
+    // setUserToken('fakdjfha');
     //
     setIsLoading(false);
   };
