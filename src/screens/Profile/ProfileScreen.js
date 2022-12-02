@@ -5,7 +5,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Modal, ScrollView, Alert } fr
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { Button } from '../../components/Button';
 import { LinedButton } from '../../components/LinedButton';
-import ModalPop from '../../components/Modal/ModalPop';
+
 import { AuthContext } from '../../context/userContext';
 import { colors } from '../../utils/colors';
 
