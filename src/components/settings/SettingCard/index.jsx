@@ -6,7 +6,7 @@ import SettingOption from '../SettingOption';
 const SettingsCard = ({ title, children }) => {
   return (
     <View>
-      <Text>{title}</Text>
+      <Text style={styles.title}>{title}</Text>
       <View style={styles.card}>{children}</View>
     </View>
   );

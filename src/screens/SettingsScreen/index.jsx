@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useLayoutEffect } from 'react';
 // eslint-disable-next-line import/namespace
-import { ScrollView, Text, TouchableOpacity, TouchableHighlight } from 'react-native';
+import { ScrollView, Text, View, TouchableOpacity, TouchableHighlight } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -20,17 +20,17 @@ const SettingScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <TouchableHighlight onPress={() => navigation.goBack()}>
-        <Icon name="arrow-back" size={20} />
-      </TouchableHighlight>
+      <View style={styles.flex}>
+        <TouchableHighlight onPress={() => navigation.goBack()}>
+          <Icon name="arrow-back" size={20} />
+        </TouchableHighlight>
 
-      <TouchableOpacity >
         <Text style={styles.title}>Settings</Text>
-      </TouchableOpacity>
+      </View>
       <ScrollView style={styles.marginBottom}>
         <SettingCard>
           <SettingOption icon="user-circle-o" name="Account" />
-          <SettingOption icon="home" name="Upgrade to Pro"  />
+          <SettingOption icon="home" name="Upgrade to Pro" />
           <SettingOption icon="setting" name="Settings" />
         </SettingCard>
         <SettingCard title="Personalisation">
@@ -38,7 +38,7 @@ const SettingScreen = () => {
         </SettingCard>
         <SettingCard title="Productivity">
           <SettingOption icon="bell-o" name="Notifications" />
-          <SettingOption icon="clock-o" name="Reminders" screen={"Reminder"} />
+          <SettingOption icon="clock-o" name="Reminders" screen={'Reminder'} />
         </SettingCard>
         <SettingCard title="More">
           <SettingOption icon="question-circle-o" name="Help Center" />
