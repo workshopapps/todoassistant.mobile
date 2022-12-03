@@ -5,7 +5,13 @@ export default StyleSheet.create({
     paddingVertical: 10,
     backgroundColor: '#fff',
     borderRadius: 10,
-    paddingHorizontal: 5,
+    paddingHorizontal: 10,
     marginBottom: 10,
   },
+  title: {
+    fontSize: 16,
+    fontWeight: '600',
+    lineHeight: 20,
+    paddingVertical: 10,
+  }
 });
