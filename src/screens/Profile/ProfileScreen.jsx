@@ -1,7 +1,17 @@
 /* eslint-disable import/namespace */
 import { useNavigation } from '@react-navigation/native';
 import React, { useEffect, useState, useContext } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Modal, ScrollView, Alert } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Modal,
+  ScrollView,
+  Alert,
+  TouchableHighlight,
+} from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { Button } from '../../components/Button';
 import { LinedButton } from '../../components/LinedButton';
@@ -24,16 +34,12 @@ const MyProfile = ({ navigation }) => {
 
   useEffect(() => {
     navigate.setOptions({
-      headerLeft: () => (
-        <TouchableOpacity onPress={() => navigate.goBack()}>
-          <MaterialIcons name="arrow-back" size={25} color={colors.primary} />
-        </TouchableOpacity>
-      ),
+      headerShown: false,
     });
   }, []);
 
   return (
-    <ScrollView>
+    <SafeAreaView>
       <Modal
         animationType="slide"
         transparent={true}
@@ -99,68 +105,82 @@ const MyProfile = ({ navigation }) => {
           </View>
         </View>
       </Modal>
-      <View style={[style.container, {}]}>
-        {/* Upper section */}
-        <View style={style.upperProfile}>
-          <View style={style.profileCap}>
-            <Text style={{ color: '#707070', fontSize: 50 }}>{userInfo.first_name.charAt(0)}</Text>
-          </View>
-          <Text style={{ fontSize: 18, color: '#333333', marginBottom: 10, fontWeight: 'bold' }}>
-            {userInfo.first_name} {userInfo.last_name}
-          </Text>
-          <Text style={{ fontWeight: '400', fontSize: 14, color: '#333333', marginBottom: 20 }}>
-            Ticked Free Plan
-          </Text>
 
-          <TouchableOpacity style={style.smallButton}>
-            <Text style={{ color: '#ffffff', fontWeight: '600', fontSize: 14 }}>Upgrade Plan</Text>
-          </TouchableOpacity>
+      <View style={[style.container]}>
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <TouchableHighlight onPress={() => navigate.goBack()}>
+            <MaterialIcons name="arrow-back" size={23} color={colors.primary} />
+          </TouchableHighlight>
+          {/* <Text style={{ fontSize: 20, fontWeight: 'bold', paddingHorizontal: 20 }}>Profile</Text> */}
         </View>
+        <ScrollView>
+          {/* Upper section */}
+          <View style={style.upperProfile}>
+            <View style={style.profileCap}>
+              <Text style={{ color: '#707070', fontSize: 50 }}>
+                {userInfo.first_name.charAt(0)}
+              </Text>
+            </View>
+            <Text style={{ fontSize: 18, color: '#333333', marginBottom: 10, fontWeight: 'bold' }}>
+              {userInfo.first_name} {userInfo.last_name}
+            </Text>
+            <Text style={{ fontWeight: '400', fontSize: 14, color: '#333333', marginBottom: 20 }}>
+              Ticked Free Plan
+            </Text>
 
-        {/* Personal Information */}
-        <View style={style.personalInfo}>
-          <Text
-            style={{
-              //
-              fontSize: 18,
-              fontWeight: '700',
-              color: '#333333',
-            }}>
-            Personal Information
-          </Text>
-          <TouchableOpacity onPress={() => navigation.navigate('EditProfileComponent')}>
+            <TouchableOpacity style={style.smallButton}>
+              <Text style={{ color: '#ffffff', fontWeight: '600', fontSize: 14 }}>
+                Upgrade Plan
+              </Text>
+            </TouchableOpacity>
+          </View>
+
+          {/* Personal Information */}
+          <View style={style.personalInfo}>
             <Text
               style={{
                 //
-                fontSize: 14,
-                fontWeight: '600',
-                color: colors.primary,
+                fontSize: 18,
+                fontWeight: '700',
+                color: '#333333',
               }}>
-              Edit
+              Personal Information
             </Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={style.personalInfoDetails}>
-          <View style={[style.personalInfo, { marginBottom: 10 }]}>
-            <Text style={style.nameStyle}>Name</Text>
-            <Text style={style.valueStyle}>{userInfo.first_name} {userInfo.last_name}</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('EditProfileComponent')}>
+              <Text
+                style={{
+                  //
+                  fontSize: 14,
+                  fontWeight: '600',
+                  color: colors.primary,
+                }}>
+                Edit
+              </Text>
+            </TouchableOpacity>
           </View>
 
-          <View style={[style.personalInfo, { marginBottom: 10 }]}>
-            <Text style={style.nameStyle}>Email address</Text>
-            <Text style={style.valueStyle}>{userInfo.email}</Text>
+          <View style={style.personalInfoDetails}>
+            <View style={[style.personalInfo, { marginBottom: 10 }]}>
+              <Text style={style.nameStyle}>Name</Text>
+              <Text style={style.valueStyle}>
+                {userInfo.first_name} {userInfo.last_name}
+              </Text>
+            </View>
+
+            <View style={[style.personalInfo, { marginBottom: 10 }]}>
+              <Text style={style.nameStyle}>Email address</Text>
+              <Text style={style.valueStyle}>{userInfo.email}</Text>
+            </View>
+
+            <View style={[style.personalInfo, { marginBottom: 10 }]}>
+              <Text style={style.nameStyle}>Phone </Text>
+              <Text style={style.valueStyle}>{userInfo.phone}</Text>
+            </View>
           </View>
 
-          <View style={[style.personalInfo, { marginBottom: 10 }]}>
-            <Text style={style.nameStyle}>Phone </Text>
-            <Text style={style.valueStyle}>{userInfo.phone}</Text>
-          </View>
-        </View>
+          {/* modal dialog */}
 
-        {/* modal dialog */}
-
-        {/* <Modal
+          {/* <Modal
         transparent
         animationType="fade"
         visible={isModal}
@@ -174,76 +194,76 @@ const MyProfile = ({ navigation }) => {
         />
       </Modal> */}
 
-        {/* Security section */}
+          {/* Security section */}
 
-        <Text
-          style={{
-            //
-            fontSize: 18,
-            fontWeight: '700',
-            color: '#333333',
-            marginBottom: 8,
-            marginTop: 24,
-          }}>
-          Security
-        </Text>
-        <View style={style.personalInfoDetails}>
-          <View style={{ height: 130, width: '100%' }}>
-            <TouchableOpacity>
-              <View style={style.personalInfo}>
-                <Text>Change Password</Text>
+          <Text
+            style={{
+              //
+              fontSize: 18,
+              fontWeight: '700',
+              color: '#333333',
+              marginBottom: 8,
+              marginTop: 24,
+            }}>
+            Security
+          </Text>
+          <View style={style.personalInfoDetails}>
+            <View style={{ height: 130, width: '100%' }}>
+              <TouchableOpacity>
+                <View style={style.personalInfo}>
+                  <Text>Change Password</Text>
 
-                <MaterialIcons name="keyboard-arrow-right" size={30} color={'#714dd9'} />
-              </View>
-            </TouchableOpacity>
+                  <MaterialIcons name="keyboard-arrow-right" size={30} color={'#714dd9'} />
+                </View>
+              </TouchableOpacity>
 
-            <TouchableOpacity>
+              <TouchableOpacity>
+                <View style={style.personalInfo}>
+                  <Text>Manage Devices</Text>
+                  <MaterialIcons name="keyboard-arrow-right" size={30} color={'#714dd9'} />
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigate.navigate('Settings')}>
+                <View style={style.personalInfo}>
+                  <Text>Settings</Text>
+                  <MaterialIcons name="keyboard-arrow-right" size={30} color={'#714dd9'} />
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <View style={style.personalInfo}>
+                  <Text>Manage Devices</Text>
+                  <MaterialIcons name="keyboard-arrow-right" size={30} color={'#714dd9'} />
+                </View>
+              </TouchableOpacity>
+            </View>
+          </View>
+
+          {/* Logout section */}
+          <View style={style.personalInfoDetails}>
+            <TouchableOpacity
+              onPress={() => {
+                setModalVisible(!modalVisible);
+                {
+                  logout;
+                }
+              }}>
               <View style={style.personalInfo}>
-                <Text>Manage Devices</Text>
-                <MaterialIcons name="keyboard-arrow-right" size={30} color={'#714dd9'} />
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigate.navigate("Settings")}>
-              <View style={style.personalInfo}>
-                <Text>Settings</Text>
-                <MaterialIcons name="keyboard-arrow-right" size={30} color={'#714dd9'} />
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <View style={style.personalInfo}>
-                <Text>Manage Devices</Text>
+                <Text style={style.actionLink}>Logout</Text>
                 <MaterialIcons name="keyboard-arrow-right" size={30} color={'#714dd9'} />
               </View>
             </TouchableOpacity>
           </View>
-        </View>
+          <View style={style.personalInfoDetails}>
+            <TouchableOpacity onPress={() => navigation.navigate('DeleteProfile')}>
+              <View style={style.personalInfo}>
+                <Text style={style.actionLink}>Delete account</Text>
+                <MaterialIcons name="keyboard-arrow-right" size={30} color={'#714dd9'} />
+              </View>
+            </TouchableOpacity>
+          </View>
 
-        {/* Logout section */}
-        <View style={style.personalInfoDetails}>
-          <TouchableOpacity
-            onPress={() => {
-              setModalVisible(!modalVisible);
-              {
-                logout;
-              }
-            }}>
-            <View style={style.personalInfo}>
-              <Text style={style.actionLink}>Logout</Text>
-              <MaterialIcons name="keyboard-arrow-right" size={30} color={'#714dd9'} />
-            </View>
-          </TouchableOpacity>
-        </View>
-        <View style={style.personalInfoDetails}>
-          <TouchableOpacity onPress={() => navigation.navigate('DeleteProfile')}>
-            <View style={style.personalInfo}>
-              <Text style={style.actionLink}>Delete account</Text>
-              <MaterialIcons name="keyboard-arrow-right" size={30} color={'#714dd9'} />
-            </View>
-          </TouchableOpacity>
-        </View>
-
-        {/* Delete Account section */}
-        {/* <View style={style.personalInfoDetails}>
+          {/* Delete Account section */}
+          {/* <View style={style.personalInfoDetails}>
         <TouchableOpacity onPress={() => DeleteAccount(true)}>
           <View style={style.personalInfo}>
             <Text style={style.actionLink}>Delete account</Text>
@@ -251,8 +271,9 @@ const MyProfile = ({ navigation }) => {
           </View>
         </TouchableOpacity>
       </View> */}
+        </ScrollView>
       </View>
-    </ScrollView>
+    </SafeAreaView>
   );
 };
 
