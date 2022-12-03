@@ -10,6 +10,8 @@ import { Text, Image } from 'react-native';
 import { HomeScreen, Notification, TaskScreen } from '../screens';
 import PlusIcon from '../assets/svg/plus-icon.svg';
 
+import { FloatingAction } from 'react-native-floating-action';
+
 const Stack = createBottomTabNavigator();
 
 const BottomTabsNavigator = () => {
@@ -24,7 +26,12 @@ const BottomTabsNavigator = () => {
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
-        tabBarStyle: { height: 70, paddingBottom: 20 },
+        tabBarLabelStyle: {
+          
+        },
+        tabBarActiveBackgroundColor: {
+          color: '#714DD9'
+        }
       }}>
       <Stack.Screen
         name="Home"
@@ -39,7 +46,7 @@ const BottomTabsNavigator = () => {
         name="Create Task"
         component={TaskScreen}
         options={{
-          tabBarIcon: () => <PlusIcon />,
+          tabBarIcon: () => <FloatingAction color='#714DD9' onPressMain={() => navigation.navigate('TaskScreen')} />,
           tabBarLabel: () => null,
           tabBarStyle: { position: 'absolute', bottom: 30, left: 0, right: 0 },
         }}
