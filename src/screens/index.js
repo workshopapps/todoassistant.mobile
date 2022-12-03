@@ -13,4 +13,5 @@ export { default as OnboardingScreen1 } from './Onboarding/OnboardingScreen1';
 export { default as MyProfile } from './Profile/ProfileScreen';
 export { default as EditProfileComponent } from './Profile/ProfileComponents/EditProfileComponent';
 export { default as DeleteProfile } from './Profile/ProfileComponents/DeleteProfile';
+export { default as ChangePasswordComponent } from './Profile/ProfileComponents/ChangePasswordComponent';
 export { default as ReminderScreen } from './ReminderScreen';

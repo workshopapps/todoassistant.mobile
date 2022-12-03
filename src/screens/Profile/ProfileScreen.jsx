@@ -13,19 +13,13 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+
 import { Button } from '../../components/Button';
 import { LinedButton } from '../../components/LinedButton';
-
 import { AuthContext } from '../../context/userContext';
 import { colors } from '../../utils/colors';
 
 const MyProfile = ({ navigation }) => {
-  // const [isModal, setIsModal] = useState(false);
-  // const [modalOption, setModalOption] = useState('');
-  // const [modalMsg, setModalMsg] = useState('');
-  // const [modalNeg, setModalNegBotton] = useState('');
-  // const [modalPos, setModalPosBotton] = useState('');
-
   const { userInfo, logout } = useContext(AuthContext);
 
   const navigate = useNavigation();
@@ -42,7 +36,7 @@ const MyProfile = ({ navigation }) => {
     <SafeAreaView>
       <Modal
         animationType="slide"
-        transparent={true}
+        transparent
         visible={modalVisible}
         onRequestClose={() => {
           Alert.alert('Modal has been closed.');
