@@ -188,7 +188,7 @@ const MyProfile = ({ navigation }) => {
           Security
         </Text>
         <View style={style.personalInfoDetails}>
-          <View style={{ height: 120, width: 335 }}>
+          <View style={{ height: 130, width: '100%' }}>
             <TouchableOpacity>
               <View style={style.personalInfo}>
                 <Text>Change Password</Text>
