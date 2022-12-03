@@ -1,46 +1,10 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useNavigation } from '@react-navigation/native';
-import axios from 'axios';
-import React, { useState, useContext } from 'react';
-import { AuthContext } from '../../../context/userContext';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableOpacity,
-  Modal,
-  Alert,
-  TextInput,
-} from 'react-native';
-
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import React from 'react';
 import arrowLeft from '../../../assets/arrowLeft.png';
-import { Button } from '../../../components/Button';
+import { useNavigation } from '@react-navigation/native';
 
 const DeleteProfile = () => {
   const navigation = useNavigation();
-  const [modalVisible, setModalVisible] = useState(false);
-
-  const { logout } = useContext(AuthContext);
-
-  const baseURL = 'https://api.ticked.hng.tech/api/v1/user';
-
-  const deleteUser = async () => {
-    const user = JSON.parse(await AsyncStorage.getItem('userInfo'));
-    axios
-      .delete(`${baseURL}/${user.user_id}`, {
-        headers: {
-          Authorization: `Bearer ${await AsyncStorage.getItem('userToken')}`,
-        },
-      })
-      .then((response) => {
-        console.log(response.data);
-        setModalVisible(true);
-        logout();
-      })
-      .catch((err) => console.log(err.response.data));
-  };
-
   return (
     <View
       style={{
@@ -52,103 +16,6 @@ const DeleteProfile = () => {
         paddingTop: 60,
         paddingBottom: 20,
       }}>
-      <Modal
-        animationType="slide"
-        transparent
-        visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert('Modal has been closed.');
-          setModalVisible(!modalVisible);
-        }}>
-        <View
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
-          <View
-            style={{
-              margin: 20,
-              backgroundColor: 'white',
-              borderRadius: 8,
-              padding: 20,
-              shadowColor: '#000',
-              shadowOffset: {
-                width: 0,
-                height: 1,
-              },
-              shadowOpacity: 0.25,
-              shadowRadius: 4,
-              elevation: 2,
-            }}>
-            <View
-              style={{
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'flex-start',
-              }}>
-              <Text
-                style={{
-                  fontWeight: '700',
-                  fontSize: 18,
-                  paddingBottom: 10,
-                  paddingLeft: 20,
-                }}>
-                Delete your account
-              </Text>
-            </View>
-            <Text
-              style={{
-                fontWeight: '600',
-                fontSize: 14,
-                paddingLeft: 20,
-                paddingBottom: 10,
-                color: '#707070',
-              }}>
-              Enter password to confirm account {'\n'}deletion.
-            </Text>
-            <TextInput
-              style={{
-                height: 48,
-                backgroundColor: '#ffffff',
-                borderRadius: 8,
-                borderWidth: 1,
-                borderColor: '#d9d9d9',
-                paddingLeft: 20,
-                paddingRight: 20,
-                marginLeft: 20,
-                marginRight: 20,
-              }}
-              placeholder="password"
-              color="D9D9D9"
-            />
-            <View style={{}}>
-              <Button
-                onPress={() => navigation.navigate('Profile')}
-                style={{ fontSize: 14, marginBottom: 5, marginTop: 20, width: 250 }}
-                title="Cancel"
-              />
-              <TouchableOpacity>
-                <View
-                  style={{
-                    width: 250,
-                    height: 48,
-                    borderRadius: 8,
-                    borderColor: '#DB0004',
-                    borderWidth: 1,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginLeft: 20,
-                  }}>
-                  <Text style={{ fontSize: 14, color: '#DB0004' }}>Delete Account</Text>
-                </View>
-              </TouchableOpacity>
-            </View>
-          </View>
-        </View>
-      </Modal>
       <View
         style={{
           display: 'flex',
@@ -241,9 +108,6 @@ const DeleteProfile = () => {
           justifyContent: 'center',
         }}>
         <TouchableOpacity
-          onPress={() => {
-            deleteUser();
-          }}
           style={{
             width: 120,
             height: 48,

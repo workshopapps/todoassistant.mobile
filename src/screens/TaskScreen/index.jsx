@@ -231,7 +231,6 @@ const TaskScreen = () => {
             />
           </View>
           <View style={{ height: 30 }} />
-
           <Button
             onPress={() => createTaskHandler()}
             style={{ fontSize: 14 }}
