@@ -30,7 +30,7 @@ export const AuthProvider = ({ children }) => {
         AsyncStorage.setItem('userToken', userInfo.access_token);
       })
       .catch((err) => {
-        console.log(err);
+        Alert(err.response.data.error.error)
       });
 
     setUserToken('fakdjfha');

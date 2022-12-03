@@ -8,11 +8,13 @@ export default StyleSheet.create({
     marginTop: 20,
     paddingHorizontal: 0,
     marginBottom: 30,
+   backgroundColor: "#F9F7FF"
   },
   image: {
     width: 32,
     height: 32,
     borderRadius: 50,
+    marginRight: 10,
   },
   icon: {
     borderRadius: 40,

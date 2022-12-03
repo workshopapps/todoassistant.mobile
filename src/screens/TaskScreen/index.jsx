@@ -1,3 +1,10 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import DateTimePicker from '@react-native-community/datetimepicker';
+import { useNavigation } from '@react-navigation/native';
+import axios from 'axios';
+import Checkbox from 'expo-checkbox';
+import moment from 'moment';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -7,31 +14,29 @@ import {
   Platform,
   ScrollView,
   Modal,
+  Alert,
 } from 'react-native';
-import DateTimePicker from '@react-native-community/datetimepicker';
-import React, { useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
-import styles from './index.styles';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import RadioForm from 'react-native-simple-radio-button';
+
+import { useDispatch, useSelector } from 'react-redux';
 import arrowLeft from '../../assets/arrowLeft.png';
 import folder from '../../assets/folder.png';
 import info from '../../assets/info.png';
 import thumbs from '../../assets/thumbs.png';
-import Checkbox from 'expo-checkbox';
 import { Button } from '../../components/Button';
-import axios from 'axios';
-import RadioForm from 'react-native-simple-radio-button';
-import { useDispatch, useSelector } from 'react-redux';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import moment from 'moment';
-import { BASE_URL } from '../../utils/config';
+
+
+import styles from './index.styles';
 
 const TaskScreen = () => {
   const navigation = useNavigation();
-  const baseURL = `${BASE_URL}/task`;
+  const baseURL = 'https://api.ticked.hng.tech/api/v1/task';
   const [modalVisible, setModalVisible] = useState(false);
 
   const [isPickerShow, setIsPickerShow] = useState(false);
-  const [time, setTime] = useState(new Date(Date.now()));
+  const [starttime, setStartTime] = useState(new Date(Date.now()));
+  const [endtime, setEndTime] = useState(new Date(Date.now()));
 
   const options = { hour: '2-digit', minute: '2-digit' };
 
@@ -43,14 +48,21 @@ const TaskScreen = () => {
     setIsPickerShow(false);
   };
 
-  const onChange = (event, value) => {
-    setTime(value);
+  const onChangeStartTime = (event, value) => {
+    setStartTime(value);
     if (Platform.OS === 'android') {
       setIsPickerShow(false);
     }
     hidePicker();
   };
 
+  const onChangeEndTime = (event, value) => {
+    setStartTime(value);
+    if (Platform.OS === 'android') {
+      setIsPickerShow(false);
+    }
+    hidePicker();
+  };
   //Date Picker
   const [date, setDate] = useState(new Date());
   const [mode, setMode] = useState('date');
@@ -87,38 +99,43 @@ const TaskScreen = () => {
       label: 'Get a call from an assistant to remind you',
       value: 'Get a call from an assistant to remind you',
     },
-    { label: 'None', value: 'None' },
+    { label: 'None', value: 'none' },
   ];
 
   const createTaskHandler = async () => {
-    try {
-      await axios.post(baseURL, {
-        user_id: '455',
-        title: title,
-        description: description,
-        start_time: time,
-        end_time: time,
-      });
-      setModalVisible(true);
-    } catch (error) {
-      console.log(error);
-    }
+    const payload = {
+      title,
+      description,
+      start_time: new Date(),
+      repeat: "daily",
+      end_time: date,
+      va_option: chosenOption,
+    };
+    console.log(payload);
+    axios
+      .post(baseURL, payload, {
+        headers: {
+          Authorization: `Bearer ${await AsyncStorage.getItem('userToken')}`,
+        },
+      })
+      .then((response) => {
+        console.log(response.data);
+        setModalVisible(true);
+      })
+      .catch((err) => console.log(err.response.data));
   };
 
   return (
     <SafeAreaView>
       <View style={styles.viewOne}>
-        <Image source={arrowLeft} style={styles.img} />
-        <TouchableOpacity onPress={() => createTaskHandler()}>
-          <View style={styles.viewTwo}>
-            <Text style={styles.textOne}>Create Task</Text>
-          </View>
+        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+          <Image source={arrowLeft} style={styles.img} />
         </TouchableOpacity>
       </View>
       <ScrollView style={styles.viewThree}>
         <Modal
           animationType="slide"
-          transparent={true}
+          transparent
           visible={modalVisible}
           onRequestClose={() => {
             Alert.alert('Modal has been closed.');
@@ -148,7 +165,7 @@ const TaskScreen = () => {
         </Modal>
         <View style={styles.viewingOne}>
           <View style={styles.textSeven}>
-            <Text style={styles.viewingTwo}>Create To Do</Text>
+            <Text style={styles.viewingTwo}>New task</Text>
           </View>
           <View style={styles.viewee} />
           <Text style={styles.textTen}>Title</Text>
@@ -175,8 +192,9 @@ const TaskScreen = () => {
               numberOfLines={4}
             />
           </View>
+ 
           <View style={{ height: 14 }} />
-          <Text style={styles.describer}>Date</Text>
+          <Text style={styles.describer}> End Date</Text>
           <View style={styles.viewHere}>
             <TouchableOpacity onPress={showDatepicker} title="Show date picker!">
               <Text>{moment(date).format('DD MMMM, YYYY')}</Text>
@@ -188,38 +206,8 @@ const TaskScreen = () => {
                 testID="dateTimePicker"
                 value={date}
                 mode={mode}
-                is24Hour={true}
+                is24Hour
                 onChange={onChangeDate}
-              />
-            )}
-          </View>
-
-          <View style={{ height: 20 }} />
-          <Text style={styles.texter}>Reminder Time</Text>
-          <View style={styles.viewing} />
-          <View style={styles.viewer}>
-            <TouchableOpacity
-              onPress={!isPickerShow ? showPicker : hidePicker}
-              style={styles.pickedDateContainer}>
-              <Text style={{ backgroundColor: 'white' }}>
-                {time.toLocaleTimeString([], options)}
-              </Text>
-            </TouchableOpacity>
-            {/* The date picker */}
-            {isPickerShow && (
-              <DateTimePicker
-                value={time}
-                mode={'time'}
-                display={'spinner'}
-                onChange={onChange}
-                textColor="#030303"
-                style={{
-                  backgroundColor: '#ffffff',
-                  width: 200,
-                  height: 200,
-                  borderRadius: 10,
-                  alignItems: 'center',
-                }}
               />
             )}
           </View>
@@ -233,9 +221,9 @@ const TaskScreen = () => {
             <RadioForm
               radio_props={optionbutton}
               initial={1}
-              selectedButtonColor={'#714dd9'}
+              selectedButtonColor="#714dd9"
               borderWidth={1}
-              buttonColor={'#ededed'}
+              buttonColor="#ededed"
               activeColor="#714dd9" //initial value of this group
               onPress={(value) => {
                 setChosenOption(value);
@@ -243,6 +231,13 @@ const TaskScreen = () => {
             />
           </View>
           <View style={{ height: 30 }} />
+
+          <Button
+            onPress={() => createTaskHandler()}
+            style={{ fontSize: 14 }}
+            title="Create Task"
+          />
+          <View style={{ height: 200 }} />
         </View>
       </ScrollView>
     </SafeAreaView>

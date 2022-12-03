@@ -2,6 +2,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useNavigation } from '@react-navigation/native';
 import React, { useLayoutEffect } from 'react';
 import Icon from 'react-native-vector-icons/Octicons';
+import homes from '../assets/homes.png';
+import notificate from '../assets/notificate.png';
+
+import { Text, Image } from 'react-native';
 
 import { HomeScreen, Notification, TaskScreen } from '../screens';
 import PlusIcon from '../assets/svg/plus-icon.svg';
@@ -33,8 +37,9 @@ const BottomTabsNavigator = () => {
         name="Home"
         component={HomeScreen}
         options={{
-          tabBarIcon: () => <Icon size={24} name="home" color="#714DD9" />,
+          tabBarIcon: () => <Image source={homes} style={{width: 24, height: 24}} />,
           tabBarStyle: { fontSize: 20 },
+          tabBarLabel:({ focused,color })=>(<Text style={{color:focused?"#714dd9":"#707070", paddingTop: 10}}>Home</Text>)
         }}
       />
       <Stack.Screen
@@ -49,7 +54,11 @@ const BottomTabsNavigator = () => {
       <Stack.Screen
         name="Notification"
         component={Notification}
-        options={{ tabBarIcon: () => <Icon size={24} name="bell" color="#714DD9" /> }}
+        options={{
+          tabBarIcon: () => <Image source={notificate} style={{width: 24, height: 24}} />,
+          tabBarStyle: { fontSize: 20 },
+          tabBarLabel:({ focused,color })=>(<Text style={{color:focused?"#714dd9":"#707070", paddingTop: 10}}>Notification</Text>)
+        }}
       />
     </Stack.Navigator>
   );

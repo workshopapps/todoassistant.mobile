@@ -25,6 +25,11 @@ const Login = () => {
 
   const { login } = useContext(AuthContext);
 
+  const handleSubmit = () => {
+    console.log('submitted');
+
+  }
+
   return (
     <View
       style={{
@@ -133,7 +138,7 @@ const Login = () => {
           paddingBottom: 30,
           flexDirection: 'column',
         }}>
-        <Button onPress={login(email, password)} style={{ fontSize: 14 }} title="Sign In" />
+        <Button onPress={()=>login(email, password)} style={{ fontSize: 14 }} title="Sign In" />
       </View>
       <View style={styles.stylings}>
         <View style={styles.styling1} />
@@ -147,7 +152,6 @@ const Login = () => {
       <View style={styles.stylez}>
         <Text style={styles.stylezzz}>Don't have an account?</Text>
         <Text style={styles.stylesss} onPress={() => navigation.navigate('Registration')}>
-          {' '}
           Sign Up
         </Text>
       </View>

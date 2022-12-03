@@ -3,7 +3,9 @@ import { useNavigation } from '@react-navigation/native';
 import React, { useEffect } from 'react';
 import { View, Text, Image, TouchableOpacity, TouchableHighlight } from 'react-native';
 
-import icon from '../../assets/profile.jpg';
+import notify from '../../assets/notify.png';
+import ava from '../../assets/ava.png';
+import logo1 from '../../assets/logo1.png';
 import Message from '../../assets/svg/message.svg';
 import styles from './index.styles';
 import Logo from "../../assets/svg/logo.svg"
