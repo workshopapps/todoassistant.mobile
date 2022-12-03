@@ -3,19 +3,14 @@ import { useNavigation } from '@react-navigation/native';
 import React, { useEffect, useState, useContext } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Modal, ScrollView, Alert } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+
 import { Button } from '../../components/Button';
 import { LinedButton } from '../../components/LinedButton';
 import { AuthContext } from '../../context/userContext';
 import { colors } from '../../utils/colors';
 
 const MyProfile = ({ navigation }) => {
-  // const [isModal, setIsModal] = useState(false);
-  // const [modalOption, setModalOption] = useState('');
-  // const [modalMsg, setModalMsg] = useState('');
-  // const [modalNeg, setModalNegBotton] = useState('');
-  // const [modalPos, setModalPosBotton] = useState('');
-
-  const { userInfo, logout  } = useContext(AuthContext);
+  const { userInfo, logout } = useContext(AuthContext);
 
   const navigate = useNavigation();
 
@@ -24,7 +19,7 @@ const MyProfile = ({ navigation }) => {
   useEffect(() => {
     navigate.setOptions({
       headerLeft: () => (
-        <TouchableOpacity onPress={() => navigate.goBack()} style={{backgroundColor: "#f9f7ff"}}>
+        <TouchableOpacity onPress={() => navigate.goBack()} style={{ backgroundColor: '#f9f7ff' }}>
           <MaterialIcons name="arrow-back" size={25} color={colors.primary} />
         </TouchableOpacity>
       ),
@@ -35,7 +30,7 @@ const MyProfile = ({ navigation }) => {
     <ScrollView>
       <Modal
         animationType="slide"
-        transparent={true}
+        transparent
         visible={modalVisible}
         onRequestClose={() => {
           Alert.alert('Modal has been closed.');
@@ -90,7 +85,7 @@ const MyProfile = ({ navigation }) => {
                 title="Logout"
               />
               <LinedButton
-             onPress={() => navigate.goBack()}
+                onPress={() => navigate.goBack()}
                 style={{ fontSize: 14, width: 250 }}
                 title="Cancel"
               />
@@ -102,10 +97,10 @@ const MyProfile = ({ navigation }) => {
         {/* Upper section */}
         <View style={style.upperProfile}>
           <View style={style.profileCap}>
-            <Text style={{ color: '#707070', fontSize: 50 }}>J</Text>
+            <Text style={{ color: '#707070', fontSize: 50 }}>{userInfo.first_name[0]}</Text>
           </View>
           <Text style={{ fontSize: 18, color: '#333333', marginBottom: 10, fontWeight: 'bold' }}>
-            Jefferson Anderson
+            {userInfo.first_name + ' ' + userInfo.last_name}
           </Text>
           <Text style={{ fontWeight: '400', fontSize: 14, color: '#333333', marginBottom: 20 }}>
             Ticked Free Plan
@@ -127,7 +122,7 @@ const MyProfile = ({ navigation }) => {
             }}>
             Personal Information
           </Text>
-          <TouchableOpacity  onPress={() => navigation.navigate('EditProfileComponent')} >
+          <TouchableOpacity onPress={() => navigation.navigate('EditProfileComponent')}>
             <Text
               style={{
                 //
@@ -143,17 +138,17 @@ const MyProfile = ({ navigation }) => {
         <View style={style.personalInfoDetails}>
           <View style={[style.personalInfo, { marginBottom: 10 }]}>
             <Text style={style.nameStyle}>Name</Text>
-            <Text style={style.valueStyle}></Text>
+            <Text style={style.valueStyle}>{userInfo.first_name + ' ' + userInfo.last_name}</Text>
           </View>
 
           <View style={[style.personalInfo, { marginBottom: 10 }]}>
             <Text style={style.nameStyle}>Email address</Text>
-            <Text style={style.valueStyle}>{}</Text>
+            <Text style={style.valueStyle}>{userInfo.email}</Text>
           </View>
 
           <View style={[style.personalInfo, { marginBottom: 10 }]}>
             <Text style={style.nameStyle}>Phone number</Text>
-            <Text style={style.valueStyle}>{}</Text>
+            <Text style={style.valueStyle}>{userInfo.phone}</Text>
           </View>
         </View>
 
@@ -192,14 +187,14 @@ const MyProfile = ({ navigation }) => {
               <View style={style.personalInfo}>
                 <Text>Change Password</Text>
 
-                <MaterialIcons name="keyboard-arrow-right" size={30} color={'#714dd9'} />
+                <MaterialIcons name="keyboard-arrow-right" size={30} color="#714dd9" />
               </View>
             </TouchableOpacity>
 
             <TouchableOpacity>
               <View style={style.personalInfo}>
                 <Text>Manage Devices</Text>
-                <MaterialIcons name="keyboard-arrow-right" size={30} color={'#714dd9'} />
+                <MaterialIcons name="keyboard-arrow-right" size={30} color="#714dd9" />
               </View>
             </TouchableOpacity>
           </View>
@@ -210,21 +205,23 @@ const MyProfile = ({ navigation }) => {
           <TouchableOpacity
             onPress={() => {
               setModalVisible(!modalVisible);
+              // eslint-disable-next-line no-lone-blocks
               {
+                // eslint-disable-next-line no-unused-expressions
                 logout;
               }
             }}>
             <View style={style.personalInfo}>
               <Text style={style.actionLink}>Logout</Text>
-              <MaterialIcons name="keyboard-arrow-right" size={30} color={'#714dd9'} />
+              <MaterialIcons name="keyboard-arrow-right" size={30} color="#714dd9" />
             </View>
           </TouchableOpacity>
         </View>
         <View style={style.personalInfoDetails}>
-          <TouchableOpacity   onPress={() => navigation.navigate('DeleteProfile')}>
+          <TouchableOpacity onPress={() => navigation.navigate('DeleteProfile')}>
             <View style={style.personalInfo}>
               <Text style={style.actionLink}>Delete account</Text>
-              <MaterialIcons name="keyboard-arrow-right" size={30} color={'#714dd9'} />
+              <MaterialIcons name="keyboard-arrow-right" size={30} color="#714dd9" />
             </View>
           </TouchableOpacity>
         </View>
