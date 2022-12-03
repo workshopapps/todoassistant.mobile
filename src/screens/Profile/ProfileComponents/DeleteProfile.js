@@ -1,3 +1,8 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/native';
+import axios from 'axios';
+import React, { useState, useContext } from 'react';
+import { AuthContext } from '../../../context/userContext';
 import {
   StyleSheet,
   Text,
@@ -8,20 +13,22 @@ import {
   Alert,
   TextInput,
 } from 'react-native';
-import React, { useState } from 'react';
-import arrowLeft from '../../../assets/arrowLeft.png';
-import { useNavigation } from '@react-navigation/native';
-import { Button } from '../../../components/Button';
-import axios from 'axios';
 
+import arrowLeft from '../../../assets/arrowLeft.png';
+import { Button } from '../../../components/Button';
 
 const DeleteProfile = () => {
   const navigation = useNavigation();
   const [modalVisible, setModalVisible] = useState(false);
+
+  const { logout } = useContext(AuthContext);
+
+  const baseURL = 'https://api.ticked.hng.tech/api/v1/user';
+
   const deleteUser = async () => {
-  
+    const user = JSON.parse(await AsyncStorage.getItem('userInfo'));
     axios
-      .delete(baseURL, payload, {
+      .delete(`${baseURL}/${user.user_id}`, {
         headers: {
           Authorization: `Bearer ${await AsyncStorage.getItem('userToken')}`,
         },
@@ -29,9 +36,11 @@ const DeleteProfile = () => {
       .then((response) => {
         console.log(response.data);
         setModalVisible(true);
+        logout();
       })
       .catch((err) => console.log(err.response.data));
   };
+
   return (
     <View
       style={{
@@ -45,7 +54,7 @@ const DeleteProfile = () => {
       }}>
       <Modal
         animationType="slide"
-        transparent={true}
+        transparent
         visible={modalVisible}
         onRequestClose={() => {
           Alert.alert('Modal has been closed.');
@@ -167,7 +176,8 @@ const DeleteProfile = () => {
             borderRadius: 4,
             backgroundColor: '#707070',
             marginLeft: 20,
-          }}></View>
+          }}
+        />
         <Text
           style={{
             paddingLeft: 10,
@@ -188,7 +198,8 @@ const DeleteProfile = () => {
             borderRadius: 4,
             backgroundColor: '#707070',
             marginLeft: 20,
-          }}></View>
+          }}
+        />
         <Text
           style={{
             paddingLeft: 10,
@@ -208,7 +219,8 @@ const DeleteProfile = () => {
             borderRadius: 4,
             backgroundColor: '#707070',
             marginLeft: 20,
-          }}></View>
+          }}
+        />
         <Text
           style={{
             paddingLeft: 10,
@@ -229,8 +241,8 @@ const DeleteProfile = () => {
           justifyContent: 'center',
         }}>
         <TouchableOpacity
-          onPress={(deleteUser) => {
-            setModalVisible(!modalVisible);
+          onPress={() => {
+            deleteUser();
           }}
           style={{
             width: 120,
