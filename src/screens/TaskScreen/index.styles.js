@@ -18,7 +18,7 @@ export default StyleSheet.create({
     flexDirection: "row",
     height: 60,
     width: "100%",
-    backgroundColor: "#F6FAFB",
+    backgroundColor: "#f9f7ff",
     justifyContent: "space-between",
     alignItems: "center",
   },
@@ -45,7 +45,7 @@ export default StyleSheet.create({
     width: "100%",
     display: "flex",
     flexDirection: "column",
-    backgroundColor: "#F6FAFB",
+    backgroundColor: "#f9f7ff",
   },
   viewFour: {
     flex: 1,
