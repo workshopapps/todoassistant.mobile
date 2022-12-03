@@ -22,4 +22,9 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  touch: {
+    borderRadius: 50,
+    backgroundColor: 'transparent',
+    opacity: 0.8,
+  }
 });

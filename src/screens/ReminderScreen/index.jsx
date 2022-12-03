@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import styles from './index.styles';
 import ReminderOption from './option';
 import { useNavigation } from '@react-navigation/native';
+import { colors } from '../../utils/colors';
 
 const ReminderScreen = () => {
   const navigate = useNavigation()
@@ -14,7 +15,7 @@ const ReminderScreen = () => {
     <SafeAreaView style={styles.container}>
       <View style={styles.flex}>
         <TouchableHighlight onPress={() => navigate.goBack()}>
-          <Icon name="arrow-back" size={20} />
+          <Icon name="arrow-back" size={20} color={colors.primary} />
         </TouchableHighlight>
         <Text style={styles.screen_title}>Reminders</Text>
       </View>

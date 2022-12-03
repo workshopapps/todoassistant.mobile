@@ -25,7 +25,7 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     color: '#000',
     paddingVertical: 10,
-    paddingHorizontal: 30,
+    paddingHorizontal: 20,
     display: 'flex',
     alignItems: 'center',
   },

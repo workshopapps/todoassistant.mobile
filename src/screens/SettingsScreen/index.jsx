@@ -8,6 +8,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { SettingCard, SettingOption } from '../../components';
 import styles from './index.styles'; // <--- import styles from index.styles.js
 import UserIcon from 'react-native-vector-icons/EvilIcons';
+import { colors } from '../../utils/colors';
 
 const SettingScreen = () => {
   const navigation = useNavigation();
@@ -21,13 +22,13 @@ const SettingScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.flex}>
-        <TouchableHighlight onPress={() => navigation.goBack()}>
-          <Icon name="arrow-back" size={20} />
+        <TouchableHighlight onPress={() => navigation.goBack()} transparent style={styles.touch}>
+          <Icon name="arrow-back" size={23} color={colors.primary} />
         </TouchableHighlight>
 
         <Text style={styles.title}>Settings</Text>
       </View>
-      <ScrollView style={styles.marginBottom}>
+      <View style={styles.marginBottom}>
         <SettingCard>
           <SettingOption icon="user-circle-o" name="Account" />
           <SettingOption icon="home" name="Upgrade to Pro" />
@@ -47,7 +48,7 @@ const SettingScreen = () => {
         </SettingCard>
 
         {/* <Button title="Sign out" /> */}
-      </ScrollView>
+      </View>
       {/* <Button title="Sign out" /> */}
     </SafeAreaView>
   );
