@@ -1,4 +1,4 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import React, { useLayoutEffect } from "react";
 import styles from "./Screen2/index.styles";
 import home1 from "../../assets/home1.png";
@@ -18,7 +18,8 @@ const OnboardingScreen1 = () => {
     <View>
       <View style={styles.container9}>
         <View style={styles.container2}>
-          <Text style={styles.textOne}> Skip</Text>
+          <TouchableOpacity  onPress={() => navigation.navigate('Auth')} >
+          <Text style={styles.textOne}> Skip</Text></TouchableOpacity>
         </View>
         <Image source={home1} style={styles.img} />
         <View style={styles.container3}>

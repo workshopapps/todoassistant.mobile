@@ -3,9 +3,14 @@ import { useNavigation } from '@react-navigation/native';
 import React, { useEffect } from 'react';
 import { View, Text, Image, TouchableOpacity, TouchableHighlight } from 'react-native';
 
-import icon from '../../assets/profile.jpg';
+import notify from '../../assets/notify.png';
+import ava from '../../assets/ava.png';
+import logo1 from '../../assets/logo1.png';
 import Message from '../../assets/svg/message.svg';
 import styles from './index.styles';
+import Logo from '../../assets/svg/logo.svg';
+import UserIcon from 'react-native-vector-icons/AntDesign';
+import Bell from 'react-native-vector-icons/SimpleLineIcons';
 
 const HomeHeader = () => {
   const navigation = useNavigation();
@@ -14,25 +19,15 @@ const HomeHeader = () => {
     navigation.navigate('Profile');
   };
 
-  useEffect(() => {
-    profileNavigate();
-  }, []);
-
   return (
     <View style={styles.container}>
       <View>
-        <View style={styles.flexrow}>
-          <Text style={styles.title}>Home</Text>
-        </View>
-        <Text style={styles.text}>Let's get you started!</Text>
+        <Logo height={26} />
       </View>
       <View style={styles.flexrow1}>
-        <TouchableHighlight style={styles.m_4}>
-          <Message />
-        </TouchableHighlight>
-        <TouchableOpacity onPress={profileNavigate}>
+        <TouchableOpacity onPress={profileNavigate} style={styles.icon}>
           {/* Message Icon */}
-          <Image source={icon} style={styles.image} />
+          <UserIcon name="user" size={24} color="#714DD9" />
         </TouchableOpacity>
       </View>
     </View>

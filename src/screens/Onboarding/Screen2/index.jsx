@@ -1,4 +1,4 @@
-import { View, Text, Image, StatusBar } from 'react-native';
+import { View, Text, Image, StatusBar, TouchableOpacity } from 'react-native';
 import React, { useLayoutEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import styles from './index.styles';
@@ -18,7 +18,8 @@ const Screen2 = () => {
   return (
     <View style={styles.viewOne}>
       <View style={styles.viewTwo}>
-        <Text style={styles.textOne}> Skip</Text>
+      <TouchableOpacity  onPress={() => navigation.navigate('Auth')} >
+        <Text style={styles.textOne}> Skip</Text></TouchableOpacity>
       </View>
       <Image
         source={home2}
