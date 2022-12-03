@@ -16,7 +16,7 @@ const MyProfile = ({ navigation }) => {
   // const [modalNeg, setModalNegBotton] = useState('');
   // const [modalPos, setModalPosBotton] = useState('');
 
-  const { userInfo, logout  } = useContext(AuthContext);
+  const { userInfo, logout } = useContext(AuthContext);
 
   const navigate = useNavigation();
 
@@ -91,7 +91,7 @@ const MyProfile = ({ navigation }) => {
                 title="Logout"
               />
               <LinedButton
-             onPress={() => navigate.goBack()}
+                onPress={() => navigate.goBack()}
                 style={{ fontSize: 14, width: 250 }}
                 title="Cancel"
               />
@@ -103,10 +103,10 @@ const MyProfile = ({ navigation }) => {
         {/* Upper section */}
         <View style={style.upperProfile}>
           <View style={style.profileCap}>
-            <Text style={{ color: '#707070', fontSize: 50 }}>J</Text>
+            <Text style={{ color: '#707070', fontSize: 50 }}>{userInfo.first_name.charAt(0)}</Text>
           </View>
           <Text style={{ fontSize: 18, color: '#333333', marginBottom: 10, fontWeight: 'bold' }}>
-            Jefferson Anderson
+            {userInfo.first_name} {userInfo.last_name}
           </Text>
           <Text style={{ fontWeight: '400', fontSize: 14, color: '#333333', marginBottom: 20 }}>
             Ticked Free Plan
@@ -128,7 +128,7 @@ const MyProfile = ({ navigation }) => {
             }}>
             Personal Information
           </Text>
-          <TouchableOpacity  onPress={() => navigation.navigate('EditProfileComponent')} >
+          <TouchableOpacity onPress={() => navigation.navigate('EditProfileComponent')}>
             <Text
               style={{
                 //
@@ -144,17 +144,17 @@ const MyProfile = ({ navigation }) => {
         <View style={style.personalInfoDetails}>
           <View style={[style.personalInfo, { marginBottom: 10 }]}>
             <Text style={style.nameStyle}>Name</Text>
-            <Text style={style.valueStyle}></Text>
+            <Text style={style.valueStyle}>{userInfo.first_name} {userInfo.last_name}</Text>
           </View>
 
           <View style={[style.personalInfo, { marginBottom: 10 }]}>
             <Text style={style.nameStyle}>Email address</Text>
-            <Text style={style.valueStyle}>{}</Text>
+            <Text style={style.valueStyle}>{userInfo.email}</Text>
           </View>
 
           <View style={[style.personalInfo, { marginBottom: 10 }]}>
-            <Text style={style.nameStyle}>Phone number</Text>
-            <Text style={style.valueStyle}>{}</Text>
+            <Text style={style.nameStyle}>Phone </Text>
+            <Text style={style.valueStyle}>{userInfo.phone}</Text>
           </View>
         </View>
 
@@ -203,6 +203,18 @@ const MyProfile = ({ navigation }) => {
                 <MaterialIcons name="keyboard-arrow-right" size={30} color={'#714dd9'} />
               </View>
             </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigate.navigate("Settings")}>
+              <View style={style.personalInfo}>
+                <Text>Settings</Text>
+                <MaterialIcons name="keyboard-arrow-right" size={30} color={'#714dd9'} />
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <View style={style.personalInfo}>
+                <Text>Manage Devices</Text>
+                <MaterialIcons name="keyboard-arrow-right" size={30} color={'#714dd9'} />
+              </View>
+            </TouchableOpacity>
           </View>
         </View>
 
@@ -222,7 +234,7 @@ const MyProfile = ({ navigation }) => {
           </TouchableOpacity>
         </View>
         <View style={style.personalInfoDetails}>
-          <TouchableOpacity   onPress={() => navigation.navigate('DeleteProfile')}>
+          <TouchableOpacity onPress={() => navigation.navigate('DeleteProfile')}>
             <View style={style.personalInfo}>
               <Text style={style.actionLink}>Delete account</Text>
               <MaterialIcons name="keyboard-arrow-right" size={30} color={'#714dd9'} />
