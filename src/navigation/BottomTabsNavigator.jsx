@@ -6,6 +6,8 @@ import Icon from 'react-native-vector-icons/Octicons';
 import { HomeScreen, Notification, TaskScreen } from '../screens';
 import PlusIcon from '../assets/svg/plus-icon.svg';
 
+import { FloatingAction } from 'react-native-floating-action';
+
 const Stack = createBottomTabNavigator();
 
 const BottomTabsNavigator = () => {
@@ -20,13 +22,18 @@ const BottomTabsNavigator = () => {
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
-        tabBarStyle: { height: 70, paddingBottom: 20 },
+        tabBarLabelStyle: {
+          
+        },
+        tabBarActiveBackgroundColor: {
+          color: '#714DD9'
+        }
       }}>
       <Stack.Screen
         name="Home"
         component={HomeScreen}
         options={{
-          tabBarIcon: () => <Icon size={20} name="home" />,
+          tabBarIcon: () => <Icon size={24} name="home" color="#714DD9" />,
           tabBarStyle: { fontSize: 20 },
         }}
       />
@@ -34,7 +41,7 @@ const BottomTabsNavigator = () => {
         name="Create Task"
         component={TaskScreen}
         options={{
-          tabBarIcon: () => <PlusIcon />,
+          tabBarIcon: () => <FloatingAction color='#714DD9' onPressMain={() => navigation.navigate('TaskScreen')} />,
           tabBarLabel: () => null,
           tabBarStyle: { position: 'absolute', bottom: 30, left: 0, right: 0 },
         }}
@@ -42,7 +49,7 @@ const BottomTabsNavigator = () => {
       <Stack.Screen
         name="Notification"
         component={Notification}
-        options={{ tabBarIcon: () => <Icon size={20} name="bell" /> }}
+        options={{ tabBarIcon: () => <Icon size={24} name="bell" color="#714DD9" /> }}
       />
     </Stack.Navigator>
   );
