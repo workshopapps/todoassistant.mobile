@@ -14,6 +14,17 @@ export default StyleSheet.create({
     marginBottom: 50,
   },
   title: {
+    fontSize: 20,
     fontWeight: 'bold',
+    paddingHorizontal: 20,
   },
+  flex: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  touch: {
+    borderRadius: 50,
+    backgroundColor: 'transparent',
+    opacity: 0.8,
+  }
 });
