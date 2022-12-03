@@ -197,6 +197,18 @@ const MyProfile = ({ navigation }) => {
                 <MaterialIcons name="keyboard-arrow-right" size={30} color="#714dd9" />
               </View>
             </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigate.navigate("Settings")}>
+              <View style={style.personalInfo}>
+                <Text>Settings</Text>
+                <MaterialIcons name="keyboard-arrow-right" size={30} color={'#714dd9'} />
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <View style={style.personalInfo}>
+                <Text>Manage Devices</Text>
+                <MaterialIcons name="keyboard-arrow-right" size={30} color={'#714dd9'} />
+              </View>
+            </TouchableOpacity>
           </View>
         </View>
 

@@ -19,7 +19,7 @@ const SettingScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.goBack()}>
         <Icon name="arrow-back" size={20}>
           {' '}
           <Text style={styles.title}>Settings</Text>

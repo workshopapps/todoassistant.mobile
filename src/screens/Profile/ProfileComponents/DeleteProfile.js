@@ -43,7 +43,8 @@ const DeleteProfile = () => {
             borderRadius: 4,
             backgroundColor: '#707070',
             marginLeft: 20,
-          }}></View>
+          }}
+        />
         <Text
           style={{
             paddingLeft: 10,
@@ -64,7 +65,8 @@ const DeleteProfile = () => {
             borderRadius: 4,
             backgroundColor: '#707070',
             marginLeft: 20,
-          }}></View>
+          }}
+        />
         <Text
           style={{
             paddingLeft: 10,
@@ -84,7 +86,8 @@ const DeleteProfile = () => {
             borderRadius: 4,
             backgroundColor: '#707070',
             marginLeft: 20,
-          }}></View>
+          }}
+        />
         <Text
           style={{
             paddingLeft: 10,
