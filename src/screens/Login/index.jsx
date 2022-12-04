@@ -127,7 +127,7 @@ const Login = () => {
           />
           <Text style={styles.stylew}>Remember me </Text>
         </View>
-        <Text style={styles.stylesss}>Forgot Password ?</Text>
+        <Text style={styles.stylesss} onPress={() => navigation.navigate('ResetPassword')}>Forgot Password ?</Text>
       </View>
       <View
         style={{

@@ -15,3 +15,4 @@ export { default as EditProfileComponent } from './Profile/ProfileComponents/Edi
 export { default as DeleteProfile } from './Profile/ProfileComponents/DeleteProfile';
 export { default as ChangePasswordComponent } from './Profile/ProfileComponents/ChangePasswordComponent';
 export { default as ReminderScreen } from './ReminderScreen';
+export { default as ResetPasswordScreen } from './ResetPassword';

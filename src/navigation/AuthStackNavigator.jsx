@@ -2,7 +2,15 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 
 import Logo from '../assets/svg/logo.svg';
-import { Login, RegistrationScreen, OnboardingScreen, Auth, Screen2, OnboardingScreen1 } from '../screens';
+import {
+  Login,
+  RegistrationScreen,
+  OnboardingScreen,
+  Auth,
+  Screen2,
+  OnboardingScreen1,
+  ResetPasswordScreen,
+} from '../screens';
 
 const Stack = createNativeStackNavigator();
 
@@ -34,6 +42,20 @@ const AuthStackNavigator = () => {
       <Stack.Screen
         name="Registration"
         component={RegistrationScreen}
+        options={{
+          headerBackVisible: false,
+          headerStyle: {
+            backgroundColor: '#F6FAFB',
+            alignItems: 'center',
+            width: '100%',
+          },
+          headerTitleAlign: 'center',
+          headerTitle: () => <Logo />,
+        }}
+      />
+      <Stack.Screen
+        name="ResetPassword"
+        component={ResetPasswordScreen}
         options={{
           headerBackVisible: false,
           headerStyle: {
