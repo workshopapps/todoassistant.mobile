@@ -1,10 +1,12 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import messaging from '@react-native-firebase/messaging';
 import axios from 'axios';
 import React, { createContext, useState, useEffect } from 'react';
 // eslint-disable-next-line import/namespace
 import { Alert } from 'react-native';
 
 import { BASE_URL } from '../utils/config';
+
 
 export const AuthContext = createContext();
 
@@ -13,27 +15,44 @@ export const AuthProvider = ({ children }) => {
   const [userToken, setUserToken] = useState(null);
   const [userInfo, setUserInfo] = useState(null);
 
-  const login = (email, password) => {
+  const login = async (email, password) => {
     setIsLoading(true);
     axios
       .post(`${BASE_URL}/user/login`, {
         email,
         password,
       })
-      .then((res) => {
+      .then(async (res) => {
         console.log(res.data);
+
+        try {
+          await messaging().registerDeviceForRemoteMessages();
+
+          const notify_token = await messaging().getToken();
+
+          console.log(notify_token);
+          if (notify_token !== null) {
+            axios.post(`${BASE_URL}/notifications`, {
+              device_id: notify_token,
+              user_id: res.data.user_id,
+            });
+          }
+        } catch (e) {
+          console.log(e);
+        }
         let userInfo = res.data;
         setUserInfo(userInfo);
-        // setUserToken(userInfo.access_token);
+
+        setUserToken(userInfo.access_token);
 
         AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
         AsyncStorage.setItem('userToken', userInfo.access_token);
       })
       .catch((err) => {
-        Alert(err.response.data.error.error)
+        Alert(err.response.data.error.error);
       });
 
-    setUserToken('fakdjfha');
+    // setUserToken('fakdjfha');
     //
     setIsLoading(false);
   };

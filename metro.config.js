@@ -1,19 +1,32 @@
-const { getDefaultConfig } = require('expo/metro-config');
+const { getDefaultConfig } = require('metro-config');
 
-module.exports = (() => {
-  const config = getDefaultConfig(__dirname);
+module.exports = (async () => {
+  const {
+    resolver: { sourceExts, assetExts },
+  } = await getDefaultConfig();
+  
 
-  const { transformer, resolver } = config;
+  return {
+    transformer: {
+      babelTransformerPath: require.resolve('react-native-svg-transformer'),
+    },
+    resolver: {
+      assetExts: assetExts.filter((ext) => ext !== 'svg'),
+      // eslint-disable-next-line no-dupe-keys
+    //   assetExts: assetExts.push('cjs', 'mjs'),
+      sourceExts: [...sourceExts, 'svg'],
+    },
 
-  config.transformer = {
-    ...transformer,
-    babelTransformerPath: require.resolve('react-native-svg-transformer'),
   };
-  config.resolver = {
-    ...resolver,
-    assetExts: resolver.assetExts.filter((ext) => ext !== 'svg'),
-    sourceExts: [...resolver.sourceExts, 'svg'],
-  };
-
-  return config;
 })();
+
+
+// // Learn more https://docs.expo.io/guides/customizing-metro
+// const { getDefaultConfig } = require('expo/metro-config');
+
+// // eslint-disable-next-line no-undef
+// const defaultConfig = getDefaultConfig(__dirname);
+// defaultConfig.resolver.assetExts.push('cjs');
+
+// // eslint-disable-next-line no-undef
+// module.exports = getDefaultConfig(__dirname);
