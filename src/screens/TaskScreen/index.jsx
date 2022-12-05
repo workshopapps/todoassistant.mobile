@@ -2,9 +2,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
-import Checkbox from 'expo-checkbox';
 import moment from 'moment';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   View,
   Text,
@@ -19,51 +18,49 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import RadioForm from 'react-native-simple-radio-button';
 
-import { useDispatch, useSelector } from 'react-redux';
 import arrowLeft from '../../assets/arrowLeft.png';
-import folder from '../../assets/folder.png';
-import info from '../../assets/info.png';
 import thumbs from '../../assets/thumbs.png';
 import { Button } from '../../components/Button';
-
-
+import { AuthContext } from '../../context/userContext';
 import styles from './index.styles';
 
 const TaskScreen = () => {
   const navigation = useNavigation();
-  const baseURL = 'https://api.ticked.hng.tech/api/v1/task';
   const [modalVisible, setModalVisible] = useState(false);
 
-  const [isPickerShow, setIsPickerShow] = useState(false);
-  const [starttime, setStartTime] = useState(new Date(Date.now()));
-  const [endtime, setEndTime] = useState(new Date(Date.now()));
+  const { newTask } = useContext(AuthContext);
 
-  const options = { hour: '2-digit', minute: '2-digit' };
+  // const [isPickerShow, setIsPickerShow] = useState(false);
+  // const [starttime, setStartTime] = useState(new Date(Date.now()));
+  // const [endtime, setEndTime] = useState(new Date(Date.now()));
 
-  const showPicker = () => {
-    setIsPickerShow(true);
-  };
+  // const options = { hour: '2-digit', minute: '2-digit' };
 
-  const hidePicker = () => {
-    setIsPickerShow(false);
-  };
+  // const showPicker = () => {
+  //   setIsPickerShow(true);
+  // };
 
-  const onChangeStartTime = (event, value) => {
-    setStartTime(value);
-    if (Platform.OS === 'android') {
-      setIsPickerShow(false);
-    }
-    hidePicker();
-  };
+  // const hidePicker = () => {
+  //   setIsPickerShow(false);
+  // };
 
-  const onChangeEndTime = (event, value) => {
-    setStartTime(value);
-    if (Platform.OS === 'android') {
-      setIsPickerShow(false);
-    }
-    hidePicker();
-  };
+  // const onChangeStartTime = (event, value) => {
+  //   setStartTime(value);
+  //   if (Platform.OS === 'android') {
+  //     setIsPickerShow(false);
+  //   }
+  //   hidePicker();
+  // };
+
+  // const onChangeEndTime = (event, value) => {
+  //   setStartTime(value);
+  //   if (Platform.OS === 'android') {
+  //     setIsPickerShow(false);
+  //   }
+  //   hidePicker();
+  // };
   //Date Picker
+
   const [date, setDate] = useState(new Date());
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(false);
@@ -87,7 +84,7 @@ const TaskScreen = () => {
     setShow(!show);
   };
 
-  const [chosenOption, setChosenOption] = useState(''); //will store our current user options
+  const [chosenOption, setChosenOption] = useState(''); // will store our current user options
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const optionbutton = [
@@ -102,27 +99,15 @@ const TaskScreen = () => {
     { label: 'None', value: 'none' },
   ];
 
-  const createTaskHandler = async () => {
-    const payload = {
-      title,
-      description,
-      start_time: new Date(),
-      repeat: "daily",
-      end_time: date,
-      va_option: chosenOption,
-    };
-    console.log(payload);
-    axios
-      .post(baseURL, payload, {
-        headers: {
-          Authorization: `Bearer ${await AsyncStorage.getItem('userToken')}`,
-        },
+  const createTaskHandler = () => {
+    newTask(title, description, date, chosenOption)
+      .then((e) => {
+        if (e !== undefined) setModalVisible(e);
+        console.log('====================================');
+        console.log(e);
+        console.log('====================================');
       })
-      .then((response) => {
-        console.log(response.data);
-        setModalVisible(true);
-      })
-      .catch((err) => console.log(err.response.data));
+      .catch((_) => {});
   };
 
   return (
@@ -192,7 +177,6 @@ const TaskScreen = () => {
               numberOfLines={4}
             />
           </View>
- 
           <View style={{ height: 14 }} />
           <Text style={styles.describer}> End Date</Text>
           <View style={styles.viewHere}>

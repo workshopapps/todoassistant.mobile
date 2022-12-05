@@ -1,7 +1,7 @@
 import DateTimePicker, { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
 import { useNavigation } from '@react-navigation/native';
 import Checkbox from 'expo-checkbox';
-import React, { useContext, useLayoutEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 // eslint-disable-next-line import/namespace
 import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 
@@ -13,6 +13,7 @@ import styles from './index.styles'; // <--- Import the styles
 
 const RegistrationScreen = () => {
   const navigation = useNavigation();
+
   const [first_name, setFirstName] = useState(null);
   const [last_name, setLastName] = useState(null);
   const [email, setEmail] = useState(null);
@@ -41,11 +42,6 @@ const RegistrationScreen = () => {
     setMode('date');
   };
 
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      // headerShown: false,
-    });
-  }, []);
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -144,15 +140,9 @@ const RegistrationScreen = () => {
           <View style={styles.button}>
             <Button
               title="continue"
-              onPress={register(
-                first_name,
-                last_name,
-                email,
-                password,
-                phone,
-                date_of_birth,
-                gender
-              )}
+              onPress={() =>
+                register(first_name, last_name, email, password, phone, date_of_birth, gender)
+              }
             />
             <View style={styles.login}>
               <Text style={styles.text}>Already have an account? </Text>
