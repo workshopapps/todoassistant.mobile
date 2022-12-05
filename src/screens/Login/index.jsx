@@ -6,7 +6,6 @@ import { View, Text, Image, TextInput } from 'react-native';
 
 import fb from '../../assets/fb.png';
 import google from '../../assets/google.png';
-import logo1 from '../../assets/logo1.png';
 import { Button } from '../../components/Button';
 import { AuthContext } from '../../context/userContext';
 import styles from './index.styles';
@@ -14,8 +13,8 @@ import styles from './index.styles';
 const Login = () => {
   const [isChecked, setChecked] = useState(false);
   const navigation = useNavigation();
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -24,11 +23,6 @@ const Login = () => {
   }, []);
 
   const { login } = useContext(AuthContext);
-
-  const handleSubmit = () => {
-    console.log('submitted');
-
-  }
 
   return (
     <View
@@ -55,7 +49,6 @@ const Login = () => {
         style={{
           color: '#000000',
           fontSize: 14,
-
           textAlign: 'left',
           paddingTop: 30,
           paddingBottom: 5,
@@ -106,7 +99,6 @@ const Login = () => {
           paddingLeft: 10,
         }}
       />
-
       <View
         style={{
           flexDirection: 'row',
@@ -138,7 +130,7 @@ const Login = () => {
           paddingBottom: 30,
           flexDirection: 'column',
         }}>
-        <Button onPress={()=>login(email, password)} style={{ fontSize: 14 }} title="Sign In" />
+        <Button onPress={() => login(email, password)} style={{ fontSize: 14 }} title="Sign In" />
       </View>
       <View style={styles.stylings}>
         <View style={styles.styling1} />
@@ -152,7 +144,6 @@ const Login = () => {
       <View style={styles.stylez}>
         <Text style={styles.stylezzz}>Don't have an account?</Text>
         <Text style={styles.stylesss} onPress={() => navigation.navigate('Registration')}>
-          
           Sign Up
         </Text>
       </View>
