@@ -119,7 +119,7 @@ const Login = () => {
           />
           <Text style={styles.stylew}>Remember me </Text>
         </View>
-        <Text style={styles.stylesss}>Forgot Password ?</Text>
+        <Text style={styles.stylesss} onPress={() => navigation.navigate('ResetPassword')}>Forgot Password ?</Text>
       </View>
       <View
         style={{
@@ -144,6 +144,7 @@ const Login = () => {
       <View style={styles.stylez}>
         <Text style={styles.stylezzz}>Don't have an account?</Text>
         <Text style={styles.stylesss} onPress={() => navigation.navigate('Registration')}>
+          
           Sign Up
         </Text>
       </View>

@@ -8,6 +8,9 @@ import ava from '../../assets/ava.png';
 import logo1 from '../../assets/logo1.png';
 import Message from '../../assets/svg/message.svg';
 import styles from './index.styles';
+import Logo from '../../assets/svg/logo.svg';
+import UserIcon from 'react-native-vector-icons/AntDesign';
+import Bell from 'react-native-vector-icons/SimpleLineIcons';
 
 const HomeHeader = () => {
   const navigation = useNavigation();
@@ -16,20 +19,15 @@ const HomeHeader = () => {
     navigation.navigate('Profile');
   };
 
-  useEffect(() => {
-    profileNavigate();
-  }, []);
-
   return (
     <View style={styles.container}>
       <View>
-        <Image source={logo1} style={{ }} />
+        <Logo height={26} />
       </View>
-      <View style={{ display: 'flex', flexDirection: 'row', paddingLeft: 15}}>
-        <Image source={notify} style={styles.image} />
-        <TouchableOpacity onPress={profileNavigate}>
+      <View style={styles.flexrow1}>
+        <TouchableOpacity onPress={profileNavigate} style={styles.icon}>
           {/* Message Icon */}
-          <Image source={ava} style={styles.image} />
+          <UserIcon name="user" size={24} color="#714DD9" />
         </TouchableOpacity>
       </View>
     </View>

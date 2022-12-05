@@ -1,97 +1,55 @@
+/* eslint-disable import/namespace */
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import React from 'react';
-import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
-import { Header, MessageInput } from '../../components';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import AllNotifications from './Notifications';
+import arrowLeft from '../../assets/arrowLeft.png';
+import styles from './index.styles';
 
-const DayMenu = ({ day }) => {
+const Tab = createMaterialTopTabNavigator();
+
+const Notifications = () => {
   return (
-    <View
+    <SafeAreaView
       style={{
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        padding: 12,
+        flex: 1,
       }}>
-      <Text>{day}</Text>
-      <TouchableOpacity>
-        <Text style={{ color: 'red' }}>clear all</Text>
-      </TouchableOpacity>
-    </View>
-  );
-};
-
-const Notification = () => {
-  return (
-    <ScrollView>
-      <Header title="Notifications" iconName="keyboard-backspace" />
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-evenly',
-          marginVertical: 20,
-          padding: 10,
-        }}>
+      <View style={{
+        flexDirection: 'row',
+        alignItems: 'center',
+      }}>
         <TouchableOpacity>
-          <Text
-            style={{
-              fontSize: 16,
-              textDecorationColor: '#714DD9',
-              textDecorationLine: 'underline',
-            }}>
-            All
-          </Text>
+          <Image source={arrowLeft} style={styles.img} />
         </TouchableOpacity>
-        <TouchableOpacity style={{ marginLeft: 25 }}>
-          <Text style={{ fontSize: 16 }}>Unread</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={{ marginLeft: '45%' }}>
-          <Text style={{ fontSize: 16 }}>Mark all as read</Text>
-        </TouchableOpacity>
+        <Text style={{
+          fontSize: 20,
+          fontWeight: 'bold',
+          marginLeft: 20,
+          
+        }}>Notifications</Text>
       </View>
-      <DayMenu day="TODAY" />
-      <MessageInput
-        image="R"
-        style={{ backgroundColor: '#E9F3F5' }}
-        messageTitle="Review Pending Task"
-        message="Meditate for 20 mins every weekday at 9am"
-        time="4 mins ago"
-      />
-      <MessageInput
-        imageColor={{ backgroundColor: '#707070' }}
-        image="T"
-        style={{ backgroundColor: '#E9F3F5' }}
-        messageTitle="Task Completed"
-        message="HNG Task completed."
-        time="1 hr ago"
-      />
-      <DayMenu day="YESTERDAY" />
-      <MessageInput
-        imageColor={{ backgroundColor: '#714DD9' }}
-        image="O"
-        messageTitle="Overdue Task"
-        message="Design system submission for 11am due would you like to.."
-        time="8:30 PM"
-      />
-      <MessageInput
-        imageColor={{ backgroundColor: '#707070' }}
-        image="T"
-        messageTitle="Task Completed"
-        message="HNG Task completed."
-        time="12:00 PM"
-      />
-      <MessageInput
-        image="R"
-        messageTitle="Review Pending Task"
-        message="Meditate for 20 mins every week day at 9am"
-        time="10:00 AM"
-      />
-      <MessageInput
-        imageColor={{ backgroundColor: '#714DD9' }}
-        image="O"
-        messageTitle="Overdue Task"
-        message="Design system submission for 11am due would you like to.."
-        time="8:00 AM"
-      />
-    </ScrollView>
+      <Tab.Navigator
+        screenOptions={{
+          tabBarLabelStyle: {
+            fontSize: 14,
+            color: '#000',
+            focused: true,
+            textTransform: 'capitalize',
+            width: '100%'
+          },
+
+          tabBarIndicatorStyle: {
+            backgroundColor: '#714DD9',
+          },
+          tabBarActiveTintColor: '#FDA758',
+          tabBarStyle: { backgroundColor: 'none', width: '65%' },
+        }}>
+        <Tab.Screen name="All" component={AllNotifications} />
+        <Tab.Screen name="Unread" component={AllNotifications} />
+      </Tab.Navigator>
+    </SafeAreaView>
   );
 };
 
-export default Notification;
+export default Notifications;

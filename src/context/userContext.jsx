@@ -33,15 +33,16 @@ export const AuthProvider = ({ children }) => {
 
           AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
           AsyncStorage.setItem('userToken', userInfo.access_token);
-          setIsLoading(false);
+          // setIsLoading(false);
         })
         .catch((err) => {
           Alert(err.response.data.error.error);
-          setIsLoading(false);
+          // setIsLoading(false);
         });
 
-      // setUserToken('fakdjfha');
+      setUserToken('fakdjfha');
       //
+      setIsLoading(false);
     }
   };
 

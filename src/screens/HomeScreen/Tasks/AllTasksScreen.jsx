@@ -1,26 +1,31 @@
-import React, { useState } from "react";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import axios from 'axios';
+import React, { useState } from 'react';
 // eslint-disable-next-line import/namespace
-import { View } from "react-native";
+import { FlatList, View } from 'react-native';
 
-import { fetchTask } from "../../../api/task";
-import { Tasks } from "../../../components";
-import styles from "./index.styles";
+import { fetchTask } from '../../../api/task';
+import { Tasks } from '../../../components';
+import { BASE_URL } from '../../../utils/config';
+import styles from './index.styles';
 
 const AllTasksScreen = () => {
   const [allTasks, setAllTasks] = useState();
 
   const getAllTask = async () => {
     try {
-      await fetchTask().then((response) => {
-        console.log(response);
-        setAllTasks(response)
-      }
-       
-      )
+      await axios
+        .get(`${BASE_URL}/task`, {
+          headers: {
+            Authorization: `Bearer ${await AsyncStorage.getItem('userToken')}`,
+          },
+        })
+        .then((response) => {
+          console.log(response.data);
+          setAllTasks(response.data);
+        });
     } catch (error) {
-      
-      // console.log(response.error);
-      
+      console.log(error.message);
     }
   };
 
@@ -31,6 +36,7 @@ const AllTasksScreen = () => {
   // const createTask = useSelector((state) => state.createTaskSlice.value);
   return (
     <View style={styles.container}>
+      <FlatList data={allTasks} renderItem={({ item }) => <Tasks task={item.title} />} />
       {/* {allTasks.map((item, index) => (
         <View key={index}>
           <Tasks task={item.title} time={item.created_at} />

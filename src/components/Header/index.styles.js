@@ -6,7 +6,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     marginTop: 20,
-    paddingHorizontal: 15,
+    paddingHorizontal: 0,
     marginBottom: 30,
    backgroundColor: "#F9F7FF"
   },
@@ -16,6 +16,11 @@ export default StyleSheet.create({
     borderRadius: 50,
     marginRight: 10,
   },
+  icon: {
+    borderRadius: 40,
+    backgroundColor: "linear-gradient(0deg, rgba(113, 77, 217, 0.11), rgba(113, 77, 217, 0.11)), #FFFFFF;",
+    padding: 8
+  },
   flexrow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -24,6 +29,9 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingHorizontal: 15,
+    // justifyContent: 'space-between',
+    // width: '33%'
   },
   m_4: {
     marginHorizontal: 10,
