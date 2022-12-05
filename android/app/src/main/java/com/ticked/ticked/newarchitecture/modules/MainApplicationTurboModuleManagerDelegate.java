@@ -1,4 +1,4 @@
-package com.ticked.newarchitecture.modules;
+package com.ticked.ticked.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;

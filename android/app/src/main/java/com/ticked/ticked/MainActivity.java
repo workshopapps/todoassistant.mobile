@@ -1,4 +1,4 @@
-package com.ticked;
+package com.ticked.ticked;
 
 import android.os.Build;
 import android.os.Bundle;
