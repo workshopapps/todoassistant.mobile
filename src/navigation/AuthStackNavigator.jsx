@@ -79,14 +79,7 @@ const AuthStackNavigator = () => {
         name="ResetPassword"
         component={ResetPasswordScreen}
         options={{
-          headerBackVisible: false,
-          headerStyle: {
-            backgroundColor: '#F6FAFB',
-            alignItems: 'center',
-            width: '100%',
-          },
-          headerTitleAlign: 'center',
-          headerTitle: () => <Logo />,
+          headerShown: false,
         }}
       />
     </Stack.Navigator>
