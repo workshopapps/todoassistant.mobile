@@ -15,31 +15,39 @@ const Notifications = () => {
       style={{
         flex: 1,
       }}>
-      <View>
+      <View style={{
+        flexDirection: 'row',
+        alignItems: 'center',
+      }}>
         <TouchableOpacity>
           <Image source={arrowLeft} style={styles.img} />
         </TouchableOpacity>
-        <Text>Notifications</Text>
-
-        <Tab.Navigator
-          screenOptions={{
-            tabBarLabelStyle: {
-              fontSize: 14,
-              color: '#000',
-              focused: true,
-              textTransform: 'capitalize',
-            },
-
-            tabBarIndicatorStyle: {
-              backgroundColor: '#714DD9',
-            },
-            tabBarActiveTintColor: '#FDA758',
-            tabBarStyle: { backgroundColor: 'none', width: '65%' },
-          }}>
-          <Tab.Screen name="All" component={AllNotifications} />
-          <Tab.Screen name="Unread" component={AllNotifications} />
-        </Tab.Navigator>
+        <Text style={{
+          fontSize: 20,
+          fontWeight: 'bold',
+          marginLeft: 20,
+          
+        }}>Notifications</Text>
       </View>
+      <Tab.Navigator
+        screenOptions={{
+          tabBarLabelStyle: {
+            fontSize: 14,
+            color: '#000',
+            focused: true,
+            textTransform: 'capitalize',
+            width: '100%'
+          },
+
+          tabBarIndicatorStyle: {
+            backgroundColor: '#714DD9',
+          },
+          tabBarActiveTintColor: '#FDA758',
+          tabBarStyle: { backgroundColor: 'none', width: '65%' },
+        }}>
+        <Tab.Screen name="All" component={AllNotifications} />
+        <Tab.Screen name="Unread" component={AllNotifications} />
+      </Tab.Navigator>
     </SafeAreaView>
   );
 };

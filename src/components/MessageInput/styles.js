@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
     marginHorizontal: 14,
     paddingVertical: 16,
     // backgroundColor: "#FFFFFF",
-    borderRadius: 5,
+    borderRadius: 8,
     marginBottom: 12,
   },
   imageContainer: {

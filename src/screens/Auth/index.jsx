@@ -1,8 +1,7 @@
-import { View, Text, Image } from 'react-native';
-import React, { useLayoutEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import styles from './index.styles';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useLayoutEffect } from 'react';
+import { View, Image } from 'react-native';
+
 import authframe from '../../assets/authframe.png';
 import { Button } from '../../components/Button';
 import { LinedButton } from '../../components/LinedButton';
@@ -35,7 +34,8 @@ const Auth = () => {
           flexDirection: 'row',
           justifyContent: 'flex-end',
           paddingRight: 20,
-        }}></View>
+        }}
+      />
       <Image
         source={authframe}
         style={{
