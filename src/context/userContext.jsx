@@ -7,7 +7,6 @@ import { Alert } from 'react-native';
 import { validatePwd, validateEmail, formValidation } from '../screens/Validation';
 import { BASE_URL } from '../utils/config';
 
-
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -31,7 +30,7 @@ export const AuthProvider = ({ children }) => {
           const userInfo = res.data;
           setUserInfo(userInfo);
 
-          // setUserToken(userInfo.access_token);
+          setUserToken(userInfo.access_token);
 
           AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
           AsyncStorage.setItem('userToken', userInfo.access_token);
@@ -42,55 +41,9 @@ export const AuthProvider = ({ children }) => {
           // setIsLoading(false);
         });
 
-      setUserToken('fakdjfha');
+      // setUserToken('fakdjfha');
       //
       setIsLoading(false);
-    }
-  };
-
-  const register = (first_name, last_name, email, password, date_of_birth, phone, gender) => {
-    if (
-      first_name !== null &&
-      last_name !== null &&
-      email !== null &&
-      phone !== null &&
-      gender !== null &&
-      date_of_birth !== null &&
-      password !== null
-    ) {
-      if (validateEmail(email) && validatePwd(password)) {
-        setIsLoading(true);
-        axios
-          .post(`${BASE_URL}/user`, {
-            first_name,
-            last_name,
-            email,
-            password,
-            date_of_birth,
-            phone,
-            gender,
-          })
-          .then((res) => {
-            console.log(res.data);
-            Alert.alert('Success', res.data.message);
-
-            const userInfo = res.data;
-
-            setUserInfo(userInfo);
-            setUserToken(userInfo.access_token);
-
-            AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
-            AsyncStorage.setItem('userToken', userInfo.access_token);
-
-            setIsLoading(false);
-          })
-          .catch((err) => {
-            Alert(err);
-            setIsLoading(false);
-          });
-      }
-    } else {
-      alert('Some field are empty');
     }
   };
 
