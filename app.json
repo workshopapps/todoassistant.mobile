@@ -19,7 +19,6 @@
           "photosPermission": "The app accesses your photos to let you share them with your friends."
         }
       ],
-      "@notifee/react-native",
       "@react-native-firebase/app"
     ],
     "updates": {
