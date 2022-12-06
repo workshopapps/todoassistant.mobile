@@ -15,46 +15,83 @@ export const AuthProvider = ({ children }) => {
   const [userToken, setUserToken] = useState(null);
   const [userInfo, setUserInfo] = useState(null);
 
-  const login = async (email, password) => {
-    setIsLoading(true);
-    axios
-      .post(`${BASE_URL}/user/login`, {
-        email,
-        password,
-      })
-      .then(async (res) => {
-        console.log(res.data);
+  const login = (email, password) => {
+    if (validateEmail(email) && formValidation(password)) {
+      setIsLoading(true);
 
-        try {
-          await messaging().registerDeviceForRemoteMessages();
+      console.log('logging in');
 
-          const notify_token = await messaging().getToken();
+      axios
+        .post(`${BASE_URL}/user/login`, {
+          email,
+          password,
+        })
+        .then((res) => {
+          console.log(res.data);
+          const userInfo = res.data;
+          setUserInfo(userInfo);
 
-          console.log(notify_token);
-          if (notify_token !== null) {
-            axios.post(`${BASE_URL}/notifications`, {
-              device_id: notify_token,
-              user_id: res.data.user_id,
-            });
-          }
-        } catch (e) {
-          console.log(e);
-        }
-        let userInfo = res.data;
-        setUserInfo(userInfo);
+          // setUserToken(userInfo.access_token);
 
-        setUserToken(userInfo.access_token);
+          AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
+          AsyncStorage.setItem('userToken', userInfo.access_token);
+          // setIsLoading(false);
+        })
+        .catch((err) => {
+          Alert(err.response.data.error.error);
+          // setIsLoading(false);
+        });
 
-        AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
-        AsyncStorage.setItem('userToken', userInfo.access_token);
-      })
-      .catch((err) => {
-        Alert(err.response.data.error.error);
-      });
+      setUserToken('fakdjfha');
+      //
+      setIsLoading(false);
+    }
+  };
 
-    // setUserToken('fakdjfha');
-    //
-    setIsLoading(false);
+  const register = (first_name, last_name, email, password, date_of_birth, phone, gender) => {
+    if (
+      first_name !== null &&
+      last_name !== null &&
+      email !== null &&
+      phone !== null &&
+      gender !== null &&
+      date_of_birth !== null &&
+      password !== null
+    ) {
+      if (validateEmail(email) && validatePwd(password)) {
+        setIsLoading(true);
+        axios
+          .post(`${BASE_URL}/user`, {
+            first_name,
+            last_name,
+            email,
+            password,
+            date_of_birth,
+            phone,
+            gender,
+          })
+          .then((res) => {
+            console.log(res.data);
+            Alert.alert('Success', res.data.message);
+
+            const userInfo = res.data;
+
+            setUserInfo(userInfo);
+            setUserToken(userInfo.access_token);
+
+            AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
+            AsyncStorage.setItem('userToken', userInfo.access_token);
+
+            setIsLoading(false);
+          })
+          .catch((err) => {
+            Alert(err);
+            setIsLoading(false);
+          });
+      }
+    } else {
+      alert('Some field are empty');
+    }
   };
 
   const register = (first_name, last_name, email, password, date_of_birth, phone, gender) => {
