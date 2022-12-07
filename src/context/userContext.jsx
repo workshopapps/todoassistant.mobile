@@ -37,6 +37,7 @@ export const AuthProvider = ({ children }) => {
           // setIsLoading(false);
         })
         .catch((err) => {
+          console.log(err);
           Alert(err.response.data.error.error);
           // setIsLoading(false);
         });
