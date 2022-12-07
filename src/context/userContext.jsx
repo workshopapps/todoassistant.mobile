@@ -27,6 +27,18 @@ export const AuthProvider = ({ children }) => {
         })
         .then((res) => {
           console.log(res.data);
+
+          const getFCMToken = async () => {
+            try {
+              const token = await messaging().getToken();
+              console.log(token);
+            } catch (e) {
+              console.log(e);
+            }
+          };
+
+          getFCMToken();
+
           const userInfo = res.data;
           setUserInfo(userInfo);
 
