@@ -36,10 +36,10 @@ const AllTasksScreen = () => {
   // const createTask = useSelector((state) => state.createTaskSlice.value);
   return (
     <View style={styles.container}>
-      <FlatList data={allTasks} renderItem={({ item }) => <Tasks task={item.title} 
-      // time={item.end_time}
-      
-      />} />
+      <FlatList
+        data={allTasks}
+        renderItem={({ item }) => <Tasks task={item.title} time={item.end_time} />}
+      />
       {/* {allTasks.map((item, index) => (
         <View key={index}>
           <Tasks task={item.title} time={item.created_at} />
