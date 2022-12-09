@@ -21,14 +21,14 @@ import RadioForm from 'react-native-simple-radio-button';
 import arrowLeft from '../../assets/arrowLeft.png';
 import thumbs from '../../assets/thumbs.png';
 import { Button } from '../../components/Button';
-import { AuthContext } from '../../context/userContext';
+// import { AuthContext } from '../../context/authContext';
 import styles from './index.styles';
 
 const TaskScreen = () => {
   const navigation = useNavigation();
   const [modalVisible, setModalVisible] = useState(false);
 
-  const { newTask } = useContext(AuthContext);
+  // const { newTask } = useContext(AuthContext);
 
   // const [isPickerShow, setIsPickerShow] = useState(false);
   // const [starttime, setStartTime] = useState(new Date(Date.now()));
@@ -100,14 +100,14 @@ const TaskScreen = () => {
   ];
 
   const createTaskHandler = () => {
-    newTask(title, description, date, chosenOption)
-      .then((e) => {
-        if (e !== undefined) setModalVisible(e);
-        console.log('====================================');
-        console.log(e);
-        console.log('====================================');
-      })
-      .catch((_) => {});
+    // newTask(title, description, date, chosenOption)
+      // .then((e) => {
+      //   if (e !== undefined) setModalVisible(e);
+      //   console.log('====================================');
+      //   console.log(e);
+      //   console.log('====================================');
+      // })
+      // .catch((_) => {});
   };
 
   return (

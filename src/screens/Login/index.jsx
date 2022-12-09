@@ -7,10 +7,9 @@ import { View, Text, Image, TextInput } from 'react-native';
 import fb from '../../assets/fb.png';
 import google from '../../assets/google.png';
 import { Button } from '../../components/Button';
+import { login } from '../../context/AuthContext/apicalls';
+import { AuthContext } from '../../context/AuthContext/authContext';
 import styles from './index.styles';
-import { useLoginMutation } from '../../features/authApiSlice';
-import { setSignIn } from '../../features/authSlice';
-import { useDispatch } from 'react-redux'; 
 
 const Login = () => {
   const [isChecked, setChecked] = useState(false);
@@ -19,6 +18,12 @@ const Login = () => {
   const [password, setPassword] = useState('');
 
   // const [login, {loading}] = useLoginMutation()
+  const { isFetching, errMessage, dispatch } = useContext(AuthContext);
+
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  });
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -26,7 +31,13 @@ const Login = () => {
     });
   }, []);
 
-  const { login } = useContext(AuthContext);
+  // const { login } = useContext(AuthContext);
+
+  const handleLogin = () => {
+    setFormData({ email: email, password: password });
+    console.log(formData);
+    // login(formData, dispatch);
+  };
 
   return (
     <View
@@ -136,7 +147,15 @@ const Login = () => {
           paddingBottom: 30,
           flexDirection: 'column',
         }}>
-        <Button onPress={() => login(email, password)} style={{ fontSize: 14 }} title="Sign In" />
+        <Button
+          onPress={() => {
+            setFormData({ email: email, password: password });
+            console.log(formData);
+            login(formData, dispatch);
+          }}
+          style={{ fontSize: 14 }}
+          title="Sign In"
+        />
       </View>
       <View style={styles.stylings}>
         <View style={styles.styling1} />
