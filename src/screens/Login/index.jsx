@@ -18,7 +18,7 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const [login, {loading}] = useLoginMutation()
+  // const [login, {loading}] = useLoginMutation()
 
   useLayoutEffect(() => {
     navigation.setOptions({
