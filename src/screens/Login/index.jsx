@@ -7,14 +7,18 @@ import { View, Text, Image, TextInput } from 'react-native';
 import fb from '../../assets/fb.png';
 import google from '../../assets/google.png';
 import { Button } from '../../components/Button';
-import { AuthContext } from '../../context/userContext';
 import styles from './index.styles';
+import { useLoginMutation } from '../../features/authApiSlice';
+import { setSignIn } from '../../features/authSlice';
+import { useDispatch } from 'react-redux'; 
 
 const Login = () => {
   const [isChecked, setChecked] = useState(false);
   const navigation = useNavigation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const [login, {loading}] = useLoginMutation()
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -119,7 +123,9 @@ const Login = () => {
           />
           <Text style={styles.stylew}>Remember me </Text>
         </View>
-        <Text style={styles.stylesss} onPress={() => navigation.navigate('ResetPassword')}>Forgot Password ?</Text>
+        <Text style={styles.stylesss} onPress={() => navigation.navigate('ResetPassword')}>
+          Forgot Password ?
+        </Text>
       </View>
       <View
         style={{
@@ -144,7 +150,6 @@ const Login = () => {
       <View style={styles.stylez}>
         <Text style={styles.stylezzz}>Don't have an account?</Text>
         <Text style={styles.stylesss} onPress={() => navigation.navigate('Registration')}>
-          
           Sign Up
         </Text>
       </View>
