@@ -112,7 +112,7 @@ const MyProfile = ({ navigation }) => {
           <View style={style.upperProfile}>
             <View style={style.profileCap}>
               <Text style={{ color: '#707070', fontSize: 50 }}>
-                {userInfo.first_name.charAt(0)}
+                {/* {userInfo.first_name.charAt(0)} */}
               </Text>
             </View>
             <Text style={{ fontSize: 18, color: '#333333', marginBottom: 10, fontWeight: 'bold' }}>

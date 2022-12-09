@@ -12,9 +12,9 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [userToken, setUserToken] = useState(null);
-  const [userInfo, setUserInfo] = useState(null);
+  const [userInfo, setUserInfo] = useState({});
 
-  const login = (email, password) => {
+  const login = async (email, password) => {
     if (validateEmail(email) && formValidation(password)) {
       setIsLoading(true);
 
@@ -25,9 +25,7 @@ export const AuthProvider = ({ children }) => {
           email,
           password,
         })
-        .then((res) => {
-          console.log(res.data);
-
+        .then(async (res) => {
           const getFCMToken = async () => {
             try {
               const token = await messaging().getToken();
@@ -39,22 +37,29 @@ export const AuthProvider = ({ children }) => {
 
           getFCMToken();
 
+          console.log(res.data);
+
           const userInfo = res.data;
+
           setUserInfo(userInfo);
 
           setUserToken(userInfo.access_token);
 
-          AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
-          AsyncStorage.setItem('userToken', userInfo.access_token);
-          // setIsLoading(false);
+
+          if (res && res.data && res.data.access_token) {
+            const user = await AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
+            console.log(user)
+            await AsyncStorage.setItem('userToken', userToken).then(console.log("user token:", userToken ));
+          }
+
+
+
+          setIsLoading(false);
         })
         .catch((err) => {
-          Alert(err.response.data.error.error);
-          // setIsLoading(false);
+          Alert(err.message);
+          setIsLoading(false);
         });
-
-      // setUserToken('fakdjfha');
-      //
       setIsLoading(false);
     }
   };
@@ -96,7 +101,8 @@ export const AuthProvider = ({ children }) => {
             setIsLoading(false);
           })
           .catch((err) => {
-            Alert(err);
+            // Alert(err);
+            console.error(e)
             setIsLoading(false);
           });
       }
@@ -161,13 +167,13 @@ export const AuthProvider = ({ children }) => {
         })
         .then((response) => {
           console.log(response.data);
-          // setIsLoading(false);
+          setIsLoading(false);
 
           return true;
         })
         .catch((err) => {
-          console.log(err.response.data);
-          // setIsLoading(false);
+          console.log(err.message);
+          setIsLoading(false);
 
           return false;
         });
