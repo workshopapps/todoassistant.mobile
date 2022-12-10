@@ -19,7 +19,7 @@ export const AuthContextProvider = ({ children }) => {
   useEffect(() => {
     
     AsyncStorage.setItem('user', JSON.stringify(state.user));
-    // AsyncStorage.setItem('userToken', JSON.stringify(state.user.access_token));
+    AsyncStorage.setItem('userToken', JSON.stringify(state.user.access_token));
   }, [state.user]);
 
   return (

@@ -24,7 +24,7 @@ const TaskContextProvider = ({ children }) => {
 
   let token = '';
   if (JSON.stringify(AsyncStorage.getItem('user'))) {
-    token = JSON.parse(AsyncStorage.getItem('user'))?.data.access_token;
+    token = AsyncStorage.getItem('userToken');
   }
 
   const getTasks = useCallback(() => {
@@ -92,4 +92,4 @@ const TaskContextProvider = ({ children }) => {
     </TaskCtx.Provider>
   );
 };
-export default TaskContextProvider
+export default TaskContextProvider;

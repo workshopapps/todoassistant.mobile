@@ -23,8 +23,10 @@ import { colors } from '../../utils/colors';
 const MyProfile = ({ navigation }) => {
   // const { userInfo, logout } = useContext(AuthContext);
 
-  const {user} = useContext(AuthContext);
+  const {user: data} = useContext(AuthContext);
   const navigate = useNavigation();
+
+  console.log(data.results)
 
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -159,21 +161,21 @@ const MyProfile = ({ navigation }) => {
             <View style={[style.personalInfo, { marginBottom: 10 }]}>
               <Text style={style.nameStyle}>Name</Text>
               <Text style={style.valueStyle}>
-                {user.first_name} {user.last_name}
+                {/* {user.first_name} {user.last_name} */}
               </Text>
             </View>
 
             <View style={[style.personalInfo, { marginBottom: 10 }]}>
               <Text style={style.nameStyle}>Email address</Text>
               <Text style={style.valueStyle}>
-                {user.email}
+                {/* {user.email} */}
                 </Text>
             </View>
 
             <View style={[style.personalInfo, { marginBottom: 10 }]}>
               <Text style={style.nameStyle}>Phone </Text>
               <Text style={style.valueStyle}>
-                {user.phone}
+                {/* {user.phone} */}
               </Text>
             </View>
           </View>

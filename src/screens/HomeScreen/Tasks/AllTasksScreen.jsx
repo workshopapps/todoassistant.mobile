@@ -1,43 +1,29 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 // eslint-disable-next-line import/namespace
 import { FlatList, View } from 'react-native';
 
 import { fetchTask } from '../../../api/task';
 import { Tasks } from '../../../components';
+import { TaskCtx } from '../../../context/TaskContext';
 import { BASE_URL } from '../../../utils/config';
 import styles from './index.styles';
 
 const AllTasksScreen = () => {
   const [allTasks, setAllTasks] = useState();
 
-  const getAllTask = async () => {
-    try {
-      await axios
-        .get(`${BASE_URL}/task`, {
-          headers: {
-            Authorization: `Bearer ${await AsyncStorage.getItem('userToken')}`,
-          },
-        })
-        .then((response) => {
-          console.log(response.data);
-          setAllTasks(response.data);
-        });
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
+  const {tasks} = useContext(TaskCtx)
+  console.log(tasks)
 
-  React.useEffect(() => {
-    getAllTask();
-  }, []);
 
   // const createTask = useSelector((state) => state.createTaskSlice.value);
   return (
     <View style={styles.container}>
+      
+      {/* <Tasks /> */}
       <FlatList
-        data={allTasks}
+        data={tasks}
         renderItem={({ item }) => <Tasks task={item.title} time={item.end_time} />}
       />
       {/* {allTasks.map((item, index) => (
