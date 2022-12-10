@@ -17,12 +17,13 @@ const Login = () => {
   const [password, setPassword] = useState('');
 
   useLayoutEffect(() => {
-    navigation.setOptions({
-      // headerShown: false,
-    });
+    // navigation.setOptions({
+    //   // headerShown: false,
+    // });
+    navigation.navigate('Profile');
   }, []);
 
-  const { login } = useContext(AuthContext);
+  // const { login } = useContext(AuthContext);
 
   return (
     <View
@@ -119,7 +120,9 @@ const Login = () => {
           />
           <Text style={styles.stylew}>Remember me </Text>
         </View>
-        <Text style={styles.stylesss} onPress={() => navigation.navigate('ResetPassword')}>Forgot Password ?</Text>
+        <Text style={styles.stylesss} onPress={() => navigation.navigate('ResetPassword')}>
+          Forgot Password ?
+        </Text>
       </View>
       <View
         style={{
@@ -130,7 +133,12 @@ const Login = () => {
           paddingBottom: 30,
           flexDirection: 'column',
         }}>
-        <Button onPress={() => login(email, password)} style={{ fontSize: 14 }} title="Sign In" />
+        <Button
+          onPress={() => navigation.navigate('Auth')}
+          style={{ fontSize: 14 }}
+          title="Sign In"
+        />
+        {/* <Button onPress={() => login(email, password)} style={{ fontSize: 14 }} title="Sign In" /> */}
       </View>
       <View style={styles.stylings}>
         <View style={styles.styling1} />
@@ -144,7 +152,6 @@ const Login = () => {
       <View style={styles.stylez}>
         <Text style={styles.stylezzz}>Don't have an account?</Text>
         <Text style={styles.stylesss} onPress={() => navigation.navigate('Registration')}>
-          
           Sign Up
         </Text>
       </View>

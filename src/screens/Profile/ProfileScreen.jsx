@@ -112,17 +112,18 @@ const MyProfile = ({ navigation }) => {
           <View style={style.upperProfile}>
             <View style={style.profileCap}>
               <Text style={{ color: '#707070', fontSize: 50 }}>
-                {userInfo.first_name.charAt(0)}
+                {/* {userInfo.first_name.charAt(0)} */}
               </Text>
             </View>
             <Text style={{ fontSize: 18, color: '#333333', marginBottom: 10, fontWeight: 'bold' }}>
-              {userInfo.first_name} {userInfo.last_name}
+              {/* {userInfo.first_name} {userInfo.last_name} */}
             </Text>
             <Text style={{ fontWeight: '400', fontSize: 14, color: '#333333', marginBottom: 20 }}>
               Ticked Free Plan
             </Text>
 
-            <TouchableOpacity style={style.smallButton}>
+            <TouchableOpacity onPress={() => navigation.navigate('Subscription')}
+             style={style.smallButton}>
               <Text style={{ color: '#ffffff', fontWeight: '600', fontSize: 14 }}>
                 Upgrade Plan
               </Text>
@@ -157,18 +158,18 @@ const MyProfile = ({ navigation }) => {
             <View style={[style.personalInfo, { marginBottom: 10 }]}>
               <Text style={style.nameStyle}>Name</Text>
               <Text style={style.valueStyle}>
-                {userInfo.first_name} {userInfo.last_name}
+                {/* {userInfo.first_name} {userInfo.last_name} */}
               </Text>
             </View>
 
             <View style={[style.personalInfo, { marginBottom: 10 }]}>
               <Text style={style.nameStyle}>Email address</Text>
-              <Text style={style.valueStyle}>{userInfo.email}</Text>
+              {/* <Text style={style.valueStyle}>{userInfo.email}</Text> */}
             </View>
 
             <View style={[style.personalInfo, { marginBottom: 10 }]}>
               <Text style={style.nameStyle}>Phone </Text>
-              <Text style={style.valueStyle}>{userInfo.phone}</Text>
+              {/* <Text style={style.valueStyle}>{userInfo.phone}</Text> */}
             </View>
           </View>
 

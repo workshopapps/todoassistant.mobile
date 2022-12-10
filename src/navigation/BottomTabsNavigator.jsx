@@ -26,27 +26,28 @@ const BottomTabsNavigator = () => {
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
-        tabBarLabelStyle: {
-          
-        },
         tabBarActiveBackgroundColor: {
-          color: '#714DD9'
-        }
+          color: '#714DD9',
+        },
       }}>
       <Stack.Screen
         name="Home"
         component={HomeScreen}
         options={{
-          tabBarIcon: () => <Image source={homes} style={{width: 24, height: 24}} />,
+          tabBarIcon: () => <Image source={homes} style={{ width: 24, height: 24 }} />,
           tabBarStyle: { fontSize: 20 },
-          tabBarLabel:({ focused,color })=>(<Text style={{color:focused?"#714dd9":"#707070", paddingTop: 10}}>Home</Text>)
+          tabBarLabel: ({ focused, color }) => (
+            <Text style={{ color: focused ? '#714dd9' : '#707070', paddingTop: 10 }}>Home</Text>
+          ),
         }}
       />
       <Stack.Screen
         name="Create Task"
         component={TaskScreen}
         options={{
-          tabBarIcon: () => <FloatingAction color='#714DD9' onPressMain={() => navigation.navigate('TaskScreen')} />,
+          tabBarIcon: () => (
+            <FloatingAction color="#714DD9" onPressMain={() => navigation.navigate('TaskScreen')} />
+          ),
           tabBarLabel: () => null,
           tabBarStyle: { position: 'absolute', bottom: 30, left: 0, right: 0 },
         }}
@@ -55,9 +56,13 @@ const BottomTabsNavigator = () => {
         name="Notification"
         component={Notification}
         options={{
-          tabBarIcon: () => <Image source={notificate} style={{width: 24, height: 24}} />,
+          tabBarIcon: () => <Image source={notificate} style={{ width: 24, height: 24 }} />,
           tabBarStyle: { fontSize: 20 },
-          tabBarLabel:({ focused,color })=>(<Text style={{color:focused?"#714dd9":"#707070", paddingTop: 10}}>Notification</Text>)
+          tabBarLabel: ({ focused, color }) => (
+            <Text style={{ color: focused ? '#714dd9' : '#707070', paddingTop: 10 }}>
+              Notification
+            </Text>
+          ),
         }}
       />
     </Stack.Navigator>
