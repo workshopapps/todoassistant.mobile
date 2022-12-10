@@ -11,7 +11,7 @@ const CreditCard = () => {
 
   const handlePayPress = async () => {
     // 1. fetch Intent Client Secret from backend
-    const clientSecret = await fetchPaymentIntentClientSecret();
+    const clientSecret = await fetchPaymentIntentClientSecret(`$(BASE_URL)`);
 
     // 2. Gather customer billing information (ex. email)
     // const billingDetails: BillingDetails = {
