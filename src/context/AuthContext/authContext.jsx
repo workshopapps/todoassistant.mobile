@@ -1,9 +1,10 @@
 import AuthReducer from './AuthReducer';
 import { createContext, useEffect, useReducer } from 'react';
 import * as SecureStore from 'expo-secure-store';
+import AsyncStorage from "@react-native-async-storage/async-storage"
 
 const INITIAL_STATE = {
-  // user: JSON.parse(SecureStore.getItemAsync('user')) || null, //if the user had logged in before, the initial state when he comes back to the website will be the "user" jwt already stored in browser. Else, if he hadn't logged in, it'll be null.
+  user: JSON.stringify(AsyncStorage.getItem('user')) || null, //if the user had logged in before, the initial state when he comes back to the website will be the "user" jwt already stored in browser. Else, if he hadn't logged in, it'll be null.
   isFetching: false,
   error: false,
   errMessage: null,
@@ -16,8 +17,9 @@ export const AuthContextProvider = ({ children }) => {
 
   //storing the user object in the browser whenever it's generated after login
   useEffect(() => {
-    const user = JSON.stringify(state.user);
-    SecureStore.setItemAsync('user', user);
+    
+    AsyncStorage.setItem('user', JSON.stringify(state.user));
+    // AsyncStorage.setItem('userToken', JSON.stringify(state.user.access_token));
   }, [state.user]);
 
   return (

@@ -16,12 +16,14 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import { Button } from '../../components/Button';
 import { LinedButton } from '../../components/LinedButton';
+import { AuthContext } from '../../context/AuthContext/authContext';
 // import { AuthContext } from '../../context/authContext';
 import { colors } from '../../utils/colors';
 
 const MyProfile = ({ navigation }) => {
   // const { userInfo, logout } = useContext(AuthContext);
 
+  const {user} = useContext(AuthContext);
   const navigate = useNavigation();
 
   const [modalVisible, setModalVisible] = useState(false);
@@ -86,7 +88,7 @@ const MyProfile = ({ navigation }) => {
             </Text>
             <View style={{}}>
               <Button
-                onPress={logout}
+                // onPress={logout}
                 style={{ fontSize: 14, marginBottom: 5, marginTop: 20, width: 250 }}
                 title="Logout"
               />
@@ -157,21 +159,21 @@ const MyProfile = ({ navigation }) => {
             <View style={[style.personalInfo, { marginBottom: 10 }]}>
               <Text style={style.nameStyle}>Name</Text>
               <Text style={style.valueStyle}>
-                {/* {userInfo.first_name} {userInfo.last_name} */}
+                {user.first_name} {user.last_name}
               </Text>
             </View>
 
             <View style={[style.personalInfo, { marginBottom: 10 }]}>
               <Text style={style.nameStyle}>Email address</Text>
               <Text style={style.valueStyle}>
-                {/* {userInfo.email} */}
+                {user.email}
                 </Text>
             </View>
 
             <View style={[style.personalInfo, { marginBottom: 10 }]}>
               <Text style={style.nameStyle}>Phone </Text>
               <Text style={style.valueStyle}>
-                {/* {userInfo.phone} */}
+                {user.phone}
               </Text>
             </View>
           </View>
@@ -241,9 +243,6 @@ const MyProfile = ({ navigation }) => {
             <TouchableOpacity
               onPress={() => {
                 setModalVisible(!modalVisible);
-                {
-                  logout;
-                }
               }}>
               <View style={style.personalInfo}>
                 <Text style={style.actionLink}>Logout</Text>
