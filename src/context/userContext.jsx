@@ -122,6 +122,8 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  //Create New task
+
   const newTask = async (title, description, end_time, va_option) => {
     if (
       formValidation(title) &&
@@ -164,6 +166,47 @@ export const AuthProvider = ({ children }) => {
       return true;
     }
   };
+
+
+  //Subscription
+
+  const subscribe = async (email) => {
+    if (
+      formValidation(email)
+      
+    ) {
+      // setIsLoading(true);
+
+      const payload = {
+        email,
+        
+      };
+
+      console.log(payload);
+
+      axios
+        .post(`${BASE_URL}/subscribe`, payload, {
+          headers: {
+            Authorization: `Bearer ${await AsyncStorage.getItem('userToken')}`,
+          },
+        })
+        .then((response) => {
+          console.log(response.data);
+          // setIsLoading(false);
+
+          return true;
+        })
+        .catch((err) => {
+          console.log(err.response.data);
+          // setIsLoading(false);
+
+          return false;
+        });
+
+      return true;
+    }
+  };
+
 
   useEffect(() => {
     isLoggedIn();

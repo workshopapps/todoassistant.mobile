@@ -1,91 +1,59 @@
-import { CardField, useStripe } from '@stripe/stripe-react-native';
-import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { Button } from '../../../components/Button';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { Paystack, paystackProps } from 'react-native-paystack-webview';
+import React, { useRef, useEffect, useContext, useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
-import { CardFieldInput, BillingDetails } from '@stripe/stripe-react-native';
+import { AuthContext } from '../../../context/userContext';
 
-const CreditCard = () => {
-  const { confirmPayment } = useStripe();
-  const { cardDetails, addCard } = useState(null);
+export default function CreditCard() {
+  const paystackWebViewRef = useRef(paystackProps.PayStackRef);
+  const navigation = useNavigation();
 
-  const handlePayPress = async () => {
-    // 1. fetch Intent Client Secret from backend
-    const clientSecret = await fetchPaymentIntentClientSecret(`$(BASE_URL)`);
+  const { subscribe, userInfo } = useContext(AuthContext);
 
-    // 2. Gather customer billing information (ex. email)
-    // const billingDetails: BillingDetails = {
-    //   email: 'email@stripe.com',
-    //   phone: '+48888000888',
-    //   address: {
-    //     city: 'Houston',
-    //     country: 'US',
-    //     line1: '1459  Circle Drive',
-    //     line2: 'Texas',
-    //     postalCode: '77063',
-    //   },
-    // }; // mocked data for tests
+  const [email, setEmail] = useState('');
+  const [first_name, setFirstName] = useState('');
+  const [last_name, setLastName] = useState('');
+  const [phone_number, setPhoneNumber] = useState('');
 
-    // 3. Confirm payment with card details
-    // The rest will be done automatically using webhooks
-    const { error, paymentIntent } = await confirmPayment(
-      clientSecret,
-      {
-        paymentMethodType: 'Card',
-        // paymentMethodData: {
-        //   billingDetails,
-        // },
-      },
-      {
-        setupFutureUsage: undefined,
-      }
-    );
-
-    if (error) {
-      alert(`Error code: ${error.code}`, error.message);
-      console.log('Payment confirmation error', error.message);
-    } else if (paymentIntent) {
-      alert(
-        'Success',
-        `The payment was confirmed successfully! currency: ${paymentIntent.currency}`
-      );
-      console.log('Success from promise', paymentIntent);
-    }
+  const createSubscription = () => {
+    subscribe(email).then((e) => {
+      navigation.navigate('Home');
+      alert('Payment Successful');
+    });
   };
 
-  return (
-    <View style={{ backgroundColor: '#f9f7ff', height: "100%", padding:20 }}>
-      <View style={{ backgroundColor: '#f9f7ff' }}>
-        <CardField
-          postalCodeEnabled
-          placeholders={{
-            number: '4242 4242 4242 4242',
-          }}
-          cardStyle={{
-            backgroundColor: '#FFFFFF',
-            textColor: '#000000',
-            borderRadius: 8
-          }}
-          style={{
-            width: '100%',
-            height: 50,
-            marginVertical: 30,
-          }}
-          onCardChange={(c) => {
-            // addCard(c);
+  const init = async () => {
+    setEmail(userInfo.email);
+    setFirstName(userInfo.first_name);
+    setLastName(userInfo.last_name);
+    setPhoneNumber(userInfo.phone_number);
+  };
 
-            console.log(c);
-          }}
-          onFocus={(focusedField) => {
-            console.log('focusField', focusedField);
-          }}
-        />
-      </View>
-      <Button onPress={() => handlePayPress()} style={{ fontSize: 14 }} title="Make payment" />
+  useEffect(() => {
+    init().then((_) => paystackWebViewRef.current.startTransaction());
+  }, []);
+
+  return (
+    <View>
+      <Paystack
+        paystackKey="pk_test_c2c7d0e27a92d2445b5161b037192f17a6b988b6"
+        paystackSecretKey="sk_test_d146f7d0bf53d3ab292a3b07456d18127a114467"
+        billingEmail={email}
+        billingMobile={phone_number}
+        billingName={`${first_name} ${last_name}`}
+        activityIndicatorColor="#714DD9"
+        amount="25000.00"
+        onCancel={(e) => {
+          console.log(e);
+        }}
+        onSuccess={(res) => {
+          createSubscription();
+        }}
+        ref={paystackWebViewRef}
+      />
     </View>
   );
-};
-
-export default CreditCard;
+}
 
 const styles = StyleSheet.create({});
