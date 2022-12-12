@@ -43,7 +43,8 @@ export default function CreditCard() {
         billingMobile={phone_number}
         billingName={`${first_name} ${last_name}`}
         activityIndicatorColor="#714DD9"
-        amount="25000.00"
+        currency ="USD"
+        amount="$6.00"
         onCancel={(e) => {
           console.log(e);
         }}
