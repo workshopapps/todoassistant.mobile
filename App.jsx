@@ -1,17 +1,19 @@
 import { Provider } from 'react-redux';
 import { store } from './src/store';
 import Router from './src/router';
-import { AuthProvider } from './src/context/userContext';
+import { AuthContextProvider } from './src/context/AuthContext/authContext';
+import TaskContextProvider from './src/context/TaskContext';
 
 const App = () => {
   return (
-    <AuthProvider>
-      <Provider store={store}>
-        <Router />
-      </Provider>
-    </AuthProvider>
+    <AuthContextProvider>
+      <TaskContextProvider>
+        <Provider store={store}>
+          <Router />
+        </Provider>
+      </TaskContextProvider>
+    </AuthContextProvider>
   );
 };
 
 export default App;
-

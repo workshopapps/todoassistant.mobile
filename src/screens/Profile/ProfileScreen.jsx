@@ -16,13 +16,17 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import { Button } from '../../components/Button';
 import { LinedButton } from '../../components/LinedButton';
-import { AuthContext } from '../../context/userContext';
+import { AuthContext } from '../../context/AuthContext/authContext';
+// import { AuthContext } from '../../context/authContext';
 import { colors } from '../../utils/colors';
 
 const MyProfile = ({ navigation }) => {
-  const { userInfo, logout } = useContext(AuthContext);
+  // const { userInfo, logout } = useContext(AuthContext);
 
+  const {user: data} = useContext(AuthContext);
   const navigate = useNavigation();
+
+  console.log(data.results)
 
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -86,7 +90,7 @@ const MyProfile = ({ navigation }) => {
             </Text>
             <View style={{}}>
               <Button
-                onPress={logout}
+                // onPress={logout}
                 style={{ fontSize: 14, marginBottom: 5, marginTop: 20, width: 250 }}
                 title="Logout"
               />
@@ -112,11 +116,11 @@ const MyProfile = ({ navigation }) => {
           <View style={style.upperProfile}>
             <View style={style.profileCap}>
               <Text style={{ color: '#707070', fontSize: 50 }}>
-                {userInfo.first_name.charAt(0)}
+                {/* {userInfo.first_name.charAt(0)} */}
               </Text>
             </View>
             <Text style={{ fontSize: 18, color: '#333333', marginBottom: 10, fontWeight: 'bold' }}>
-              {userInfo.first_name} {userInfo.last_name}
+              {/* {userInfo.first_name} {userInfo.last_name} */}
             </Text>
             <Text style={{ fontWeight: '400', fontSize: 14, color: '#333333', marginBottom: 20 }}>
               Ticked Free Plan
@@ -157,18 +161,22 @@ const MyProfile = ({ navigation }) => {
             <View style={[style.personalInfo, { marginBottom: 10 }]}>
               <Text style={style.nameStyle}>Name</Text>
               <Text style={style.valueStyle}>
-                {userInfo.first_name} {userInfo.last_name}
+                {/* {user.first_name} {user.last_name} */}
               </Text>
             </View>
 
             <View style={[style.personalInfo, { marginBottom: 10 }]}>
               <Text style={style.nameStyle}>Email address</Text>
-              <Text style={style.valueStyle}>{userInfo.email}</Text>
+              <Text style={style.valueStyle}>
+                {/* {user.email} */}
+                </Text>
             </View>
 
             <View style={[style.personalInfo, { marginBottom: 10 }]}>
               <Text style={style.nameStyle}>Phone </Text>
-              <Text style={style.valueStyle}>{userInfo.phone}</Text>
+              <Text style={style.valueStyle}>
+                {/* {user.phone} */}
+              </Text>
             </View>
           </View>
 
@@ -237,9 +245,6 @@ const MyProfile = ({ navigation }) => {
             <TouchableOpacity
               onPress={() => {
                 setModalVisible(!modalVisible);
-                {
-                  logout;
-                }
               }}>
               <View style={style.personalInfo}>
                 <Text style={style.actionLink}>Logout</Text>

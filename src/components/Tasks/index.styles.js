@@ -46,11 +46,25 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     lineHeight: 18,
   },
-  task_view: {},
+  task_view: {
+    paddingHorizontal: 15
+  },
   text: {
     fontSize: 12,
     color: '#333333',
     opacity: 0.5,
     paddingHorizontal: 5,
   },
+  accordion_header: {
+    backgroundColor: '#52C41A',
+    width: 76,
+    height: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
+    textDecoration: '#fff',
+    textTransform: 'uppercase',
+    fontWeight: '600',
+    fontSize: 11,
+    borderRadius: 5
+  }
 });

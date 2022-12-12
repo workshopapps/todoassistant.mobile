@@ -8,12 +8,12 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import arrowLeft from '../../../assets/arrowLeft.png';
 import { Button } from '../../../components/Button';
 import { Input } from '../../../components/Input/index';
-import { AuthContext } from '../../../context/userContext';
+// import { AuthContext } from '../../../context/authContext';
 
 const ProfileLayoutComponent = () => {
   const navigation = useNavigation();
 
-  const { userInfo } = useContext(AuthContext);
+  // const { userInfo } = useContext(AuthContext);
 
   const [first_name, setFirstName] = useState('');
   const [last_name, setLastName] = useState('');
@@ -25,9 +25,9 @@ const ProfileLayoutComponent = () => {
   }, []);
 
   const init = () => {
-    setFirstName(userInfo.first_name);
-    setLastName(userInfo.last_name);
-    setPhoneNumber(userInfo.phone);
+    // setFirstName(userInfo.first_name);
+    // setLastName(userInfo.last_name);
+    // setPhoneNumber(userInfo.phone);
   };
 
   const clickUpdate = () => {
@@ -39,7 +39,7 @@ const ProfileLayoutComponent = () => {
   const updateFunction = async () => {
     axios
       .put(
-        `${baseURL}/${userInfo.user_id}`,
+        // `${baseURL}/${userInfo.user_id}`,
         {
           first_name,
           last_name,
@@ -50,19 +50,19 @@ const ProfileLayoutComponent = () => {
         },
         {
           headers: {
-            Authorization: `Bearer ${userInfo.access_token}`,
+            // Authorization: `Bearer ${userInfo.access_token}`,
           },
         }
       )
       .then(async (response) => {
-        userInfo.email = response.data.email;
-        userInfo.phone = response.data.phone;
-        userInfo.first_name = response.data.first_name;
-        userInfo.last_name = response.data.last_name;
-        userInfo.date_of_birth = '';
-        userInfo.gender = response.data.gender;
+        // userInfo.email = response.data.email;
+        // userInfo.phone = response.data.phone;
+        // userInfo.first_name = response.data.first_name;
+        // userInfo.last_name = response.data.last_name;
+        // userInfo.date_of_birth = '';
+        // userInfo.gender = response.data.gender;
 
-        AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
+        // AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
 
         init();
 
