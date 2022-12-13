@@ -1,9 +1,7 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { useNavigation } from '@react-navigation/native';
-import axios from 'axios';
 import moment from 'moment';
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -21,7 +19,6 @@ import RadioForm from 'react-native-simple-radio-button';
 import arrowLeft from '../../assets/arrowLeft.png';
 import thumbs from '../../assets/thumbs.png';
 import { Button } from '../../components/Button';
-// import { AuthContext } from '../../context/authContext';
 import styles from './index.styles';
 
 const TaskScreen = () => {
@@ -101,13 +98,13 @@ const TaskScreen = () => {
 
   const createTaskHandler = () => {
     // newTask(title, description, date, chosenOption)
-      // .then((e) => {
-      //   if (e !== undefined) setModalVisible(e);
-      //   console.log('====================================');
-      //   console.log(e);
-      //   console.log('====================================');
-      // })
-      // .catch((_) => {});
+    // .then((e) => {
+    //   if (e !== undefined) setModalVisible(e);
+    //   console.log('====================================');
+    //   console.log(e);
+    //   console.log('====================================');
+    // })
+    // .catch((_) => {});
   };
 
   return (

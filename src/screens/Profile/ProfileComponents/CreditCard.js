@@ -1,9 +1,10 @@
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import { Paystack, paystackProps } from 'react-native-paystack-webview';
-import React, { useRef, useEffect, useContext, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
+import React, { useRef, useEffect, useContext, useState } from 'react';
+import { View } from 'react-native';
+import { Paystack, paystackProps } from 'react-native-paystack-webview';
 
-import { AuthContext } from '../../../context/userContext';
+import { AuthContext } from '../../../context/AuthContext/authContext';
+// import { AuthContext } from '../../../context/AuthContext/authContext';
 
 export default function CreditCard() {
   const paystackWebViewRef = useRef(paystackProps.PayStackRef);
@@ -17,6 +18,7 @@ export default function CreditCard() {
   const [phone_number, setPhoneNumber] = useState('');
 
   const createSubscription = () => {
+    // eslint-disable-next-line node/handle-callback-err
     subscribe(email).then((e) => {
       navigation.navigate('Home');
       alert('Payment Successful');
@@ -43,7 +45,7 @@ export default function CreditCard() {
         billingMobile={phone_number}
         billingName={`${first_name} ${last_name}`}
         activityIndicatorColor="#714DD9"
-        currency ="USD"
+        currency="USD"
         amount="$6.00"
         onCancel={(e) => {
           console.log(e);
@@ -56,5 +58,3 @@ export default function CreditCard() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({});

@@ -33,15 +33,12 @@ const Login = () => {
   }, []);
 
   // const { login } = useContext(AuthContext);
-<<<<<<< HEAD
-=======
 
   const handleLogin = () => {
     setFormData({ email: email, password: password });
     console.log(formData);
     // login(formData, dispatch);
   };
->>>>>>> 0364c1ed81ab7934d0a2f5a2b40652b6ad122c41
 
   return (
     <View
@@ -152,13 +149,6 @@ const Login = () => {
           flexDirection: 'column',
         }}>
         <Button
-<<<<<<< HEAD
-          onPress={() => navigation.navigate('Auth')}
-          style={{ fontSize: 14 }}
-          title="Sign In"
-        />
-        {/* <Button onPress={() => login(email, password)} style={{ fontSize: 14 }} title="Sign In" /> */}
-=======
           onPress={() => {
             setFormData({ email: email, password: password });
             console.log(formData);
@@ -167,7 +157,6 @@ const Login = () => {
           style={{ fontSize: 14 }}
           title="Sign In"
         />
->>>>>>> 0364c1ed81ab7934d0a2f5a2b40652b6ad122c41
       </View>
       <View style={styles.stylings}>
         <View style={styles.styling1} />

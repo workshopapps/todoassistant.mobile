@@ -2,7 +2,6 @@ import { Provider } from 'react-redux';
 
 import { AuthContextProvider } from './src/context/AuthContext/authContext';
 import TaskContextProvider from './src/context/TaskContext';
-// eslint-disable-next-line import/namespace
 import Router from './src/router';
 import { store } from './src/store';
 

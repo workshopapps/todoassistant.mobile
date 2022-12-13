@@ -17,16 +17,11 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { Button } from '../../components/Button';
 import { LinedButton } from '../../components/LinedButton';
 import { AuthContext } from '../../context/AuthContext/authContext';
-// import { AuthContext } from '../../context/authContext';
 import { colors } from '../../utils/colors';
 
 const MyProfile = ({ navigation }) => {
-  // const { userInfo, logout } = useContext(AuthContext);
-
-  const {user: data} = useContext(AuthContext);
+  const { user: data } = useContext(AuthContext);
   const navigate = useNavigation();
-
-  console.log(data.results)
 
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -116,18 +111,19 @@ const MyProfile = ({ navigation }) => {
           <View style={style.upperProfile}>
             <View style={style.profileCap}>
               <Text style={{ color: '#707070', fontSize: 50 }}>
-                {/* {userInfo.first_name.charAt(0)} */}
+                {/* {data.first_name.charAt(0)} */}
               </Text>
             </View>
             <Text style={{ fontSize: 18, color: '#333333', marginBottom: 10, fontWeight: 'bold' }}>
-              {/* {userInfo.first_name} {userInfo.last_name} */}
+              {data.first_name} {data.last_name}
             </Text>
             <Text style={{ fontWeight: '400', fontSize: 14, color: '#333333', marginBottom: 20 }}>
               Ticked Free Plan
             </Text>
 
-            <TouchableOpacity onPress={() => navigation.navigate('Subscription')}
-             style={style.smallButton}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Subscription')}
+              style={style.smallButton}>
               <Text style={{ color: '#ffffff', fontWeight: '600', fontSize: 14 }}>
                 Upgrade Plan
               </Text>
@@ -148,7 +144,6 @@ const MyProfile = ({ navigation }) => {
             <TouchableOpacity onPress={() => navigation.navigate('EditProfileComponent')}>
               <Text
                 style={{
-                  //
                   fontSize: 14,
                   fontWeight: '600',
                   color: colors.primary,
@@ -162,58 +157,23 @@ const MyProfile = ({ navigation }) => {
             <View style={[style.personalInfo, { marginBottom: 10 }]}>
               <Text style={style.nameStyle}>Name</Text>
               <Text style={style.valueStyle}>
-<<<<<<< HEAD
-                {/* {userInfo.first_name} {userInfo.last_name} */}
-=======
-                {/* {user.first_name} {user.last_name} */}
->>>>>>> 0364c1ed81ab7934d0a2f5a2b40652b6ad122c41
+                {data.first_name} {data.last_name}
               </Text>
             </View>
 
             <View style={[style.personalInfo, { marginBottom: 10 }]}>
               <Text style={style.nameStyle}>Email address</Text>
-<<<<<<< HEAD
-              {/* <Text style={style.valueStyle}>{userInfo.email}</Text> */}
-=======
-              <Text style={style.valueStyle}>
-                {/* {user.email} */}
-                </Text>
->>>>>>> 0364c1ed81ab7934d0a2f5a2b40652b6ad122c41
+              <Text style={style.valueStyle}>{data.email}</Text>
             </View>
 
             <View style={[style.personalInfo, { marginBottom: 10 }]}>
               <Text style={style.nameStyle}>Phone </Text>
-<<<<<<< HEAD
-              {/* <Text style={style.valueStyle}>{userInfo.phone}</Text> */}
-=======
-              <Text style={style.valueStyle}>
-                {/* {user.phone} */}
-              </Text>
->>>>>>> 0364c1ed81ab7934d0a2f5a2b40652b6ad122c41
+              <Text style={style.valueStyle}>{data.phone}</Text>
             </View>
           </View>
 
-          {/* modal dialog */}
-
-          {/* <Modal
-        transparent
-        animationType="fade"
-        visible={isModal}
-        onRequestClose={() => CloseModal(false)}>
-        <ModalPop
-          modalMsg={modalMsg}
-          modalNeg={modalNeg}
-          modalPos={modalPos}
-          modalOption={modalOption}
-          setIsModal={CloseModal}
-        />
-      </Modal> */}
-
-          {/* Security section */}
-
           <Text
             style={{
-              //
               fontSize: 18,
               fontWeight: '700',
               color: '#333333',
@@ -228,26 +188,26 @@ const MyProfile = ({ navigation }) => {
                 <View style={style.personalInfo}>
                   <Text>Change Password</Text>
 
-                  <MaterialIcons name="keyboard-arrow-right" size={30} color={'#714dd9'} />
+                  <MaterialIcons name="keyboard-arrow-right" size={30} color="#714dd9" />
                 </View>
               </TouchableOpacity>
 
               <TouchableOpacity>
                 <View style={style.personalInfo}>
                   <Text>Manage Devices</Text>
-                  <MaterialIcons name="keyboard-arrow-right" size={30} color={'#714dd9'} />
+                  <MaterialIcons name="keyboard-arrow-right" size={30} color="#714dd9" />
                 </View>
               </TouchableOpacity>
               <TouchableOpacity onPress={() => navigate.navigate('Settings')}>
                 <View style={style.personalInfo}>
                   <Text>Settings</Text>
-                  <MaterialIcons name="keyboard-arrow-right" size={30} color={'#714dd9'} />
+                  <MaterialIcons name="keyboard-arrow-right" size={30} color="#714dd9" />
                 </View>
               </TouchableOpacity>
               <TouchableOpacity>
                 <View style={style.personalInfo}>
                   <Text>Manage Devices</Text>
-                  <MaterialIcons name="keyboard-arrow-right" size={30} color={'#714dd9'} />
+                  <MaterialIcons name="keyboard-arrow-right" size={30} color="#714dd9" />
                 </View>
               </TouchableOpacity>
             </View>
@@ -261,7 +221,7 @@ const MyProfile = ({ navigation }) => {
               }}>
               <View style={style.personalInfo}>
                 <Text style={style.actionLink}>Logout</Text>
-                <MaterialIcons name="keyboard-arrow-right" size={30} color={'#714dd9'} />
+                <MaterialIcons name="keyboard-arrow-right" size={30} color="#714dd9" />
               </View>
             </TouchableOpacity>
           </View>
@@ -269,19 +229,19 @@ const MyProfile = ({ navigation }) => {
             <TouchableOpacity onPress={() => navigation.navigate('DeleteProfile')}>
               <View style={style.personalInfo}>
                 <Text style={style.actionLink}>Delete account</Text>
-                <MaterialIcons name="keyboard-arrow-right" size={30} color={'#714dd9'} />
+                <MaterialIcons name="keyboard-arrow-right" size={30} color="#714dd9" />
               </View>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigate.navigate("Settings")}>
+            <TouchableOpacity onPress={() => navigate.navigate('Settings')}>
               <View style={style.personalInfo}>
                 <Text>Settings</Text>
-                <MaterialIcons name="keyboard-arrow-right" size={30} color={'#714dd9'} />
+                <MaterialIcons name="keyboard-arrow-right" size={30} color="#714dd9" />
               </View>
             </TouchableOpacity>
             <TouchableOpacity>
               <View style={style.personalInfo}>
                 <Text>Manage Devices</Text>
-                <MaterialIcons name="keyboard-arrow-right" size={30} color={'#714dd9'} />
+                <MaterialIcons name="keyboard-arrow-right" size={30} color="#714dd9" />
               </View>
             </TouchableOpacity>
           </View>
