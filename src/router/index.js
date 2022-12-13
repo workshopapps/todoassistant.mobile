@@ -7,10 +7,15 @@ import { AuthContext } from '../context/userContext';
 import { selectIsLoggedIn } from '../features/authSlice';
 import AuthStackNavigator from '../navigation/AuthStackNavigator';
 import MainStackNavigator from '../navigation/MainStackNavigator';
+<<<<<<< HEAD
+=======
+import { AuthContext } from '../context/AuthContext/authContext';
+>>>>>>> 0364c1ed81ab7934d0a2f5a2b40652b6ad122c41
 
 const Router = () => {
-  const { isLoading, userToken } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
+<<<<<<< HEAD
   if (isLoading) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -25,6 +30,20 @@ const Router = () => {
       <MainStackNavigator /> 
       {/* <AuthStackNavigator /> */}
       {/* {userToken !== null ? <MainStackNavigator /> : <AuthStackNavigator />} */}
+=======
+  // if (isLoading) {
+  //   return (
+      // // <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      //   {/* <ActivityIndicator size={'large'} />
+        {/* <Text>Loading...</Text> */}
+      {/* </View> */}
+  //   ); */}
+  // }
+
+  return (
+    <NavigationContainer>
+      {user ? <MainStackNavigator /> : <AuthStackNavigator />}
+>>>>>>> 0364c1ed81ab7934d0a2f5a2b40652b6ad122c41
     </NavigationContainer>
   );
 };

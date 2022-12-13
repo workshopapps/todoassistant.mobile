@@ -11,6 +11,10 @@
     <key>EXUpdatesSDKVersion</key>
     <string>47.0.0</string>
     <key>EXUpdatesURL</key>
+<<<<<<< HEAD
     <string>https://exp.host/@anonymous/ticked</string>
+=======
+    <string>https://exp.host/@mogaka_dev/ticked</string>
+>>>>>>> 0364c1ed81ab7934d0a2f5a2b40652b6ad122c41
   </dict>
 </plist>

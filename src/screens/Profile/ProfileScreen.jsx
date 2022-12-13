@@ -16,13 +16,17 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import { Button } from '../../components/Button';
 import { LinedButton } from '../../components/LinedButton';
-import { AuthContext } from '../../context/userContext';
+import { AuthContext } from '../../context/AuthContext/authContext';
+// import { AuthContext } from '../../context/authContext';
 import { colors } from '../../utils/colors';
 
 const MyProfile = ({ navigation }) => {
-  const { userInfo, logout } = useContext(AuthContext);
+  // const { userInfo, logout } = useContext(AuthContext);
 
+  const {user: data} = useContext(AuthContext);
   const navigate = useNavigation();
+
+  console.log(data.results)
 
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -86,7 +90,7 @@ const MyProfile = ({ navigation }) => {
             </Text>
             <View style={{}}>
               <Button
-                onPress={logout}
+                // onPress={logout}
                 style={{ fontSize: 14, marginBottom: 5, marginTop: 20, width: 250 }}
                 title="Logout"
               />
@@ -158,18 +162,34 @@ const MyProfile = ({ navigation }) => {
             <View style={[style.personalInfo, { marginBottom: 10 }]}>
               <Text style={style.nameStyle}>Name</Text>
               <Text style={style.valueStyle}>
+<<<<<<< HEAD
                 {/* {userInfo.first_name} {userInfo.last_name} */}
+=======
+                {/* {user.first_name} {user.last_name} */}
+>>>>>>> 0364c1ed81ab7934d0a2f5a2b40652b6ad122c41
               </Text>
             </View>
 
             <View style={[style.personalInfo, { marginBottom: 10 }]}>
               <Text style={style.nameStyle}>Email address</Text>
+<<<<<<< HEAD
               {/* <Text style={style.valueStyle}>{userInfo.email}</Text> */}
+=======
+              <Text style={style.valueStyle}>
+                {/* {user.email} */}
+                </Text>
+>>>>>>> 0364c1ed81ab7934d0a2f5a2b40652b6ad122c41
             </View>
 
             <View style={[style.personalInfo, { marginBottom: 10 }]}>
               <Text style={style.nameStyle}>Phone </Text>
+<<<<<<< HEAD
               {/* <Text style={style.valueStyle}>{userInfo.phone}</Text> */}
+=======
+              <Text style={style.valueStyle}>
+                {/* {user.phone} */}
+              </Text>
+>>>>>>> 0364c1ed81ab7934d0a2f5a2b40652b6ad122c41
             </View>
           </View>
 
@@ -238,9 +258,6 @@ const MyProfile = ({ navigation }) => {
             <TouchableOpacity
               onPress={() => {
                 setModalVisible(!modalVisible);
-                {
-                  logout;
-                }
               }}>
               <View style={style.personalInfo}>
                 <Text style={style.actionLink}>Logout</Text>

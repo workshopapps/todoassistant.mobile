@@ -7,7 +7,7 @@ import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
-import { AuthContext } from '../../context/userContext';
+// import { AuthContext } from '../../context/authContext';
 import { colors } from '../../utils/colors';
 import styles from './index.styles'; // <--- Import the styles
 
@@ -27,7 +27,7 @@ const RegistrationScreen = () => {
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(false);
 
-  const { register } = useContext(AuthContext);
+  // const { register } = useContext(AuthContext);
 
   const onChange = (_event, selectedDate) => {
     const currentDate = selectedDate || date_of_birth;
@@ -140,9 +140,9 @@ const RegistrationScreen = () => {
           <View style={styles.button}>
             <Button
               title="continue"
-              onPress={() =>
-                register(first_name, last_name, email, password, phone, date_of_birth, gender)
-              }
+              // onPress={() =>
+              //   register(first_name, last_name, email, password, phone, date_of_birth, gender)
+              // }
             />
             <View style={styles.login}>
               <Text style={styles.text}>Already have an account? </Text>

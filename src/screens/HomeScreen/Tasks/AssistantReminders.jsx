@@ -7,7 +7,7 @@ import styles from './index.styles'
 const AssistantReminders = () => {
   return (
     <View style={styles.container}>
-      <Tasks />
+      {/* <Tasks /> */}
     </View>
   )
 }

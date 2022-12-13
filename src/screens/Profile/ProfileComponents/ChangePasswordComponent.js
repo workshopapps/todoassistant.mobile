@@ -6,12 +6,12 @@ import React, { useEffect, useState, useContext } from 'react';
 import { Input } from '../../../components/Input/index';
 import { Button } from '../../../components/Button';
 import arrowLeft from '../../../assets/arrowLeft.png';
-import { AuthContext } from '../../../context/userContext';
+// import { AuthContext } from '../../../context/authContext';
 
 const ProfileLayoutComponent = () => {
   const navigation = useNavigation();
 
-  const { userInfo } = useContext(AuthContext);
+  // const { userInfo } = useContext(AuthContext);
 
   const [old_password, setOldPasword] = useState('');
   const [new_password, setNewPassword] = useState('');
