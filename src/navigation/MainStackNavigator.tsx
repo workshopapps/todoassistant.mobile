@@ -5,8 +5,12 @@ const Stack = createNativeStackNavigator();
 
 export default function MainStackNavigator() {
   return (
-    <Stack.Navigator>
-        <Stack.Screen name="Onboarding" component={OnboardingScreen} />
+    <Stack.Navigator 
+        screenOptions={{
+            headerShown: false,
+        }}
+    >
+        <Stack.Screen name="Onboarding" component={OnboardingScreen}  />
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="Search" component={SearchScreen} />
       <Stack.Screen name="Notifications" component={NotificationsScreen} />
