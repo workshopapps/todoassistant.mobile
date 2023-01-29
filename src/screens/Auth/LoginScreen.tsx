@@ -18,7 +18,7 @@ const LoginScreen = () => {
     <View className="p-5 flex-1 bg-white w-screen">
       <View className="items-center">
         <Ticked width={32} height={28} fill="black" />
-        <Text className="text-black mt-3 font-bold text-[18px] leading-[28.8px]">
+        <Text className="text-black mt-3 font-bold text-[24px] leading-[28.8px]">
           Welcome Back
         </Text>
         <View className="items-start justify-start flex w-full">
@@ -83,7 +83,7 @@ const LoginScreen = () => {
         </View>
 
         <View className="my-8 flex-row space-x-1">
-          <Text className="text-[#707070]">Already have an account?</Text>
+          <Text className="text-[#707070]">Don't have an account?</Text>
           <Text
             className="text-primary underline-offset-2 underline font-semibold"
             onPress={() => navigation.navigate('Register')}>

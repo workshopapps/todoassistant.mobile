@@ -7,6 +7,7 @@ import {
   // OnboardingScreen,
   ProfileScreen,
   SearchScreen,
+  RegisterScreen
 } from '../screens';
 
 // Icons
@@ -110,6 +111,7 @@ export default function MainStackNavigator() {
         headerShown: false,
       }}>
       <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name='Register' component={RegisterScreen} />
       {/* <Stack.Screen name="Onboarding" component={OnboardingScreen}  /> */}
       <Stack.Screen name="BottomTabs" component={LoggedInTabs} />
       <Stack.Screen name="Drawer" component={DrawerNavigation} />
