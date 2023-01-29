@@ -2,6 +2,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {
   HomeScreen,
+  LoginScreen,
   NotificationsScreen,
   // OnboardingScreen,
   ProfileScreen,
@@ -108,6 +109,7 @@ export default function MainStackNavigator() {
       screenOptions={{
         headerShown: false,
       }}>
+      <Stack.Screen name="Login" component={LoginScreen} />
       {/* <Stack.Screen name="Onboarding" component={OnboardingScreen}  /> */}
       <Stack.Screen name="BottomTabs" component={LoggedInTabs} />
       <Stack.Screen name="Drawer" component={DrawerNavigation} />
