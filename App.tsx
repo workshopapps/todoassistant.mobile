@@ -7,7 +7,8 @@ function App(): JSX.Element {
   return (
     <NavigationContainer>
       <StatusBar
-        barStyle="light-content"
+        barStyle="dark-content"
+        backgroundColor="white"
       />
       <MainStackNavigator />
     </NavigationContainer>
