@@ -57,7 +57,9 @@ const LoginScreen = () => {
           <Button
             buttonColor="#714DD9"
             textColor="white"
-            className="mt-5 rounded-sm w-full">
+            className="mt-5 rounded-sm w-full"
+            onPress={() => navigation.navigate("BottomTabs")}
+            >
             Login
           </Button>
 

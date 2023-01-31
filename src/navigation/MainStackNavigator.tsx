@@ -4,23 +4,22 @@ import {
   HomeScreen,
   LoginScreen,
   NotificationsScreen,
-  // OnboardingScreen,
+  OnboardingScreen,
   ProfileScreen,
   SearchScreen,
-  RegisterScreen
+  RegisterScreen,
 } from '../screens';
 
 // Icons
 import Home from '../assets/bottom-tabs-icons/home.svg';
-import Search from "../assets/bottom-tabs-icons/search-normal.svg"
-import Notification from "../assets/bottom-tabs-icons/notification-bing.svg"
-import Profile from "../assets/bottom-tabs-icons/profile.jpg"
+import Search from '../assets/bottom-tabs-icons/search-normal.svg';
+import Notification from '../assets/bottom-tabs-icons/notification-bing.svg';
+import Profile from '../assets/bottom-tabs-icons/profile.jpg';
 import {Image, Text} from 'react-native';
 
 import {BottomTabBarHeightContext} from '@react-navigation/bottom-tabs';
 import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
-import { DrawerNavigation } from './DrawerNavigation';
-
+import {DrawerNavigation} from './DrawerNavigation';
 
 const Stack = createNativeStackNavigator();
 
@@ -39,9 +38,7 @@ function LoggedInTabs() {
         name="Home"
         component={HomeScreen}
         options={{
-          tabBarIcon: () => (
-            <Home width={24} height={24} fill="white" />
-          ),
+          tabBarIcon: () => <Home width={24} height={24} fill="white" />,
           // tabBarStyle: { fontSize: 20 },
           tabBarLabel: ({focused, color}) => (
             <Text
@@ -56,12 +53,10 @@ function LoggedInTabs() {
         name="Search"
         component={SearchScreen}
         options={{
-          tabBarIcon: () => (
-            <Search width={24} height={24} fill="white" />
-          ),
+          tabBarIcon: () => <Search width={24} height={24} fill="white" />,
           tabBarLabel: ({focused, color}) => (
             <Text
-              className='text-[13px] mb-1'
+              className="text-[13px] mb-1"
               style={{color: focused ? '#714dd9' : '#707070'}}>
               Search
             </Text>
@@ -77,7 +72,7 @@ function LoggedInTabs() {
           ),
           tabBarLabel: ({focused, color}) => (
             <Text
-              className='text-[13px] mb-1'
+              className="text-[13px] mb-1"
               style={{color: focused ? '#714dd9' : '#707070'}}>
               Notification
             </Text>
@@ -89,11 +84,15 @@ function LoggedInTabs() {
         component={ProfileScreen}
         options={{
           tabBarIcon: () => (
-            <Image source={Profile} style={{width: 25, height: 25}} className="rounded-full" />
+            <Image
+              source={Profile}
+              style={{width: 25, height: 25}}
+              className="rounded-full"
+            />
           ),
           tabBarLabel: ({focused, color}) => (
             <Text
-              className='text-[13px] mb-1'
+              className="text-[13px] mb-1"
               style={{color: focused ? '#714dd9' : '#707070'}}>
               Account
             </Text>
@@ -110,9 +109,9 @@ export default function MainStackNavigator() {
       screenOptions={{
         headerShown: false,
       }}>
+      <Stack.Screen name="Onboarding" component={OnboardingScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
-      <Stack.Screen name='Register' component={RegisterScreen} />
-      {/* <Stack.Screen name="Onboarding" component={OnboardingScreen}  /> */}
+      <Stack.Screen name="Register" component={RegisterScreen} />
       <Stack.Screen name="BottomTabs" component={LoggedInTabs} />
       <Stack.Screen name="Drawer" component={DrawerNavigation} />
     </Stack.Navigator>
