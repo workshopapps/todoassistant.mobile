@@ -8,6 +8,9 @@ import {Button, Checkbox, Divider, TextInput} from 'react-native-paper';
 
 import Google from '../../assets/icons/google-icon.svg';
 import {useNavigation} from '@react-navigation/native';
+import { TouchableOpacity } from 'react-native';
+
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const LoginScreen = () => {
   const [checked, setChecked] = useState();
@@ -67,21 +70,16 @@ const LoginScreen = () => {
             or continue with
           </Text>
 
-          <View className="flex-row w-full mt-5">
-            <Button
-              className="w-1/2 border-black border rounded-sm"
-              buttonColor="white"
-              textColor="black">
-              <Google width={24} height={24} />
-              <Text>Google</Text>
-            </Button>
-            <Button
-              className="w-1/2 rounded-sm"
-              textColor="white"
-              buttonColor="#2567B3">
-              Facebook
-            </Button>
-          </View>
+          <View className="flex-row w-full mt-5 space-x-2">
+              <TouchableOpacity className="w-1/2 border-[#D3D0D9] border rounded-[4px] flex-row items-center justify-center p-2 space-x-2">
+                <Google width={24} height={24} />
+                <Text className="text-black font-semibold">Google</Text>
+              </TouchableOpacity>
+              <TouchableOpacity className="w-1/2 border-transparent bg-[#2567B3] border rounded-[4px] flex-row items-center justify-center space-x-2">
+                <Icon name="facebook" size={24} color="white" />
+                <Text className="text-white font-semibold ml-1">Facebook</Text>
+              </TouchableOpacity>
+            </View>
         </View>
 
         <View className="my-8 flex-row space-x-1">
