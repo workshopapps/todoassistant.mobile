@@ -1,4 +1,4 @@
-export {default as ForgotPasswordScreen} from './Password/ForgotpasswordSCreen';
+export {default as ForgotPasswordScreen} from './Password/ForgotPasswordScreen';
 export {default as HomeScreen} from './HomeScreen';
 export {default as LoginScreen} from './Auth/LoginScreen';
 export {default as NotificationsScreen} from './NotificationsScreen';
