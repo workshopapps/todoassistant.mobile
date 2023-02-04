@@ -12,9 +12,13 @@ import Empty from '../assets/svg/today-empty.svg';
 import Sun from '../assets/icons/sun.svg';
 import Trend from '../assets/icons/trend-up.svg';
 import Setting from '../assets/icons/setting-4.svg';
+import { CreateTaskModal } from '../components';
 
 const HomeScreen = () => {
   const navigation = useNavigation();
+  const [visible, setVisible] = React.useState(false);
+
+  const toggleModal = () => setVisible(!visible);
 
   return (
     <View className="flex-1 bg-[#E9F3F5]">
@@ -23,6 +27,10 @@ const HomeScreen = () => {
           <TouchableHighlight onPress={() => navigation.navigate('Drawer')}>
             <Icon name="menu" size={24} color="#292D32" />
           </TouchableHighlight>
+
+          <CreateTaskModal isVisible={visible} onBackDropPress={
+            () => setVisible(false)
+          } />
 
           <View className="justify-between flex-row w-5/6">
             {/* <Icon name="wb-sunny" size={24} /> */}
@@ -49,7 +57,8 @@ const HomeScreen = () => {
         </View>
         <Button
           className="bg-primary rounded-md text-white w-full mt-5 items-center flex-row justify-center"
-          textColor="white">
+          textColor="white"
+          onPress={toggleModal}>
           <Icon name="plus" size={24} color="white" />
           <Text>Add a Task</Text>
         </Button>
