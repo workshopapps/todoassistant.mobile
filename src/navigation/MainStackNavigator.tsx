@@ -8,6 +8,9 @@ import {
   ProfileScreen,
   SearchScreen,
   RegisterScreen,
+  ResetPasswordScreen,
+  ForgotPasswordScreen,
+
 } from '../screens';
 
 // Icons
@@ -15,6 +18,8 @@ import Home from '../assets/bottom-tabs-icons/home.svg';
 import Search from '../assets/bottom-tabs-icons/search-normal.svg';
 import Notification from '../assets/bottom-tabs-icons/notification-bing.svg';
 import Profile from '../assets/bottom-tabs-icons/profile.jpg';
+import ForgotPassword from '../assets/bottom-tabs-icons/Password.svg';
+import ResetPassword from '../assets/bottom-tabs-icons/Password.svg';
 import {Image, Text} from 'react-native';
 
 import {BottomTabBarHeightContext} from '@react-navigation/bottom-tabs';
@@ -109,9 +114,11 @@ export default function MainStackNavigator() {
       screenOptions={{
         headerShown: false,
       }}>
+        <Stack.Screen name="ResetPassword" component={ResetPasswordScreen}/>
       <Stack.Screen name="Onboarding" component={OnboardingScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
-      <Stack.Screen name="Register" component={RegisterScreen} />
+      <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
+       <Stack.Screen name="Register" component={RegisterScreen} />
       <Stack.Screen name="BottomTabs" component={LoggedInTabs} />
       <Stack.Screen name="Drawer" component={DrawerNavigation} />
     </Stack.Navigator>
