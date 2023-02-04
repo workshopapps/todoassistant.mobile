@@ -3,33 +3,77 @@ import React from 'react';
 
 import Onboarding from 'react-native-onboarding-swiper';
 import {Button} from 'react-native-paper';
-import { OnboardFlow } from 'react-native-onboard';
-import { useNavigation } from '@react-navigation/native';
+import {OnboardFlow} from 'react-native-onboard';
+import {useNavigation} from '@react-navigation/native';
 
 const OnboardingScreen = () => {
-
   const navigation = useNavigation();
 
   return (
     <View className="flex-1">
-      <OnboardFlow 
-        type='fullscreen'
-        primaryColor='#714DD9'
+      <OnboardFlow
+        type="fullscreen"
+        primaryColor="#714DD9"
         onDone={() => navigation.navigate('Login')}
-        paginationColor='#714DD9'
-        paginationSelectedColor='#714DD9'
-        enableSkip
+        paginationColor="#714DD9"
+        paginationSelectedColor="#714DD9"
+        enableSkip="true"
+        pageStyle={{
+          flex: 1,
+          justifyContent: 'center',
+          padding: 10,
+        }}
+        subtitleStyle={{
+          fontSize: 13,
+        }}
+        titleStyle={{
+          fontSize: 23,
+          paddingHorizontal: 10,
+        }}
+        HeaderComponent={() => (
+          <View className="flex-row justify-end items-end px-5">
+            <Text className="text-lg underline underline-offset-4  text-primary">
+              Skip
+            </Text>
+          </View>
+        )}
+        FooterComponent={() => (
+          <View className="px-5">
+            <Button
+              className="bg-primary rounded-md text-white"
+              onPress={() => navigation.navigate('Register')}>
+              <Text className="text-white text-lg">Get Started</Text>
+            </Button>
+
+            <View className="flex-row justify-center items-center">
+              <Text className="text-sm text-gray-500">
+                Already have an account?
+              </Text>
+              <Button
+                className="text-sm text-gray-500"
+                onPress={() => navigation.navigate('Login')}>
+                Login
+              </Button>
+            </View>
+          </View>
+        )}
         pages={[
           {
-            title: 'Managing your tasks the easy way', 
-            subtitle: 'The most useful todo list app that breaks tasks into easy steps',
-            imageUri: Image.resolveAssetSource(require('../assets/onboarding/home1.png')).uri,
+            title: 'Managing your tasks the easy way',
+            subtitle:
+              'The most useful todo list app that breaks tasks into easy steps',
+            imageUri: Image.resolveAssetSource(
+              require('../assets/onboarding/home1.png'),
+            ).uri,
           },
           {
             title: 'Customize your experience',
-            subtitle: 'Receive a reminder call from your VA and assign your tasks',
-            imageUri: Image.resolveAssetSource(require('../assets/onboarding/home2.png')).uri,
-          }
+            subtitle:
+              'Receive a reminder call from your VA and assign your tasks',
+            imageUri: Image.resolveAssetSource(
+              require('../assets/onboarding/home2.png'),
+            ).uri,
+          },
         ]}
       />
       {/* <Onboarding
