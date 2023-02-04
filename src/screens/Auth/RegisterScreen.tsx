@@ -81,8 +81,8 @@ const RegisterScreen = () => {
                 <Google width={24} height={24} />
                 <Text className="text-black font-semibold">Google</Text>
               </TouchableOpacity>
-              <TouchableOpacity className="w-1/2 border-black bg-[] border rounded-sm flex-row items-center justify-center space-x-2">
-                <Text className="text-black font-semibold">Facebook</Text>
+              <TouchableOpacity className="w-1/2 border-black bg-[#2567B3] border rounded-sm flex-row items-center justify-center space-x-2">
+                <Text className="text-white font-semibold">Facebook</Text>
               </TouchableOpacity>
             </View>
           </View>
