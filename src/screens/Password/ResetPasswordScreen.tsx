@@ -2,7 +2,6 @@ import { View, Text, TouchableHighlight} from 'react-native'
 import React from 'react-native'
 import { TextInput } from 'react-native-paper';
 import { ArrowLongLeftIcon} from 'react-native-heroicons/solid';
-import {ShieldlockIcon} from 'react-native-heroicons/solid';
 import {
   NavigationContainer,
   useNavigation,
@@ -34,12 +33,12 @@ const ResetpasswordScreen = () => {
         <TextInput
             className="border w-full bg-white"
             placeholder="Enter your password"
-            left={<TextInput.Icon icon="shied-lock" color="#707070" />}
+            left={<TextInput.Icon icon="lock" color="#707070" />}
           />
           <TextInput
             className="border w-full bg-white"
             placeholder="Confirm new password"
-            left={<TextInput.Icon icon="shied-lock" color="#707070" />}
+            left={<TextInput.Icon icon="shied-check" color="#707070" />}
           />
           </View>
           <View>
