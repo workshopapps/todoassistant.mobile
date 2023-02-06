@@ -7,3 +7,4 @@ export {default as ProfileScreen} from './ProfileScreen';
 export {default as RegisterScreen} from './Auth/RegisterScreen';
 export {default as ResetPasswordScreen} from './Password/ResetPasswordScreen';
 export {default as SearchScreen} from './SearchScreen'
+export {default as DeactivateAccountScreen} from './Profile/DeactivateAccountScreen'
