@@ -34,7 +34,6 @@ const HomeScreen = () => {
           />
 
           <View className="justify-between flex-row w-5/6">
-            {/* <Icon name="wb-sunny" size={24} /> */}
             <View>
               <View className="flex-row items-center space-x-1">
                 <Sun width={24} height={24} />
@@ -57,11 +56,11 @@ const HomeScreen = () => {
           </View>
         </View>
         <Button
-          className="bg-primary rounded-md text-white w-full mt-5 items-center flex-row justify-center"
+          className="bg-primary rounded-md text-white w-auto mt-5 items- flex-row justify-center"
           textColor="white"
           onPress={toggleModal}>
           <Icon name="plus" size={24} color="white" />
-          <Text>Add a Task</Text>
+          <Text className='w-full'>Add a Task</Text>
         </Button>
       </View>
       <View className="items-center justify-center h-full">
