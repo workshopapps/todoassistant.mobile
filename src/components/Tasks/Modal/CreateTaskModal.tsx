@@ -48,18 +48,18 @@ const CreateTaskModal = ({
             />
           </View>
           <View className="justify-between items-center p-5 rounded-md bg-[#E9F3F5] flex my-5 flex-row">
-            <View className='flex-row space-x-4'>
-              <TouchableHighlight>
-                <CalendarIcon name="calendar" size={20} color="#714DD9" />
+            <View className='flex-row '>
+              <TouchableHighlight className='p-2'>
+                <CalendarIcon name="calendar" size={20} color="#707070" />
               </TouchableHighlight>
-              <TouchableHighlight>
-                <BellIcon name="bell" size={20} color="#714DD9" />
+              <TouchableHighlight className='p-2'>
+                <BellIcon name="bell" size={20} color="#707070" />
               </TouchableHighlight>
-              <TouchableHighlight>
-                <RepeatIcon name="repeat" size={20} color="#714DD9" />
+              <TouchableHighlight className='p-2'>
+                <RepeatIcon name="repeat" size={20} color="#707070" />
               </TouchableHighlight>
-              <TouchableHighlight>
-                <Icon name="tag-outline" size={20} color="#714DD9" />
+              <TouchableHighlight className='p-2'>
+                <Icon name="tag-outline" size={20} color="#707070" />
               </TouchableHighlight>
             </View>
             <View>
