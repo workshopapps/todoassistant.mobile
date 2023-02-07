@@ -3,6 +3,8 @@ import {
   LoginScreen,
   OnboardingScreen,
   RegisterScreen,
+  ResetPasswordScreen,
+  ForgotPasswordScreen,
 } from '../screens';
 
 import {DrawerNavigation} from './DrawerNavigation';
@@ -19,6 +21,8 @@ export default function MainStackNavigator() {
       <Stack.Screen name="Onboarding" component={OnboardingScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Register" component={RegisterScreen} />
+      <Stack.Screen name="ResetPassword" component={ResetPasswordScreen}/>
+      <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
       <Stack.Screen name="BottomTabs" component={LoggedInTabs} />
       <Stack.Screen name="Drawer" component={DrawerNavigation} />
     </Stack.Navigator>

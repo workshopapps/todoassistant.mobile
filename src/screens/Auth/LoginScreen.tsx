@@ -25,20 +25,20 @@ const LoginScreen = () => {
           Welcome Back
         </Text>
         <View className="items-start justify-start flex w-full">
-          <View className="mt-6 space-y-5">
+          <View className="mt-6 space-y-5 w-full">
             <TextInput
-              className="border w-80 bg-white"
+              className="border w-auto bg-white"
               placeholder="Enter your email address"
               mode="flat"
               left={<TextInput.Icon icon="email" color="#707070" />}
             />
             <TextInput
-              className="border w-80 bg-white"
+              className="border w-auto bg-white"
               placeholder="Password"
               left={<TextInput.Icon icon="shield-lock" color="#707070" />}
             />
           </View>
-          <View className="mt-2 justify-between w-80 items-center flex-row">
+          <View className="mt-2 justify-between w-full items-center flex-row">
             <View className="flex-row items-center">
               <Checkbox
                 status={checked ? 'checked' : 'unchecked'}
@@ -51,7 +51,9 @@ const LoginScreen = () => {
               </Text>
             </View>
             <View>
-              <Text className="text-primary font-semibold text-[14px]">
+              <Text
+                onPress={() => navigation.navigate('ForgotPassword')}
+                className="text-primary font-semibold text-[14px]">
                 Forgot Password?
               </Text>
             </View>
