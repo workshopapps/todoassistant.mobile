@@ -12,7 +12,7 @@ import Empty from '../assets/svg/today-empty.svg';
 import Sun from '../assets/icons/sun.svg';
 import Trend from '../assets/icons/trend-up.svg';
 import Setting from '../assets/icons/setting-4.svg';
-import { CreateTaskModal } from '../components';
+import {CreateTaskModal} from '../components';
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -28,9 +28,10 @@ const HomeScreen = () => {
             <Icon name="menu" size={24} color="#292D32" />
           </TouchableHighlight>
 
-          <CreateTaskModal isVisible={visible} onBackDropPress={
-            () => setVisible(false)
-          } />
+          <CreateTaskModal
+            isVisible={visible}
+            onBackDropPress={() => setVisible(false)}
+          />
 
           <View className="justify-between flex-row w-5/6">
             {/* <Icon name="wb-sunny" size={24} /> */}
