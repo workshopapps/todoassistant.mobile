@@ -46,7 +46,7 @@ const LoginScreen = () => {
                   setChecked(!checked);
                 }}
               />
-              <Text className="text-black text-[14px] text-[#707070]">
+              <Text className="text-[14px] text-[#707070]">
                 Remember Me
               </Text>
             </View>

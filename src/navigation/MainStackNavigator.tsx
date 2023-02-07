@@ -3,8 +3,8 @@ import {
   LoginScreen,
   OnboardingScreen,
   RegisterScreen,
-  ResetPasswordScreen,
   ForgotPasswordScreen,
+  ResetPasswordScreen,
 } from '../screens';
 
 import {DrawerNavigation} from './DrawerNavigation';
