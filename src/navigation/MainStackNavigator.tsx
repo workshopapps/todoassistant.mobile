@@ -10,7 +10,6 @@ import {
   RegisterScreen,
   ResetPasswordScreen,
   ForgotPasswordScreen,
-  DeactivateAccountScreen,
 } from '../screens';
 
 // Icons
