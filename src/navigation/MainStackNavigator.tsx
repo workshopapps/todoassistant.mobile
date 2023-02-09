@@ -19,11 +19,11 @@ export default function MainStackNavigator() {
       screenOptions={{
         headerShown: false,
       }}>
-      <Stack.Screen name="Onboarding" component={OnboardingScreen} />
+      {/* <Stack.Screen name="Onboarding" component={OnboardingScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Register" component={RegisterScreen} />
       <Stack.Screen name="ResetPassword" component={ResetPasswordScreen} />
-      <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
+      <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} /> */}
       <Stack.Screen name="BottomTabs" component={LoggedInTabs} />
       <Stack.Screen
         name="DeactivateAccount"
