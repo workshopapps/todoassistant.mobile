@@ -1,7 +1,7 @@
 export {default as ForgotPasswordScreen} from './Password/ForgotPasswordScreen';
 export {default as HomeScreen} from './HomeScreen';
 export {default as LoginScreen} from './Auth/LoginScreen';
-export {default as NotificationsScreen} from './NotificationsScreen';
+export {default as NotificationsScreen} from './Notifications/';
 export {default as OnboardingScreen} from './OnboardingScreen';
 export {default as ProfileScreen} from './ProfileScreen';
 export {default as RegisterScreen} from './Auth/RegisterScreen';
