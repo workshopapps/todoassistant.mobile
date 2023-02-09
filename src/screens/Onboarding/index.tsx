@@ -1,7 +1,6 @@
 import {View, Text, Image} from 'react-native';
 import React from 'react';
 
-import Onboarding from 'react-native-onboarding-swiper';
 import {Button} from 'react-native-paper';
 import {OnboardFlow} from 'react-native-onboard';
 import {useNavigation} from '@react-navigation/native';
@@ -63,7 +62,7 @@ const OnboardingScreen = () => {
             subtitle:
               'The most useful todo list app that breaks tasks into easy steps',
             imageUri: Image.resolveAssetSource(
-              require('../assets/onboarding/home1.png'),
+              require('../../assets/onboarding/home1.png'),
             ).uri,
           },
           {
@@ -71,7 +70,7 @@ const OnboardingScreen = () => {
             subtitle:
               'Receive a reminder call from your VA and assign your tasks',
             imageUri: Image.resolveAssetSource(
-              require('../assets/onboarding/home2.png'),
+              require('../../assets/onboarding/home2.png'),
             ).uri,
           },
         ]}

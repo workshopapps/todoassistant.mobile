@@ -8,10 +8,10 @@ import {useNavigation} from '@react-navigation/native';
 import {} from 'react-native-gesture-handler';
 
 // Icons
-import Empty from '../assets/svg/today-empty.svg';
-import Sun from '../assets/icons/sun.svg';
-import Trend from '../assets/icons/trend-up.svg';
-import Setting from '../assets/icons/setting-4.svg';
+import Empty from '../../assets/svg/today-empty.svg';
+import Sun from '../../assets/icons/sun.svg';
+import Trend from '../../assets/icons/trend-up.svg';
+import Setting from '../../assets/icons/setting-4.svg';
 import {CreateTaskModal} from '../../components';
 
 const HomeScreen = () => {
@@ -60,7 +60,7 @@ const HomeScreen = () => {
           textColor="white"
           onPress={toggleModal}>
           <Icon name="plus" size={24} color="white" />
-          <Text className='w-full'>Add a Task</Text>
+          <Text className="w-full">Add a Task</Text>
         </Button>
       </View>
       <View className="items-center justify-center h-full">
