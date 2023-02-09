@@ -1,11 +1,6 @@
 import {View, Text, TouchableHighlight} from 'react-native';
 import React from 'react';
-import {EnvelopeIcon} from 'react-native-heroicons/solid';
-import {
-  NavigationContainer,
-  useNavigation, 
-  useNavigationContainerRef,
-} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import {Button, TextInput} from 'react-native-paper';
 import {ArrowLongLeftIcon} from 'react-native-heroicons/solid';
 
@@ -45,8 +40,8 @@ const ForgotPasswordScreen = () => {
         <Button
           buttonColor="#714DD9"
           textColor="white"
-          className="mt-4 rounded-sm w-full h-[48px] rounded-md justify-center flex"
-          onPress={() => navigation.navigate('Login')}>
+          className="mt-4 w-full h-[48px] rounded-md justify-center flex"
+          onPress={() => navigation.navigate('ResetPassword')}>
           <Text className="text-white text-[14px]">Continue</Text>
         </Button>
       </View>
@@ -58,7 +53,6 @@ const ForgotPasswordScreen = () => {
           Sign up
         </Text>
       </View>
-      
     </View>
   );
 };
