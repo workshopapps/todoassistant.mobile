@@ -12,7 +12,7 @@ import Empty from '../assets/svg/today-empty.svg';
 import Sun from '../assets/icons/sun.svg';
 import Trend from '../assets/icons/trend-up.svg';
 import Setting from '../assets/icons/setting-4.svg';
-import {CreateTaskModal} from '../components';
+import {CreateTaskModal} from '../../components';
 
 const HomeScreen = () => {
   const navigation = useNavigation();
