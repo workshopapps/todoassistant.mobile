@@ -8,8 +8,6 @@ import {Button, Checkbox, Divider, TextInput} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
 import {TouchableOpacity} from 'react-native';
 
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-
 const RegisterScreen = () => {
   const [checked, setChecked] = useState();
 
@@ -86,6 +84,7 @@ const RegisterScreen = () => {
               <TouchableOpacity className="w-1/2 border-transparent bg-[#2567B3] border rounded-[4px] flex-row items-center justify-center space-x-2">
                 <Icon name="facebook" size={24} color="white" />
                 <Text className="text-white font-semibold ml-1">Facebook</Text>
+
               </TouchableOpacity>
             </View>
           </View>
