@@ -18,6 +18,7 @@ export default function MainStackNavigator() {
       screenOptions={{
         headerShown: false,
       }}>
+        <Stack.Screen name="DeactivateAccount" component={DeactivateAccountScreen} />
       <Stack.Screen name="Onboarding" component={OnboardingScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Register" component={RegisterScreen} />
