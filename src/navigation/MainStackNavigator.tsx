@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {HomeScreen, NotificationsScreen, OnboardingScreen, ProfileScreen, SearchScreen} from '../screens';
 
@@ -14,110 +15,22 @@ export default function MainStackNavigator() {
       <Stack.Screen name="Profile" component={ProfileScreen} />
 =======
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+=======
+>>>>>>> c9e20a54b1741d80fef0d8d7ebd6bb8c5639336c
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {
-  HomeScreen,
   LoginScreen,
-  NotificationsScreen,
-  // OnboardingScreen,
-  ProfileScreen,
-  SearchScreen,
-  RegisterScreen
+  OnboardingScreen,
+  RegisterScreen,
+  ForgotPasswordScreen,
+  ResetPasswordScreen,
+  DeactivateAccountScreen,
 } from '../screens';
 
-// Icons
-import Home from '../assets/bottom-tabs-icons/home.svg';
-import Search from "../assets/bottom-tabs-icons/search-normal.svg"
-import Notification from "../assets/bottom-tabs-icons/notification-bing.svg"
-import Profile from "../assets/bottom-tabs-icons/profile.jpg"
-import {Image, Text} from 'react-native';
-
-import {BottomTabBarHeightContext} from '@react-navigation/bottom-tabs';
-import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
-import { DrawerNavigation } from './DrawerNavigation';
-
+import {DrawerNavigation} from './DrawerNavigation';
+import {LoggedInTabs} from './BottomNavigation';
 
 const Stack = createNativeStackNavigator();
-
-const Tab = createBottomTabNavigator();
-
-function LoggedInTabs() {
-  return (
-    <Tab.Navigator
-      screenOptions={{
-        headerShown: false,
-        tabBarStyle: {
-          height: 60,
-        },
-      }}>
-      <Tab.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{
-          tabBarIcon: () => (
-            <Home width={24} height={24} fill="white" />
-          ),
-          // tabBarStyle: { fontSize: 20 },
-          tabBarLabel: ({focused, color}) => (
-            <Text
-              className="text-[13px] mb-1"
-              style={{color: focused ? '#714dd9' : '#707070'}}>
-              Home
-            </Text>
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Search"
-        component={SearchScreen}
-        options={{
-          tabBarIcon: () => (
-            <Search width={24} height={24} fill="white" />
-          ),
-          tabBarLabel: ({focused, color}) => (
-            <Text
-              className='text-[13px] mb-1'
-              style={{color: focused ? '#714dd9' : '#707070'}}>
-              Search
-            </Text>
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Notifications"
-        component={NotificationsScreen}
-        options={{
-          tabBarIcon: () => (
-            <Notification width={24} height={24} fill="white" />
-          ),
-          tabBarLabel: ({focused, color}) => (
-            <Text
-              className='text-[13px] mb-1'
-              style={{color: focused ? '#714dd9' : '#707070'}}>
-              Notification
-            </Text>
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Profile"
-        component={ProfileScreen}
-        options={{
-          tabBarIcon: () => (
-            <Image source={Profile} style={{width: 25, height: 25}} className="rounded-full" />
-          ),
-          tabBarLabel: ({focused, color}) => (
-            <Text
-              className='text-[13px] mb-1'
-              style={{color: focused ? '#714dd9' : '#707070'}}>
-              Account
-            </Text>
-          ),
-        }}
-      />
-    </Tab.Navigator>
-  );
-}
 
 export default function MainStackNavigator() {
   return (
@@ -125,10 +38,16 @@ export default function MainStackNavigator() {
       screenOptions={{
         headerShown: false,
       }}>
+      {/* <Stack.Screen name="Onboarding" component={OnboardingScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
-      <Stack.Screen name='Register' component={RegisterScreen} />
-      {/* <Stack.Screen name="Onboarding" component={OnboardingScreen}  /> */}
+      <Stack.Screen name="Register" component={RegisterScreen} />
+      <Stack.Screen name="ResetPassword" component={ResetPasswordScreen} />
+      <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} /> */}
       <Stack.Screen name="BottomTabs" component={LoggedInTabs} />
+      <Stack.Screen
+        name="DeactivateAccount"
+        component={DeactivateAccountScreen}
+      />
       <Stack.Screen name="Drawer" component={DrawerNavigation} />
 >>>>>>> 4bde65a2b51603b95ef0896d112d1a2b831e9f49
     </Stack.Navigator>
