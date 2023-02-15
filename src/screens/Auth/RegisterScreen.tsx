@@ -4,9 +4,10 @@ import React, {useState} from 'react';
 import Ticked from '../../assets/icons/ticked.svg';
 import Google from '../../assets/icons/google-icon.svg';
 
-import {Button, Checkbox, Divider, TextInput} from 'react-native-paper';
+import {Button, Checkbox, TextInput} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
 import {TouchableOpacity} from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const RegisterScreen = () => {
   const [checked, setChecked] = useState();

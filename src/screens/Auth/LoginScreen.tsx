@@ -1,10 +1,8 @@
 import {View, Text} from 'react-native';
 import React, {useState} from 'react';
 
-import {EnvelopeIcon} from 'react-native-heroicons/solid';
-
 import Ticked from '../../assets/icons/ticked.svg';
-import {Button, Checkbox, Divider, TextInput} from 'react-native-paper';
+import {Button, Checkbox, TextInput} from 'react-native-paper';
 
 import Google from '../../assets/icons/google-icon.svg';
 import {useNavigation} from '@react-navigation/native';

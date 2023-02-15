@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {HomeScreen, SearchScreen} from '../screens';
 
