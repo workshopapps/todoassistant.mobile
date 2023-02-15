@@ -1,3 +1,17 @@
+<<<<<<< HEAD
+import { View, Text } from 'react-native'
+import React from 'react'
+
+const HomeScreen = () => {
+  return (
+    <View>
+      <Text>HomeScreen</Text>
+    </View>
+  )
+}
+
+export default HomeScreen
+=======
 import {TouchableHighlight, View, Text} from 'react-native';
 import React from 'react';
 
@@ -8,11 +22,19 @@ import {useNavigation} from '@react-navigation/native';
 import {} from 'react-native-gesture-handler';
 
 // Icons
+<<<<<<< HEAD:src/screens/HomeScreen.tsx
 import Empty from '../assets/svg/today-empty.svg';
 import Sun from '../assets/icons/sun.svg';
 import Trend from '../assets/icons/trend-up.svg';
 import Setting from '../assets/icons/setting-4.svg';
 import {CreateTaskModal} from '../components';
+=======
+import Empty from '../../assets/svg/today-empty.svg';
+import Sun from '../../assets/icons/sun.svg';
+import Trend from '../../assets/icons/trend-up.svg';
+import Setting from '../../assets/icons/setting-4.svg';
+import {CreateTaskModal} from '../../components';
+>>>>>>> main:src/screens/Home/HomeScreen.tsx
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -60,7 +82,11 @@ const HomeScreen = () => {
           textColor="white"
           onPress={toggleModal}>
           <Icon name="plus" size={24} color="white" />
+<<<<<<< HEAD:src/screens/HomeScreen.tsx
           <Text className='w-full'>Add a Task</Text>
+=======
+          <Text className="w-full">Add a Task</Text>
+>>>>>>> main:src/screens/Home/HomeScreen.tsx
         </Button>
       </View>
       <View className="items-center justify-center h-full">
@@ -87,3 +113,4 @@ const HomeScreen = () => {
 };
 
 export default HomeScreen;
+>>>>>>> 4bde65a2b51603b95ef0896d112d1a2b831e9f49
