@@ -6,11 +6,7 @@ type MainLayoutProps = {
 };
 
 const MainLayout = ({children}: MainLayoutProps) => {
-  return (
-    <View className='flex-1 bg-white'>
-      {children}
-    </View>
-  );
+  return <View className="flex-1 bg-white">{children}</View>;
 };
 
 export default MainLayout;

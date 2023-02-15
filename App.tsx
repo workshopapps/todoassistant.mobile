@@ -11,8 +11,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 function App(): JSX.Element {
   return (
-    <PaperProvider
-      >
+    <PaperProvider>
       <NavigationContainer>
         <StatusBar barStyle="dark-content" backgroundColor="white" />
         <MainStackNavigator />

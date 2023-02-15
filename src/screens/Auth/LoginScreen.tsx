@@ -8,7 +8,7 @@ import {Button, Checkbox, Divider, TextInput} from 'react-native-paper';
 
 import Google from '../../assets/icons/google-icon.svg';
 import {useNavigation} from '@react-navigation/native';
-import { TouchableOpacity } from 'react-native';
+import {TouchableOpacity} from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -46,9 +46,7 @@ const LoginScreen = () => {
                   setChecked(!checked);
                 }}
               />
-              <Text className="text-[14px] text-[#707070]">
-                Remember Me
-              </Text>
+              <Text className="text-[14px] text-[#707070]">Remember Me</Text>
             </View>
             <View>
               <Text
@@ -63,8 +61,7 @@ const LoginScreen = () => {
             buttonColor="#714DD9"
             textColor="white"
             className="mt-5 rounded-sm w-full"
-            onPress={() => navigation.navigate("BottomTabs")}
-            >
+            onPress={() => navigation.navigate('BottomTabs')}>
             Login
           </Button>
 
@@ -73,15 +70,15 @@ const LoginScreen = () => {
           </Text>
 
           <View className="flex-row w-full mt-5 space-x-2">
-              <TouchableOpacity className="w-1/2 border-[#D3D0D9] border rounded-[4px] flex-row items-center justify-center p-2 space-x-2">
-                <Google width={24} height={24} />
-                <Text className="text-black font-semibold">Google</Text>
-              </TouchableOpacity>
-              <TouchableOpacity className="w-1/2 border-transparent bg-[#2567B3] border rounded-[4px] flex-row items-center justify-center space-x-2">
-                <Icon name="facebook" size={24} color="white" />
-                <Text className="text-white font-semibold ml-1">Facebook</Text>
-              </TouchableOpacity>
-            </View>
+            <TouchableOpacity className="w-1/2 border-[#D3D0D9] border rounded-[4px] flex-row items-center justify-center p-2 space-x-2">
+              <Google width={24} height={24} />
+              <Text className="text-black font-semibold">Google</Text>
+            </TouchableOpacity>
+            <TouchableOpacity className="w-1/2 border-transparent bg-[#2567B3] border rounded-[4px] flex-row items-center justify-center space-x-2">
+              <Icon name="facebook" size={24} color="white" />
+              <Text className="text-white font-semibold ml-1">Facebook</Text>
+            </TouchableOpacity>
+          </View>
         </View>
 
         <View className="my-8 flex-row space-x-1">

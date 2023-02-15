@@ -5,8 +5,8 @@ import {View} from 'react-native';
 import Modal from 'react-native-modal';
 import {Button, TextInput} from 'react-native-paper';
 import BellIcon from 'react-native-vector-icons/Fontisto';
-import Icon from "react-native-vector-icons/MaterialCommunityIcons"
-import RepeatIcon from "react-native-vector-icons/Ionicons"
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import RepeatIcon from 'react-native-vector-icons/Ionicons';
 import CalendarIcon from 'react-native-vector-icons/Feather';
 
 type CreateTaskModalProps = {
@@ -48,17 +48,17 @@ const CreateTaskModal = ({
             />
           </View>
           <View className="justify-between items-center p-5 rounded-md bg-[#E9F3F5] flex my-5 flex-row">
-            <View className='flex-row '>
-              <TouchableHighlight className='p-2'>
+            <View className="flex-row ">
+              <TouchableHighlight className="p-2">
                 <CalendarIcon name="calendar" size={20} color="#707070" />
               </TouchableHighlight>
-              <TouchableHighlight className='p-2'>
+              <TouchableHighlight className="p-2">
                 <BellIcon name="bell" size={20} color="#707070" />
               </TouchableHighlight>
-              <TouchableHighlight className='p-2'>
+              <TouchableHighlight className="p-2">
                 <RepeatIcon name="repeat" size={20} color="#707070" />
               </TouchableHighlight>
-              <TouchableHighlight className='p-2'>
+              <TouchableHighlight className="p-2">
                 <Icon name="tag-outline" size={20} color="#707070" />
               </TouchableHighlight>
             </View>

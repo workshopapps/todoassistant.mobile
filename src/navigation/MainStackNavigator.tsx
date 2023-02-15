@@ -8,7 +8,7 @@ import {
 } from '../screens';
 
 import {DrawerNavigation} from './DrawerNavigation';
-import { LoggedInTabs } from './BottomNavigation';
+import {LoggedInTabs} from './BottomNavigation';
 
 const Stack = createNativeStackNavigator();
 
