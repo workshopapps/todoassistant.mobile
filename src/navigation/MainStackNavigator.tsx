@@ -5,11 +5,10 @@ import {
   RegisterScreen,
   ForgotPasswordScreen,
   ResetPasswordScreen,
-  DeactivateAccountScreen,
 } from '../screens';
 
 import {DrawerNavigation} from './DrawerNavigation';
-import {LoggedInTabs} from './BottomNavigation';
+import { LoggedInTabs } from './BottomNavigation';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,7 +29,6 @@ export default function MainStackNavigator() {
         component={DeactivateAccountScreen}
       />
       <Stack.Screen name="Drawer" component={DrawerNavigation} />
-
     </Stack.Navigator>
   );
 }
