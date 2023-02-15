@@ -21,25 +21,10 @@
     "react-native": "0.71.1",
     "react-native-date-picker": "^4.2.6",
     "react-native-gesture-handler": "^2.9.0",
-<<<<<<< HEAD
-    "react-native-reanimated": "^2.14.4",
-    "react-native-safe-area-context": "^4.5.0",
-    "react-native-screens": "^3.19.0"
-=======
-    "react-native-heroicons": "^3.2.0",
-    "react-native-modal": "^13.0.1",
-    "react-native-onboard": "^2.4.42",
-    "react-native-onboarding-swiper": "^1.2.0",
-    "react-native-pager-view": "^6.1.2",
-    "react-native-paper": "^5.1.4",
     "react-native-reanimated": "^2.14.4",
     "react-native-safe-area-context": "^4.5.0",
     "react-native-screens": "^3.19.0",
-    "react-native-svg": "^13.7.0",
-    "react-native-svg-transformer": "^1.0.0",
-    "react-native-tab-view": "^3.3.4",
-    "react-native-vector-icons": "^9.2.0"
->>>>>>> 4bde65a2b51603b95ef0896d112d1a2b831e9f49
+    "react-native-svg-transformer": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-import { View, Text } from 'react-native'
-import React from 'react'
-
-const HomeScreen = () => {
-  return (
-    <View>
-      <Text>HomeScreen</Text>
-    </View>
-  )
-}
-
-export default HomeScreen
-=======
 import {TouchableHighlight, View, Text} from 'react-native';
 import React from 'react';
 
@@ -113,4 +99,3 @@ const HomeScreen = () => {
 };
 
 export default HomeScreen;
->>>>>>> 4bde65a2b51603b95ef0896d112d1a2b831e9f49
