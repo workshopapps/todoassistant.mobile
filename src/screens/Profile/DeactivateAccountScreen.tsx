@@ -1,12 +1,8 @@
 import {View, Text, TouchableHighlight} from 'react-native';
 import React from 'react';
 import {ArrowLongLeftIcon} from 'react-native-heroicons/solid';
-import {
-  NavigationContainer,
-  useNavigation,
-  useNavigationContainerRef,
-} from '@react-navigation/native';
-import {Button, TextInput} from 'react-native-paper';
+import {useNavigation} from '@react-navigation/native';
+import {Button} from 'react-native-paper';
 
 const DeactivateAccountScreen = () => {
   const navigation = useNavigation();

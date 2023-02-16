@@ -1,3 +1,6 @@
+/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable react/no-unstable-nested-components */
+/* eslint-disable react/react-in-jsx-scope */
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {
   HomeScreen,
@@ -12,10 +15,13 @@ import Search from '../assets/bottom-tabs-icons/search-normal.svg';
 import Notification from '../assets/bottom-tabs-icons/notification-bing.svg';
 import Profile from '../assets/bottom-tabs-icons/profile.jpg';
 import {Image, Text} from 'react-native';
+import { useAuthUser } from '../hooks/useAuthUser';
 
 const Tab = createBottomTabNavigator();
 
 export const LoggedInTabs = () => {
+  const user = useAuthUser()
+
   return (
     <Tab.Navigator
       screenOptions={{
@@ -30,7 +36,7 @@ export const LoggedInTabs = () => {
         options={{
           tabBarIcon: () => <Home width={24} height={24} fill="white" />,
           // tabBarStyle: { fontSize: 20 },
-          tabBarLabel: ({focused, color}) => (
+          tabBarLabel: ({focused}) => (
             <Text
               className="text-[13px] mb-1"
               style={{color: focused ? '#714dd9' : '#707070'}}>
@@ -44,7 +50,7 @@ export const LoggedInTabs = () => {
         component={SearchScreen}
         options={{
           tabBarIcon: () => <Search width={24} height={24} fill="white" />,
-          tabBarLabel: ({focused, color}) => (
+          tabBarLabel: ({focused}) => (
             <Text
               className="text-[13px] mb-1"
               style={{color: focused ? '#714dd9' : '#707070'}}>
@@ -60,7 +66,7 @@ export const LoggedInTabs = () => {
           tabBarIcon: () => (
             <Notification width={24} height={24} fill="white" />
           ),
-          tabBarLabel: ({focused, color}) => (
+          tabBarLabel: ({focused}) => (
             <Text
               className="text-[13px] mb-1"
               style={{color: focused ? '#714dd9' : '#707070'}}>
@@ -75,12 +81,14 @@ export const LoggedInTabs = () => {
         options={{
           tabBarIcon: () => (
             <Image
-              source={Profile}
+              source={{
+                uri: user?.data?.avatar,
+              }}
               style={{width: 25, height: 25}}
               className="rounded-full"
             />
           ),
-          tabBarLabel: ({focused, color}) => (
+          tabBarLabel: ({focused}) => (
             <Text
               className="text-[13px] mb-1"
               style={{color: focused ? '#714dd9' : '#707070'}}>
