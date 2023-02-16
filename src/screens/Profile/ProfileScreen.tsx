@@ -33,7 +33,9 @@ const ProfileScreen = () => {
       title: 'Personal Information',
       badge: 'completed',
       icon: true,
-      onPress: () => {},
+      onPress: () => {
+        navigation.navigate('UserDetails');
+      },
     },
     {
       title: 'Reminder',

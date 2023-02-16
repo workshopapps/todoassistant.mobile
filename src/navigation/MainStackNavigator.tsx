@@ -7,6 +7,7 @@ import {
   ForgotPasswordScreen,
   ResetPasswordScreen,
   DeactivateAccountScreen,
+  UserDetails,
 } from '../screens';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -18,10 +19,12 @@ import {useState, useEffect} from 'react';
 import {useSelector} from 'react-redux';
 import {authSlice} from '../app/features/authSlice';
 import {RootState} from '../app/store';
+import LoadingIndicator from '../components/Loaders/LoadingIndicator';
 
 const Stack = createNativeStackNavigator();
 
 export default function MainStackNavigator() {
+  const [isLoading, setIsLoading] = useState(true);
   const [isOnboardingComplete, setIsOnboardingComplete] = useState(false);
   const isLogin = useSelector((state: RootState) => state.auth.isLogin);
 
@@ -34,10 +37,17 @@ export default function MainStackNavigator() {
         }
       } catch (error) {
         console.log(error);
+      } finally {
+        setIsLoading(false);
       }
     };
     checkOnboarding();
   }, []);
+
+  if (isLoading) {
+    // Show a loading indicator while the check is in progress
+    return <LoadingIndicator />;
+  }
 
   return (
     <Stack.Navigator
@@ -64,6 +74,7 @@ export default function MainStackNavigator() {
               name="DeactivateAccount"
               component={DeactivateAccountScreen}
             />
+            <Stack.Screen name="UserDetails" component={UserDetails} />
             <Stack.Screen name="Drawer" component={DrawerNavigation} />
           </Stack.Group>
         </>
