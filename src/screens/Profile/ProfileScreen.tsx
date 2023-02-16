@@ -7,11 +7,25 @@ import Profile from '../../assets/bottom-tabs-icons/profile.jpg';
 import {ChevronRightIcon} from 'react-native-heroicons/solid';
 import {useNavigation} from '@react-navigation/native';
 
+import {useDispatch} from 'react-redux';
+import {logout} from '../../app/features/authSlice';
+
+import {useSelector} from 'react-redux';
+
 const ProfileScreen = () => {
   const navigation = useNavigation();
 
   const deactivateAcc = () => {
     navigation.navigate('DeactivateAccount');
+  };
+
+  const dipatch = useDispatch();
+
+  const user = useSelector(state => state.auth.user);
+  console.log(user.data.avatar);
+
+  const handleLogout = () => {
+    dipatch(logout());
   };
 
   const settingOptions = [
@@ -74,7 +88,12 @@ const ProfileScreen = () => {
       </View>
       <View className="p-5 h-auto border-b border-[#E0E2E7] space-x-3 items-center flex-row">
         <View className="border-primary h-[72px] w-[72px] rounded-full border-4">
-          <Image className="h-full w-full rounded-full" source={Profile} />
+          <Image
+            className="h-full w-full rounded-full"
+            source={{
+              uri: user.data.avatar,
+            }}
+          />
         </View>
         <View className="flex-1 space-y-2">
           <Text className="text-[#707070] text-[12px]">
@@ -114,6 +133,7 @@ const ProfileScreen = () => {
         ))}
         <View className="items-center">
           <Button
+            onPress={handleLogout}
             className="my-3 w-[211px] rounded-md"
             buttonColor="#FF4D4F"
             textColor="white">

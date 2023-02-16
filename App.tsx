@@ -6,14 +6,19 @@ import MainStackNavigator from './src/navigation/MainStackNavigator';
 
 import {Provider as PaperProvider} from 'react-native-paper';
 
+import {store} from './src/app/store';
+import {Provider} from 'react-redux';
+
 function App(): JSX.Element {
   return (
-    <PaperProvider>
-      <NavigationContainer>
-        <StatusBar barStyle="dark-content" backgroundColor="white" />
-        <MainStackNavigator />
-      </NavigationContainer>
-    </PaperProvider>
+    <Provider store={store}>
+      <PaperProvider>
+        <NavigationContainer>
+          <StatusBar barStyle="dark-content" backgroundColor="white" />
+          <MainStackNavigator />
+        </NavigationContainer>
+      </PaperProvider>
+    </Provider>
   );
 }
 

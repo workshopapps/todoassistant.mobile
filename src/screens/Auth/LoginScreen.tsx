@@ -4,16 +4,31 @@ import React, {useState} from 'react';
 import Ticked from '../../assets/icons/ticked.svg';
 import {Button, Checkbox, TextInput} from 'react-native-paper';
 
+import {useDispatch} from 'react-redux';
+
 import Google from '../../assets/icons/google-icon.svg';
 import {useNavigation} from '@react-navigation/native';
 import {TouchableOpacity} from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {login, setLogin} from '../../app/features/authSlice';
 
 const LoginScreen = () => {
   const [checked, setChecked] = useState();
 
+  const dispatch = useDispatch(); // create a dispatch function to dispatch the login action
   const navigation = useNavigation();
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = () => {
+    // Dispatch the login action with the email and password values
+    dispatch(login({email, password}));
+    console.log('Login Success');
+    dispatch(setLogin(true));
+    navigation.navigate('BottomTabs');
+  };
 
   return (
     <View className="p-5 flex-1 bg-white w-screen">
@@ -28,11 +43,15 @@ const LoginScreen = () => {
               className="border w-auto bg-white"
               placeholder="Enter your email address"
               mode="flat"
+              value={email}
+              onChangeText={setEmail}
               left={<TextInput.Icon icon="email" color="#707070" />}
             />
             <TextInput
               className="border w-auto bg-white"
               placeholder="Password"
+              value={password}
+              onChangeText={setPassword}
               left={<TextInput.Icon icon="shield-lock" color="#707070" />}
             />
           </View>
@@ -59,7 +78,7 @@ const LoginScreen = () => {
             buttonColor="#714DD9"
             textColor="white"
             className="mt-5 rounded-sm w-full"
-            onPress={() => navigation.navigate('BottomTabs')}>
+            onPress={handleLogin}>
             Login
           </Button>
 

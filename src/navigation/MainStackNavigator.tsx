@@ -15,10 +15,15 @@ import {DrawerNavigation} from './DrawerNavigation';
 import {LoggedInTabs} from './BottomNavigation';
 import {useState, useEffect} from 'react';
 
+import {useSelector} from 'react-redux';
+import {authSlice} from '../app/features/authSlice';
+import {RootState} from '../app/store';
+
 const Stack = createNativeStackNavigator();
 
 export default function MainStackNavigator() {
   const [isOnboardingComplete, setIsOnboardingComplete] = useState(false);
+  const isLogin = useSelector((state: RootState) => state.auth.isLogin);
 
   useEffect(() => {
     const checkOnboarding = async () => {
@@ -52,7 +57,9 @@ export default function MainStackNavigator() {
               name="ForgotPassword"
               component={ForgotPasswordScreen}
             />
-            <Stack.Screen name="BottomTabs" component={LoggedInTabs} />
+            {isLogin && (
+              <Stack.Screen name="BottomTabs" component={LoggedInTabs} />
+            )}
             <Stack.Screen
               name="DeactivateAccount"
               component={DeactivateAccountScreen}
@@ -63,8 +70,6 @@ export default function MainStackNavigator() {
       ) : (
         <Stack.Group>
           <Stack.Screen name="Onboarding" component={OnboardingScreen} />
-          <Stack.Screen name="Login" component={LoginScreen} />
-          <Stack.Screen name="Register" component={RegisterScreen} />
         </Stack.Group>
       )}
     </Stack.Navigator>

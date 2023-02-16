@@ -15,10 +15,13 @@ import Search from '../assets/bottom-tabs-icons/search-normal.svg';
 import Notification from '../assets/bottom-tabs-icons/notification-bing.svg';
 import Profile from '../assets/bottom-tabs-icons/profile.jpg';
 import {Image, Text} from 'react-native';
+import { useAuthUser } from '../hooks/useAuthUser';
 
 const Tab = createBottomTabNavigator();
 
 export const LoggedInTabs = () => {
+  const user = useAuthUser()
+
   return (
     <Tab.Navigator
       screenOptions={{
@@ -78,7 +81,9 @@ export const LoggedInTabs = () => {
         options={{
           tabBarIcon: () => (
             <Image
-              source={Profile}
+              source={{
+                uri: user?.data?.avatar,
+              }}
               style={{width: 25, height: 25}}
               className="rounded-full"
             />
