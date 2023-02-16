@@ -1,14 +1,29 @@
 /* eslint-disable react/no-unstable-nested-components */
 /* eslint-disable react-native/no-inline-styles */
 import {View, Text, Image} from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 
 import {Button} from 'react-native-paper';
 import {OnboardFlow} from 'react-native-onboard';
 import {useNavigation} from '@react-navigation/native';
+import AsyncStorage from "@react-native-async-storage/async-storage"
 
-const OnboardingScreen = () => {
+type OnboardingScreenProps = {
+  setIsOnboardingComplete: (value: boolean) => void;
+}
+
+const OnboardingScreen = ({setIsOnboardingComplete}: OnboardingScreenProps) => {
   const navigation = useNavigation();
+
+  const handleOnboardingComplete = async () => {
+    try {
+      await AsyncStorage.setItem('onboardingComplete', 'true');
+      setIsOnboardingComplete(true);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
 
   return (
     <View className="flex-1">
@@ -42,7 +57,10 @@ const OnboardingScreen = () => {
           <View className="px-5">
             <Button
               className="bg-primary rounded-md text-white"
-              onPress={() => navigation.navigate('Register')}>
+              onPress={() => {
+                handleOnboardingComplete();
+                navigation.navigate('Register');
+              }}>
               <Text className="text-white text-lg">Get Started</Text>
             </Button>
 
