@@ -22,7 +22,7 @@ const ProfileScreen = () => {
   const dipatch = useDispatch();
 
   const user = useSelector(state => state.auth.user);
-  console.log(user.data.avatar);
+  console.log(user.data);
 
   const handleLogout = () => {
     dipatch(logout());
